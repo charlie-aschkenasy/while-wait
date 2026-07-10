@@ -119,6 +119,73 @@ body {
   background: var(--vscode-button-hoverBackground);
 }
 
+/* ---- trivia ---- */
+
+.trivia-card {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.trivia-badges {
+  display: flex;
+  gap: 6px;
+}
+
+.trivia-badge {
+  font-size: 0.85em;
+  padding: 1px 8px;
+  border-radius: 8px;
+  background: var(--vscode-badge-background);
+  color: var(--vscode-badge-foreground);
+}
+
+.trivia-prompt {
+  line-height: 1.45;
+}
+
+.trivia-options {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.trivia-option {
+  font-family: inherit;
+  font-size: inherit;
+  text-align: left;
+  color: var(--vscode-foreground);
+  background: var(--vscode-editorWidget-background);
+  border: 1px solid var(--vscode-panel-border, transparent);
+  border-radius: 4px;
+  padding: 6px 10px;
+  cursor: pointer;
+}
+
+.trivia-option:hover:not(:disabled) {
+  background: var(--vscode-list-hoverBackground);
+}
+
+.trivia-option:disabled {
+  cursor: default;
+  opacity: 0.75;
+}
+
+.trivia-option.correct {
+  border-color: var(--vscode-charts-green);
+  background: color-mix(in srgb, var(--vscode-charts-green) 18%, var(--vscode-editorWidget-background));
+  opacity: 1;
+}
+
+.trivia-option.wrong {
+  border-color: var(--vscode-charts-red);
+  background: color-mix(in srgb, var(--vscode-charts-red) 18%, var(--vscode-editorWidget-background));
+}
+
+.trivia-next {
+  align-self: center;
+}
+
 /* ---- shared game chrome ---- */
 
 .game {

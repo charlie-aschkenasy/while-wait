@@ -1,5 +1,6 @@
 import { Game2048 } from './games/g2048';
 import { SnakeGame } from './games/snake';
+import { TriviaGame } from './games/trivia';
 import { GameHost, GameInstance } from './games/types';
 
 type AgentState = 'working' | 'done' | 'needsYou';
@@ -31,10 +32,15 @@ let needsYouMessage = '';
 let activeGame: GameId = vscode.getState()?.activeGame ?? 'trivia';
 let bestScores: Record<string, number> = {};
 
+let triviaAvailable = true;
+
 const host: GameHost = {
   reportBest(game, value) {
     bestScores[game] = value;
     vscode.postMessage({ type: 'score', game, value });
+  },
+  requestTrivia() {
+    vscode.postMessage({ type: 'triviaNext' });
   },
 };
 
@@ -42,15 +48,17 @@ const instances = new Map<GameId, GameInstance>();
 let mounted: GameInstance | null = null;
 
 function getInstance(id: GameId): GameInstance | null {
-  if (id === 'trivia') {
-    return null; // M4
+  if (id === 'trivia' && !triviaAvailable) {
+    return null;
   }
   let instance = instances.get(id);
   if (!instance) {
     instance =
       id === 'snake'
         ? new SnakeGame(host, bestScores['snake'] ?? 0)
-        : new Game2048(host, bestScores['2048'] ?? 0);
+        : id === '2048'
+          ? new Game2048(host, bestScores['2048'] ?? 0)
+          : new TriviaGame(host, bestScores['trivia'] ?? 0);
     instances.set(id, instance);
   }
   return instance;
@@ -122,7 +130,7 @@ function renderGame(container: HTMLElement): void {
   }
   if (!instance) {
     mounted = null;
-    container.innerHTML = '<p class="placeholder">Trivia arrives in M4.</p>';
+    container.innerHTML = '<p class="placeholder">Trivia is unavailable.</p>';
     return;
   }
   if (instance.root.parentElement !== container) {
@@ -167,6 +175,23 @@ window.addEventListener('message', (event) => {
     for (const [id, instance] of instances) {
       instance.setBest(bestScores[id] ?? 0);
     }
+  } else if (msg?.type === 'trivia') {
+    const trivia = instances.get('trivia');
+    if (trivia instanceof TriviaGame && msg.question) {
+      trivia.setQuestion(msg.question);
+    }
+  } else if (msg?.type === 'triviaAvailable' && msg.available === false) {
+    triviaAvailable = false;
+    instances.delete('trivia');
+    const tab = document.querySelector<HTMLButtonElement>('.tab[data-game="trivia"]');
+    if (tab) {
+      tab.hidden = true;
+    }
+    if (activeGame === 'trivia') {
+      activeGame = '2048';
+      vscode.setState({ activeGame });
+    }
+    update();
   }
 });
 

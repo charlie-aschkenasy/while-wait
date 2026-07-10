@@ -4,6 +4,7 @@ import { installHooks } from './hooks';
 import { HttpListener } from './listener';
 import { PanelController, setPanelContext, StandbyViewProvider } from './panel';
 import { AgentStateMachine, StateChange } from './state';
+import { TriviaStore } from './trivia';
 
 export function activate(context: vscode.ExtensionContext) {
   const output = vscode.window.createOutputChannel('Standby');
@@ -11,7 +12,8 @@ export function activate(context: vscode.ExtensionContext) {
 
   const provider = new StandbyViewProvider(context.extensionUri);
   const machine = new AgentStateMachine();
-  const panel = new PanelController(provider, machine, context.globalState, log);
+  const trivia = new TriviaStore(context.globalState, log);
+  const panel = new PanelController(provider, machine, context.globalState, trivia, log);
 
   // The view is gated behind this context key so hide() can remove it
   // regardless of where it's docked; start visible so it's discoverable.
@@ -53,6 +55,10 @@ export function activate(context: vscode.ExtensionContext) {
       if (e.affectsConfiguration('standby.port')) {
         log(`port setting changed → restarting listener on ${getPort()}`);
         listener.start(getPort());
+      }
+      if (e.affectsConfiguration('standby.supabase')) {
+        log('supabase settings changed → invalidating trivia store');
+        trivia.invalidate();
       }
     }),
 

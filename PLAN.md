@@ -135,7 +135,7 @@ scripts/fake-agent.sh   lifecycle simulator
 - [x] M0 scaffold boots in Cursor
 - [x] M1 hooks → listener → state machine → status bar, verified against real Claude Code
 - [x] M2 panel auto show/hide with correct focus behavior
-- [ ] M3 2048 + Snake playable and themed
+- [x] M3 2048 + Snake playable and themed
 - [ ] M4 RLS policy migration + trivia end to end
 - [ ] M5 needs-you surface with jump-to-terminal
 - [ ] M6 feel pass after multi-day dogfooding

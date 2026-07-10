@@ -1,10 +1,12 @@
 import * as vscode from 'vscode';
 import { AgentStateMachine, StateChange } from './state';
+import { TriviaStore } from './trivia';
 
 type WebviewMessage =
   | { type: 'ready' }
   | { type: 'focusTerminal' }
-  | { type: 'score'; game: string; value: number };
+  | { type: 'score'; game: string; value: number }
+  | { type: 'triviaNext' };
 
 const BEST_SCORES_KEY = 'standby.bestScores';
 
@@ -117,6 +119,7 @@ export class PanelController implements vscode.Disposable {
     private readonly provider: StandbyViewProvider,
     machine: AgentStateMachine,
     private readonly globalState: vscode.Memento,
+    private readonly trivia: TriviaStore,
     private readonly log: (line: string) => void
   ) {
     this.disposables.push(
@@ -138,6 +141,13 @@ export class PanelController implements vscode.Disposable {
             scores: this.globalState.get<Record<string, number>>(BEST_SCORES_KEY, {}),
           });
           this.sendState();
+        } else if (msg.type === 'triviaNext') {
+          const available = await this.trivia.ensureLoaded();
+          this.provider.postMessage(
+            available
+              ? { type: 'trivia', question: this.trivia.next() }
+              : { type: 'triviaAvailable', available: false }
+          );
         } else if (msg.type === 'score') {
           const scores = this.globalState.get<Record<string, number>>(BEST_SCORES_KEY, {});
           if (msg.value > (scores[msg.game] ?? 0)) {

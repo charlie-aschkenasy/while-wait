@@ -1,6 +1,8 @@
 export interface GameHost {
   /** Called when a game beats its best score; the extension persists it. */
   reportBest(game: string, value: number): void;
+  /** Ask the extension for the next trivia question (answered via a 'trivia' message). */
+  requestTrivia(): void;
 }
 
 export interface GameInstance {

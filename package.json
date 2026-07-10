@@ -1,0 +1,86 @@
+{
+  "name": "standby",
+  "displayName": "Standby",
+  "description": "A while-you-wait game panel that appears when Claude Code is working and vanishes the moment it's done.",
+  "version": "0.0.1",
+  "publisher": "charlieaschkenasy",
+  "license": "MIT",
+  "private": true,
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "main": "./dist/extension.js",
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "contributes": {
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "standby",
+          "title": "Standby",
+          "icon": "media/icon.svg"
+        }
+      ]
+    },
+    "views": {
+      "standby": [
+        {
+          "type": "webview",
+          "id": "standby.panel",
+          "name": "Standby",
+          "when": "standby.panelVisible"
+        }
+      ]
+    },
+    "commands": [
+      {
+        "command": "standby.installHooks",
+        "title": "Standby: Install Claude Code Hooks"
+      },
+      {
+        "command": "standby.showPanel",
+        "title": "Standby: Show Panel"
+      },
+      {
+        "command": "standby.hidePanel",
+        "title": "Standby: Hide Panel"
+      }
+    ],
+    "configuration": {
+      "title": "Standby",
+      "properties": {
+        "standby.port": {
+          "type": "number",
+          "default": 48219,
+          "description": "Localhost port the extension listens on for Claude Code hook events."
+        },
+        "standby.supabase.url": {
+          "type": "string",
+          "default": "",
+          "description": "Supabase project URL for trivia questions (e.g. https://xyz.supabase.co)."
+        },
+        "standby.supabase.key": {
+          "type": "string",
+          "default": "",
+          "description": "Supabase publishable (anon) key with read-only access to trivia questions."
+        }
+      }
+    }
+  },
+  "scripts": {
+    "build": "node esbuild.mjs",
+    "watch": "node esbuild.mjs --watch",
+    "typecheck": "tsc --noEmit",
+    "package": "vsce package"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.0",
+    "@types/vscode": "^1.85.0",
+    "esbuild": "^0.21.0",
+    "typescript": "^5.4.0"
+  }
+}

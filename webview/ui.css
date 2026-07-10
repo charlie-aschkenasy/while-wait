@@ -1,0 +1,237 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Keep the hidden attribute authoritative even for elements whose class sets
+   a display value (e.g. .needs-you's display: flex would otherwise win). */
+[hidden] {
+  display: none !important;
+}
+
+body {
+  font-family: var(--vscode-font-family);
+  font-size: var(--vscode-font-size);
+  color: var(--vscode-foreground);
+  background: transparent;
+}
+
+.topbar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 8px;
+  border-bottom: 1px solid var(--vscode-panel-border, var(--vscode-widget-border, transparent));
+}
+
+.state-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.state-dot.working {
+  background: var(--vscode-charts-yellow);
+}
+
+.state-dot.done {
+  background: var(--vscode-charts-green);
+}
+
+.state-dot.needsYou {
+  background: var(--vscode-charts-red);
+}
+
+.tabs {
+  display: flex;
+  gap: 2px;
+}
+
+.tab {
+  font-family: inherit;
+  font-size: inherit;
+  color: var(--vscode-foreground);
+  background: transparent;
+  border: none;
+  border-radius: 4px;
+  padding: 2px 8px;
+  cursor: pointer;
+  opacity: 0.6;
+}
+
+.tab:hover {
+  background: var(--vscode-toolbar-hoverBackground);
+  opacity: 1;
+}
+
+.tab.active {
+  background: var(--vscode-toolbar-activeBackground, var(--vscode-toolbar-hoverBackground));
+  opacity: 1;
+}
+
+.state-label {
+  opacity: 0.7;
+  flex-shrink: 0;
+}
+
+.tabs {
+  margin-left: auto;
+}
+
+.content {
+  padding: 12px 8px;
+}
+
+.placeholder {
+  opacity: 0.6;
+  text-align: center;
+  padding: 24px 8px;
+}
+
+.needs-you {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  padding: 32px 16px;
+  text-align: center;
+}
+
+.needs-you-message {
+  font-size: 1.1em;
+  line-height: 1.5;
+}
+
+.primary-button {
+  font-family: inherit;
+  font-size: inherit;
+  color: var(--vscode-button-foreground);
+  background: var(--vscode-button-background);
+  border: none;
+  border-radius: 4px;
+  padding: 6px 14px;
+  cursor: pointer;
+}
+
+.primary-button:hover {
+  background: var(--vscode-button-hoverBackground);
+}
+
+/* ---- shared game chrome ---- */
+
+.game {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-width: 340px;
+  margin: 0 auto;
+}
+
+.game-header {
+  display: flex;
+  justify-content: space-between;
+  font-variant-numeric: tabular-nums;
+  opacity: 0.8;
+}
+
+.game-stage {
+  position: relative;
+}
+
+.game-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px;
+  text-align: center;
+  background: color-mix(in srgb, var(--vscode-editor-background) 72%, transparent);
+  border-radius: 6px;
+  cursor: pointer;
+  z-index: 2;
+}
+
+/* ---- snake ---- */
+
+.snake-canvas {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+/* ---- 2048 ---- */
+
+.board-2048 {
+  position: relative;
+  display: grid;
+  grid-template: repeat(4, 1fr) / repeat(4, 1fr);
+  gap: 6px;
+  padding: 6px;
+  aspect-ratio: 1;
+  background: var(--vscode-editorWidget-background);
+  border-radius: 6px;
+}
+
+.cell-2048 {
+  background: color-mix(in srgb, var(--vscode-foreground) 6%, transparent);
+  border-radius: 4px;
+}
+
+.tiles-2048 {
+  position: absolute;
+  inset: 6px;
+}
+
+.tile-2048 {
+  position: absolute;
+  width: calc((100% - 18px) / 4);
+  height: calc((100% - 18px) / 4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  border-radius: 4px;
+  color: var(--vscode-foreground);
+  transform: translate(
+    calc(var(--c) * 100% + var(--c) * 6px),
+    calc(var(--r) * 100% + var(--r) * 6px)
+  );
+  transition: transform 0.12s ease-in-out;
+}
+
+.tile-2048.new {
+  animation: tile-pop 0.15s ease-out;
+}
+
+.tile-2048.bump {
+  animation: tile-bump 0.15s ease-out;
+}
+
+@keyframes tile-pop {
+  from { scale: 0.4; opacity: 0.4; }
+  to { scale: 1; opacity: 1; }
+}
+
+@keyframes tile-bump {
+  0% { scale: 1; }
+  50% { scale: 1.12; }
+  100% { scale: 1; }
+}
+
+.tile-v2 { background: color-mix(in srgb, var(--vscode-charts-yellow) 14%, var(--vscode-editor-background)); }
+.tile-v4 { background: color-mix(in srgb, var(--vscode-charts-yellow) 28%, var(--vscode-editor-background)); }
+.tile-v8 { background: color-mix(in srgb, var(--vscode-charts-orange) 36%, var(--vscode-editor-background)); }
+.tile-v16 { background: color-mix(in srgb, var(--vscode-charts-orange) 52%, var(--vscode-editor-background)); }
+.tile-v32 { background: color-mix(in srgb, var(--vscode-charts-red) 45%, var(--vscode-editor-background)); }
+.tile-v64 { background: color-mix(in srgb, var(--vscode-charts-red) 62%, var(--vscode-editor-background)); }
+.tile-v128 { background: color-mix(in srgb, var(--vscode-charts-blue) 45%, var(--vscode-editor-background)); }
+.tile-v256 { background: color-mix(in srgb, var(--vscode-charts-blue) 62%, var(--vscode-editor-background)); }
+.tile-v512 { background: color-mix(in srgb, var(--vscode-charts-purple) 50%, var(--vscode-editor-background)); }
+.tile-v1024 { background: color-mix(in srgb, var(--vscode-charts-purple) 68%, var(--vscode-editor-background)); }
+.tile-v2048 { background: color-mix(in srgb, var(--vscode-charts-orange) 85%, var(--vscode-editor-background)); }
+.tile-v4096 { background: color-mix(in srgb, var(--vscode-charts-red) 85%, var(--vscode-editor-background)); }

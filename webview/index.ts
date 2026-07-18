@@ -78,6 +78,8 @@ function buildShell(): void {
     <main class="content">
       <section id="game-area"></section>
       <section id="needs-you" class="needs-you" hidden>
+        <span class="needs-you-dot"></span>
+        <h2 class="needs-you-title" id="needs-you-title">Claude needs you</h2>
         <p class="needs-you-message" id="needs-you-message"></p>
         <button class="primary-button" id="go-to-terminal">Go to terminal</button>
       </section>
@@ -116,6 +118,10 @@ function update(): void {
 
   if (needsYou) {
     mounted?.deactivate(); // freeze the game while the approval surface is up
+    const waiting = /waiting for your input/i.test(needsYouMessage);
+    document.getElementById('needs-you-title')!.textContent = waiting
+      ? 'Claude is waiting'
+      : 'Claude needs you';
     document.getElementById('needs-you-message')!.textContent =
       needsYouMessage || 'Claude Code needs your input.';
   } else {

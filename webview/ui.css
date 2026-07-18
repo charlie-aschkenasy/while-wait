@@ -94,14 +94,35 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 16px;
-  padding: 32px 16px;
+  gap: 14px;
+  padding: 40px 20px;
   text-align: center;
 }
 
+.needs-you-dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--vscode-charts-red);
+  animation: needs-you-pulse 2s ease-in-out infinite;
+}
+
+@keyframes needs-you-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.35; }
+}
+
+.needs-you-title {
+  font-size: 1.25em;
+  font-weight: 600;
+}
+
 .needs-you-message {
-  font-size: 1.1em;
-  line-height: 1.5;
+  font-size: 1.05em;
+  line-height: 1.6;
+  max-width: 320px;
+  opacity: 0.85;
+  overflow-wrap: anywhere;
 }
 
 .primary-button {

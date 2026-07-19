@@ -112,6 +112,7 @@ export class StandbyViewProvider implements vscode.WebviewViewProvider {
 export class PanelController implements vscode.Disposable {
   private suppressed = false;
   private hiding = false;
+  private pendingReveal = false;
   private lastChange: StateChange = { state: 'done', since: Date.now() };
   private readonly disposables: vscode.Disposable[] = [];
 
@@ -124,6 +125,18 @@ export class PanelController implements vscode.Disposable {
   ) {
     this.disposables.push(
       machine.onDidChange((change) => this.onState(change)),
+
+      // Never pop the panel while the window is in the background; catch up
+      // when the user comes back if the wait is still on.
+      vscode.window.onDidChangeWindowState((ws) => {
+        if (ws.focused && this.pendingReveal) {
+          this.pendingReveal = false;
+          if (this.lastChange.state !== 'done' && !this.suppressed) {
+            this.log('window refocused mid-wait — revealing deferred panel');
+            void this.reveal();
+          }
+        }
+      }),
 
       provider.onDidChangeVisibility((visible) => {
         if (!visible && !this.hiding && this.lastChange.state !== 'done') {
@@ -170,7 +183,12 @@ export class PanelController implements vscode.Disposable {
   async reveal(userInitiated = false): Promise<void> {
     if (userInitiated) {
       this.suppressed = false;
+    } else if (!vscode.window.state.focused) {
+      this.pendingReveal = true;
+      this.log('reveal deferred: window not focused');
+      return;
     }
+    this.pendingReveal = false;
     await setPanelContext(true);
     if (this.provider.resolved) {
       this.provider.show();
@@ -190,9 +208,10 @@ export class PanelController implements vscode.Disposable {
       return;
     }
     this.hiding = true;
+    const started = Date.now();
     try {
       await setPanelContext(false);
-      this.log('hide: view hidden via context key');
+      this.log(`hide: view hidden via context key in ${Date.now() - started}ms`);
     } finally {
       // Swallow the visibility events our own hide produced.
       setTimeout(() => (this.hiding = false), 200);
@@ -218,6 +237,7 @@ export class PanelController implements vscode.Disposable {
         await this.reveal();
         break;
       case 'done':
+        this.pendingReveal = false;
         await this.hide();
         break;
     }

@@ -21,6 +21,10 @@ export const HOOK_EVENTS: ReadonlySet<string> = new Set([
  *  so a rapid Stop → UserPromptSubmit doesn't flash the panel. */
 const STOP_SETTLE_MS = 300;
 
+/** `working` with no events for this long means the session crashed or the
+ *  terminal was killed — decay to `done` so the panel never sticks around. */
+const STUCK_WORKING_MS = 30 * 60 * 1000;
+
 export interface StateChange {
   state: AgentState;
   /** Notification text, present only for needsYou. */
@@ -31,6 +35,7 @@ export interface StateChange {
 export class AgentStateMachine implements vscode.Disposable {
   private state: AgentState = 'done';
   private stopTimer: ReturnType<typeof setTimeout> | undefined;
+  private watchdog: ReturnType<typeof setTimeout> | undefined;
   private readonly emitter = new vscode.EventEmitter<StateChange>();
 
   readonly onDidChange = this.emitter.event;
@@ -67,11 +72,25 @@ export class AgentStateMachine implements vscode.Disposable {
   }
 
   private set(state: AgentState, message?: string): void {
+    this.resetWatchdog(state);
     if (state === this.state && state !== 'needsYou') {
       return;
     }
     this.state = state;
     this.emitter.fire({ state, message, since: Date.now() });
+  }
+
+  private resetWatchdog(state: AgentState): void {
+    if (this.watchdog !== undefined) {
+      clearTimeout(this.watchdog);
+      this.watchdog = undefined;
+    }
+    if (state === 'working') {
+      this.watchdog = setTimeout(() => {
+        this.watchdog = undefined;
+        this.set('done');
+      }, STUCK_WORKING_MS);
+    }
   }
 
   private cancelStopTimer(): void {
@@ -83,6 +102,10 @@ export class AgentStateMachine implements vscode.Disposable {
 
   dispose(): void {
     this.cancelStopTimer();
+    if (this.watchdog !== undefined) {
+      clearTimeout(this.watchdog);
+      this.watchdog = undefined;
+    }
     this.emitter.dispose();
   }
 }

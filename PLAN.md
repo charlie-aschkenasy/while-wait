@@ -136,7 +136,7 @@ scripts/fake-agent.sh   lifecycle simulator
 - [x] M1 hooks → listener → state machine → status bar, verified against real Claude Code
 - [x] M2 panel auto show/hide with correct focus behavior
 - [x] M3 2048 + Snake playable and themed
-- [x] M4 RLS policy migration + trivia end to end
-- [ ] M5 needs-you surface with jump-to-terminal
+- [ ] M4 RLS policy migration + trivia end to end
+- [x] M5 needs-you surface with jump-to-terminal
 - [ ] M6 feel pass after multi-day dogfooding
 - [ ] M7 .vsix packaging, docs, hook uninstall

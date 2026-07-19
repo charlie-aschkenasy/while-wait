@@ -1,6 +1,6 @@
 import * as path from 'path';
 import * as vscode from 'vscode';
-import { installHooks } from './hooks';
+import { installHooks, uninstallHooks } from './hooks';
 import { HttpListener } from './listener';
 import { PanelController, setPanelContext, StandbyViewProvider } from './panel';
 import { AgentStateMachine, StateChange } from './state';
@@ -68,7 +68,9 @@ export function activate(context: vscode.ExtensionContext) {
 
     vscode.commands.registerCommand('standby.hidePanel', () => panel.hide()),
 
-    vscode.commands.registerCommand('standby.installHooks', () => installHooks(context))
+    vscode.commands.registerCommand('standby.installHooks', () => installHooks(context)),
+
+    vscode.commands.registerCommand('standby.uninstallHooks', () => uninstallHooks())
   );
 }
 

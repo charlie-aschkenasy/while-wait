@@ -6,6 +6,10 @@
   "publisher": "charlieaschkenasy",
   "license": "MIT",
   "private": true,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/charlie-aschkenasy/while-wait.git"
+  },
   "engines": {
     "vscode": "^1.85.0"
   },
@@ -42,6 +46,10 @@
         "title": "Standby: Install Claude Code Hooks"
       },
       {
+        "command": "standby.uninstallHooks",
+        "title": "Standby: Uninstall Claude Code Hooks"
+      },
+      {
         "command": "standby.showPanel",
         "title": "Standby: Show Panel"
       },
@@ -72,10 +80,11 @@
     }
   },
   "scripts": {
+    "vscode:prepublish": "node esbuild.mjs",
     "build": "node esbuild.mjs",
     "watch": "node esbuild.mjs --watch",
     "typecheck": "tsc --noEmit",
-    "package": "vsce package"
+    "package": "npx --yes @vscode/vsce package"
   },
   "devDependencies": {
     "@types/node": "^20.11.0",

@@ -96,6 +96,68 @@ export async function installHooks(context: vscode.ExtensionContext): Promise<vo
   }
 }
 
+/**
+ * Removes every Standby hook entry from ~/.claude/settings.json (identified by
+ * the standby-hook.sh marker), leaving all other hooks untouched. Backs up first.
+ */
+export async function uninstallHooks(): Promise<void> {
+  const settingsPath = path.join(os.homedir(), '.claude', 'settings.json');
+  if (!fs.existsSync(settingsPath)) {
+    vscode.window.showInformationMessage('Standby: no ~/.claude/settings.json — nothing to remove.');
+    return;
+  }
+
+  let settings: Record<string, unknown>;
+  try {
+    settings = JSON.parse(fs.readFileSync(settingsPath, 'utf8'));
+  } catch {
+    vscode.window.showErrorMessage(
+      `Standby: ${settingsPath} is not valid JSON — remove the entries referencing ${MARKER} by hand.`
+    );
+    return;
+  }
+
+  const hooks = settings.hooks as Record<string, HookGroup[]> | undefined;
+  if (!hooks) {
+    vscode.window.showInformationMessage('Standby: no hooks configured — nothing to remove.');
+    return;
+  }
+
+  let removed = 0;
+  for (const event of Object.keys(hooks)) {
+    const groups = hooks[event];
+    if (!Array.isArray(groups)) {
+      continue;
+    }
+    for (const group of groups) {
+      const before = group.hooks?.length ?? 0;
+      group.hooks = (group.hooks ?? []).filter(
+        (h) => !(typeof h.command === 'string' && h.command.includes(MARKER))
+      );
+      removed += before - group.hooks.length;
+    }
+    hooks[event] = groups.filter((g) => (g.hooks?.length ?? 0) > 0);
+    if (hooks[event].length === 0) {
+      delete hooks[event];
+    }
+  }
+  if (Object.keys(hooks).length === 0) {
+    delete settings.hooks;
+  }
+
+  if (removed === 0) {
+    vscode.window.showInformationMessage('Standby: no Standby hooks found — nothing to remove.');
+    return;
+  }
+
+  const stamp = new Date().toISOString().replace(/[:.]/g, '-');
+  fs.copyFileSync(settingsPath, `${settingsPath}.standby-backup-${stamp}`);
+  fs.writeFileSync(settingsPath, JSON.stringify(settings, null, 2) + '\n');
+  vscode.window.showInformationMessage(
+    `Standby: removed ${removed} hook entr${removed === 1 ? 'y' : 'ies'} from ~/.claude/settings.json.`
+  );
+}
+
 /** Opens the hook entries as a JSON snippet for manual installation. */
 async function showManualJson(command: string): Promise<void> {
   const hooks: Record<string, HookGroup[]> = {};

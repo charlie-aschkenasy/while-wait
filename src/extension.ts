@@ -2,7 +2,7 @@ import * as path from 'path';
 import * as vscode from 'vscode';
 import { installHooks, uninstallHooks } from './hooks';
 import { HttpListener } from './listener';
-import { PanelController, setPanelContext, StandbyViewProvider } from './panel';
+import { PanelController, StandbyViewProvider } from './panel';
 import { AgentStateMachine, StateChange } from './state';
 import { TriviaStore } from './trivia';
 
@@ -14,10 +14,6 @@ export function activate(context: vscode.ExtensionContext) {
   const machine = new AgentStateMachine();
   const trivia = new TriviaStore(context.globalState, log);
   const panel = new PanelController(provider, machine, context.globalState, trivia, log);
-
-  // The view is gated behind this context key so hide() can remove it
-  // regardless of where it's docked; start visible so it's discoverable.
-  setPanelContext(true);
 
   // Status bar: the first consumer of the lifecycle (M1). Hidden until the
   // first real event so a fresh window isn't cluttered with "✓ done".
@@ -62,7 +58,11 @@ export function activate(context: vscode.ExtensionContext) {
       }
     }),
 
-    vscode.window.registerWebviewViewProvider(StandbyViewProvider.viewId, provider),
+    vscode.window.registerWebviewViewProvider(StandbyViewProvider.viewId, provider, {
+      // Keep the webview alive while hidden so reveal is instant and games
+      // resume where they were paused instead of reloading from scratch.
+      webviewOptions: { retainContextWhenHidden: true },
+    }),
 
     vscode.commands.registerCommand('standby.showPanel', () => panel.reveal(true)),
 

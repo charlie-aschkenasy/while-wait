@@ -35,8 +35,7 @@
         {
           "type": "webview",
           "id": "standby.panel",
-          "name": "Standby",
-          "when": "standby.panelVisible"
+          "name": "Standby"
         }
       ]
     },

@@ -19,9 +19,11 @@ the agent finishes or needs you.
    ```
 2. In Cursor: command palette → **Extensions: Install from VSIX…** → pick the file.
 3. Reload the window when prompted.
-4. One-time layout step: click the Standby icon in the activity bar, then drag
-   the **Standby** view into the **secondary sidebar** (right side) so it never
-   competes with your editor or terminal. Cursor remembers this.
+4. One-time layout step (**required**): click the Standby icon in the activity
+   bar, then drag the **Standby** view into the **secondary sidebar** (right
+   side). Cursor remembers this. Standby hides by closing the secondary
+   sidebar, so keep that sidebar for Standby alone — if you dock other views
+   there, they'll be hidden alongside it.
 
 ## Hook setup (required)
 
@@ -82,6 +84,8 @@ fetch. Without configuration or cache, the Trivia tab hides itself.
 - If the window is unfocused when a wait starts, the panel waits until you
   come back.
 - Closing the panel by hand mid-wait keeps it closed until the next run.
+- The webview is kept alive while hidden, so games pause on hide and resume
+  instantly and in place on the next reveal (no reload).
 - A `working` state with no events for 30 minutes decays to `done` (crashed
   session guard).
 - **Multi-window limitation (v1)**: only the first Cursor window binds the

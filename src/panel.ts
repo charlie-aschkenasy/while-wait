@@ -10,14 +10,6 @@ type WebviewMessage =
 
 const BEST_SCORES_KEY = 'standby.bestScores';
 
-/** The view's `when` clause in package.json — flipping this context key is the
- *  one hide mechanism that works no matter where the user docked the view. */
-const PANEL_CONTEXT_KEY = 'standby.panelVisible';
-
-export function setPanelContext(visible: boolean): Thenable<unknown> {
-  return vscode.commands.executeCommand('setContext', PANEL_CONTEXT_KEY, visible);
-}
-
 export class StandbyViewProvider implements vscode.WebviewViewProvider {
   static readonly viewId = 'standby.panel';
 
@@ -189,15 +181,14 @@ export class PanelController implements vscode.Disposable {
       return;
     }
     this.pendingReveal = false;
-    await setPanelContext(true);
     if (this.provider.resolved) {
+      // Webview is retained while hidden, so this just re-shows it — instant,
+      // with all game state intact.
       this.provider.show();
       return;
     }
-    // The view may need a beat to re-register after the context flip.
-    await delay(50);
-    // Forcing an unresolved view to resolve steals focus — hand it straight
-    // back to the editor.
+    // First reveal of the session: force the view to resolve, which steals
+    // focus, then hand it straight back to the editor.
     await vscode.commands.executeCommand('standby.panel.focus');
     await vscode.commands.executeCommand('workbench.action.focusActiveEditorGroup');
   }
@@ -210,8 +201,10 @@ export class PanelController implements vscode.Disposable {
     this.hiding = true;
     const started = Date.now();
     try {
-      await setPanelContext(false);
-      this.log(`hide: view hidden via context key in ${Date.now() - started}ms`);
+      // Close the container rather than removing the view: the webview stays
+      // alive (retainContextWhenHidden), so the next reveal is instant.
+      await vscode.commands.executeCommand('workbench.action.closeAuxiliaryBar');
+      this.log(`hide: auxiliary bar closed in ${Date.now() - started}ms`);
     } finally {
       // Swallow the visibility events our own hide produced.
       setTimeout(() => (this.hiding = false), 200);
@@ -256,10 +249,6 @@ export class PanelController implements vscode.Disposable {
       d.dispose();
     }
   }
-}
-
-function delay(ms: number): Promise<void> {
-  return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
 function getNonce(): string {

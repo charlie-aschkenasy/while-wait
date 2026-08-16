@@ -47,12 +47,16 @@ the author (and for anyone who wants a bigger/newer bank).
 #### Milestones / done-when
 - `data/trivia/questions.json` ships inside the `.vsix` with **2000 verified
   questions** and validates against the existing `isValidQuestion` shape.
-- With **no** `standby.supabase.*` settings, the Trivia tab plays through the bundled
-  bank offline, first launch, no network.
-- With Supabase configured, the extension uses Supabase as before and **falls back to
+  *(In progress: 341-question verified seed shipped and passing
+  `scripts/validate-trivia.mjs`; filling to 2000 runs on the decoupled generation
+  track.)*
+- ☑ With **no** `standby.supabase.*` settings, the Trivia tab plays through the bundled
+  bank offline, first launch, no network. *(Code landed; human offline play-through
+  is handoff 1a-7.)*
+- ☑ With Supabase configured, the extension uses Supabase as before and **falls back to
   the bundled bank** (not just to a stale cache) on any fetch failure.
-- `npm run build && npm run typecheck` clean; `.vsix` size increase within the agreed
-  budget (see Open Decisions).
+- ☑ `npm run build && npm run typecheck` clean; `.vsix` size increase within the agreed
+  budget (144 KB total `.vsix`, +124 KB for the seed bank — well under the ~2 MB cap).
 
 #### JSON schema and file location
 - **Location:** `data/trivia/questions.json` (a new top-level `data/` dir). It is not

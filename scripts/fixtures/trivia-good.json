@@ -1,0 +1,31 @@
+{
+  "version": 1,
+  "questions": [
+    {
+      "id": "fix-good-0001",
+      "prompt": "Which country hosted the 1994 FIFA World Cup?",
+      "options": ["United States", "France", "Italy", "Mexico"],
+      "correct_index": 0,
+      "sport": "Soccer",
+      "difficulty": 2,
+      "source_url": "https://en.wikipedia.org/wiki/1994_FIFA_World_Cup",
+      "verified_on": "2026-08-15"
+    },
+    {
+      "id": "fix-good-0002",
+      "prompt": "How many players from each team are on the ice during even-strength play in ice hockey?",
+      "options": ["4", "5", "6", "7"],
+      "correct_index": 2,
+      "sport": "Hockey",
+      "difficulty": 1
+    },
+    {
+      "id": "fix-good-0003",
+      "prompt": "In golf, what is the term for a score of two under par on a single hole?",
+      "options": ["Birdie", "Eagle", "Albatross", "Bogey"],
+      "correct_index": 1,
+      "sport": "Golf",
+      "difficulty": 2
+    }
+  ]
+}

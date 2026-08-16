@@ -1,0 +1,21 @@
+{
+  "version": 1,
+  "questions": [
+    {
+      "id": "fix-bad-0001",
+      "prompt": "Which of these is out of range?",
+      "options": ["A", "B", "C", "D"],
+      "correct_index": 4,
+      "sport": "Baseball",
+      "difficulty": 3
+    },
+    {
+      "id": "fix-bad-0001",
+      "prompt": "This row reuses the id above.",
+      "options": ["A", "B", "C", "D"],
+      "correct_index": 0,
+      "sport": "Baseball",
+      "difficulty": 3
+    }
+  ]
+}

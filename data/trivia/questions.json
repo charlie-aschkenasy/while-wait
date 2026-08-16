@@ -1,0 +1,4438 @@
+{
+ "version": 1,
+ "questions": [
+  {
+   "id": "q0101",
+   "prompt": "What baseball player has the most career home runs?",
+   "options": [
+    "Hank Aaron",
+    "Barry Bonds",
+    "Babe Ruth",
+    "Willie Mays"
+   ],
+   "correct_index": 1,
+   "sport": "Baseball",
+   "difficulty": 1
+  },
+  {
+   "id": "q0102",
+   "prompt": "What baseball player was nicknamed The Sultan of Swat?",
+   "options": [
+    "Lou Gehrig",
+    "Ted Williams",
+    "Mickey Mantle",
+    "Babe Ruth"
+   ],
+   "correct_index": 3,
+   "sport": "Baseball",
+   "difficulty": 1
+  },
+  {
+   "id": "q0107",
+   "prompt": "What team did Derek Jeter play his entire career for?",
+   "options": [
+    "Los Angeles Dodgers",
+    "New York Mets",
+    "Boston Red Sox",
+    "New York Yankees"
+   ],
+   "correct_index": 3,
+   "sport": "Baseball",
+   "difficulty": 1
+  },
+  {
+   "id": "q0108",
+   "prompt": "What number did Jackie Robinson wear?",
+   "options": [
+    "44",
+    "24",
+    "23",
+    "42"
+   ],
+   "correct_index": 3,
+   "sport": "Baseball",
+   "difficulty": 1
+  },
+  {
+   "id": "q0111",
+   "prompt": "What team drafted Mike Trout?",
+   "options": [
+    "Arizona Diamondbacks",
+    "Seattle Mariners",
+    "Los Angeles Angels",
+    "Boston Red Sox"
+   ],
+   "correct_index": 2,
+   "sport": "Baseball",
+   "difficulty": 1
+  },
+  {
+   "id": "q0112",
+   "prompt": "What MLB player was known as Big Papi?",
+   "options": [
+    "Mo Vaughn",
+    "Prince Fielder",
+    "Manny Ramirez",
+    "David Ortiz"
+   ],
+   "correct_index": 3,
+   "sport": "Baseball",
+   "difficulty": 1
+  },
+  {
+   "id": "q0117",
+   "prompt": "What MLB player broke the color barrier in 1947?",
+   "options": [
+    "Satchel Paige",
+    "Larry Doby",
+    "Jackie Robinson",
+    "Willie Mays"
+   ],
+   "correct_index": 2,
+   "sport": "Baseball",
+   "difficulty": 1
+  },
+  {
+   "id": "q0118",
+   "prompt": "What team did Jackie Robinson play for?",
+   "options": [
+    "New York Giants",
+    "Boston Braves",
+    "St. Louis Cardinals",
+    "Brooklyn Dodgers"
+   ],
+   "correct_index": 3,
+   "sport": "Baseball",
+   "difficulty": 1
+  },
+  {
+   "id": "q0131",
+   "prompt": "What MLB team is known as the Bronx Bombers?",
+   "options": [
+    "Philadelphia Phillies",
+    "New York Yankees",
+    "Boston Red Sox",
+    "New York Mets"
+   ],
+   "correct_index": 1,
+   "sport": "Baseball",
+   "difficulty": 1
+  },
+  {
+   "id": "q0100",
+   "prompt": "What baseball player broke Babe Ruth’s all-time home run record?",
+   "options": [
+    "Hank Aaron",
+    "Willie Mays",
+    "Barry Bonds",
+    "Frank Robinson"
+   ],
+   "correct_index": 0,
+   "sport": "Baseball",
+   "difficulty": 2
+  },
+  {
+   "id": "q0103",
+   "prompt": "What baseball player was nicknamed The Say Hey Kid?",
+   "options": [
+    "Willie Mays",
+    "Ken Griffey Jr.",
+    "Hank Aaron",
+    "Roberto Clemente"
+   ],
+   "correct_index": 0,
+   "sport": "Baseball",
+   "difficulty": 2
+  },
+  {
+   "id": "q0104",
+   "prompt": "What baseball player was nicknamed Mr. October?",
+   "options": [
+    "David Ortiz",
+    "Derek Jeter",
+    "Reggie Jackson",
+    "Mickey Mantle"
+   ],
+   "correct_index": 2,
+   "sport": "Baseball",
+   "difficulty": 2
+  },
+  {
+   "id": "q0113",
+   "prompt": "What team did Shohei Ohtani first play for in MLB?",
+   "options": [
+    "Los Angeles Dodgers",
+    "Los Angeles Angels",
+    "San Diego Padres",
+    "Seattle Mariners"
+   ],
+   "correct_index": 1,
+   "sport": "Baseball",
+   "difficulty": 2
+  },
+  {
+   "id": "q0115",
+   "prompt": "What MLB player was banned from baseball for gambling?",
+   "options": [
+    "Shoeless Joe Jackson",
+    "Pete Rose",
+    "Alex Rodriguez",
+    "Barry Bonds"
+   ],
+   "correct_index": 1,
+   "sport": "Baseball",
+   "difficulty": 2
+  },
+  {
+   "id": "q0120",
+   "prompt": "What MLB team plays at Fenway Park?",
+   "options": [
+    "Chicago Cubs",
+    "New York Yankees",
+    "Boston Red Sox",
+    "Detroit Tigers"
+   ],
+   "correct_index": 2,
+   "sport": "Baseball",
+   "difficulty": 2
+  },
+  {
+   "id": "q0121",
+   "prompt": "What MLB team plays at Wrigley Field?",
+   "options": [
+    "St. Louis Cardinals",
+    "Chicago Cubs",
+    "Chicago White Sox",
+    "Boston Red Sox"
+   ],
+   "correct_index": 1,
+   "sport": "Baseball",
+   "difficulty": 2
+  },
+  {
+   "id": "q0122",
+   "prompt": "What team won the 2016 World Series to end a 108-year drought?",
+   "options": [
+    "Cleveland Indians",
+    "Boston Red Sox",
+    "Chicago Cubs",
+    "Houston Astros"
+   ],
+   "correct_index": 2,
+   "sport": "Baseball",
+   "difficulty": 2
+  },
+  {
+   "id": "q0136",
+   "prompt": "What team did Ken Griffey Jr. become famous with?",
+   "options": [
+    "Chicago White Sox",
+    "Seattle Mariners",
+    "New York Yankees",
+    "Cincinnati Reds"
+   ],
+   "correct_index": 1,
+   "sport": "Baseball",
+   "difficulty": 2
+  },
+  {
+   "id": "q0138",
+   "prompt": "What MLB player was nicknamed The Captain?",
+   "options": [
+    "Don Mattingly",
+    "Mariano Rivera",
+    "Alex Rodriguez",
+    "Derek Jeter"
+   ],
+   "correct_index": 3,
+   "sport": "Baseball",
+   "difficulty": 2
+  },
+  {
+   "id": "q0140",
+   "prompt": "What team did Clayton Kershaw spend most of his career with?",
+   "options": [
+    "New York Mets",
+    "Los Angeles Dodgers",
+    "Texas Rangers",
+    "San Francisco Giants"
+   ],
+   "correct_index": 1,
+   "sport": "Baseball",
+   "difficulty": 2
+  },
+  {
+   "id": "q0097",
+   "prompt": "What baseball player hit a bird with a pitch?",
+   "options": [
+    "Randy Johnson",
+    "Roger Clemens",
+    "Nolan Ryan",
+    "Curt Schilling"
+   ],
+   "correct_index": 0,
+   "sport": "Baseball",
+   "difficulty": 3
+  },
+  {
+   "id": "q0099",
+   "prompt": "What baseball player broke Roger Maris’ single-season home run record in 1998?",
+   "options": [
+    "Ken Griffey Jr.",
+    "Mark McGwire",
+    "Sammy Sosa",
+    "Barry Bonds"
+   ],
+   "correct_index": 1,
+   "sport": "Baseball",
+   "difficulty": 3
+  },
+  {
+   "id": "q0105",
+   "prompt": "What baseball player was nicknamed The Iron Horse?",
+   "options": [
+    "Joe DiMaggio",
+    "Babe Ruth",
+    "Cal Ripken Jr.",
+    "Lou Gehrig"
+   ],
+   "correct_index": 3,
+   "sport": "Baseball",
+   "difficulty": 3
+  },
+  {
+   "id": "q0106",
+   "prompt": "What MLB team won the 2004 World Series to end an 86-year title drought?",
+   "options": [
+    "New York Yankees",
+    "Boston Red Sox",
+    "Chicago Cubs",
+    "St. Louis Cardinals"
+   ],
+   "correct_index": 1,
+   "sport": "Baseball",
+   "difficulty": 3
+  },
+  {
+   "id": "q0114",
+   "prompt": "What MLB player has the most career hits?",
+   "options": [
+    "Hank Aaron",
+    "Pete Rose",
+    "Ichiro Suzuki",
+    "Ty Cobb"
+   ],
+   "correct_index": 1,
+   "sport": "Baseball",
+   "difficulty": 3
+  },
+  {
+   "id": "q0116",
+   "prompt": "What team did Barry Bonds play for when he broke the home run record?",
+   "options": [
+    "Pittsburgh Pirates",
+    "San Francisco Giants",
+    "Oakland Athletics",
+    "New York Yankees"
+   ],
+   "correct_index": 1,
+   "sport": "Baseball",
+   "difficulty": 3
+  },
+  {
+   "id": "q0119",
+   "prompt": "What player hit the “Shot Heard ’Round the World”?",
+   "options": [
+    "Ralph Branca",
+    "Duke Snider",
+    "Willie Mays",
+    "Bobby Thomson"
+   ],
+   "correct_index": 3,
+   "sport": "Baseball",
+   "difficulty": 3
+  },
+  {
+   "id": "q0123",
+   "prompt": "What MLB pitcher was known as The Big Unit?",
+   "options": [
+    "Randy Johnson",
+    "Curt Schilling",
+    "Nolan Ryan",
+    "Roger Clemens"
+   ],
+   "correct_index": 0,
+   "sport": "Baseball",
+   "difficulty": 3
+  },
+  {
+   "id": "q0124",
+   "prompt": "What pitcher has the most career strikeouts?",
+   "options": [
+    "Roger Clemens",
+    "Tom Seaver",
+    "Nolan Ryan",
+    "Randy Johnson"
+   ],
+   "correct_index": 2,
+   "sport": "Baseball",
+   "difficulty": 3
+  },
+  {
+   "id": "q0125",
+   "prompt": "What player was nicknamed The Kid?",
+   "options": [
+    "Ichiro Suzuki",
+    "Derek Jeter",
+    "Cal Ripken Jr.",
+    "Ken Griffey Jr."
+   ],
+   "correct_index": 3,
+   "sport": "Baseball",
+   "difficulty": 3
+  },
+  {
+   "id": "q0126",
+   "prompt": "What MLB player hit 73 home runs in a season?",
+   "options": [
+    "Alex Rodriguez",
+    "Barry Bonds",
+    "Mark McGwire",
+    "Sammy Sosa"
+   ],
+   "correct_index": 1,
+   "sport": "Baseball",
+   "difficulty": 3
+  },
+  {
+   "id": "q0127",
+   "prompt": "What team did Mark McGwire play for when he hit 70 home runs?",
+   "options": [
+    "Oakland Athletics",
+    "St. Louis Cardinals",
+    "Chicago Cubs",
+    "Texas Rangers"
+   ],
+   "correct_index": 1,
+   "sport": "Baseball",
+   "difficulty": 3
+  },
+  {
+   "id": "q0128",
+   "prompt": "What team did Cal Ripken Jr. play his whole career for?",
+   "options": [
+    "New York Yankees",
+    "Washington Nationals",
+    "Boston Red Sox",
+    "Baltimore Orioles"
+   ],
+   "correct_index": 3,
+   "sport": "Baseball",
+   "difficulty": 3
+  },
+  {
+   "id": "q0129",
+   "prompt": "What MLB player broke Lou Gehrig’s consecutive games streak?",
+   "options": [
+    "Lou Gehrig",
+    "Cal Ripken Jr.",
+    "Derek Jeter",
+    "Tony Gwynn"
+   ],
+   "correct_index": 1,
+   "sport": "Baseball",
+   "difficulty": 3
+  },
+  {
+   "id": "q0134",
+   "prompt": "What team did Ted Williams play for?",
+   "options": [
+    "Detroit Tigers",
+    "New York Yankees",
+    "Cleveland Indians",
+    "Boston Red Sox"
+   ],
+   "correct_index": 3,
+   "sport": "Baseball",
+   "difficulty": 3
+  },
+  {
+   "id": "q0135",
+   "prompt": "What MLB player was known for the “bat flip” against the Rangers in 2015?",
+   "options": [
+    "Edwin Encarnación",
+    "Josh Donaldson",
+    "José Bautista",
+    "Jose Altuve"
+   ],
+   "correct_index": 2,
+   "sport": "Baseball",
+   "difficulty": 3
+  },
+  {
+   "id": "q0139",
+   "prompt": "What team drafted Bryce Harper?",
+   "options": [
+    "Washington Nationals",
+    "San Francisco Giants",
+    "Arizona Diamondbacks",
+    "Philadelphia Phillies"
+   ],
+   "correct_index": 0,
+   "sport": "Baseball",
+   "difficulty": 3
+  },
+  {
+   "id": "q0141",
+   "prompt": "What MLB player was nicknamed The Machine?",
+   "options": [
+    "Joey Votto",
+    "Miguel Cabrera",
+    "Albert Pujols",
+    "David Ortiz"
+   ],
+   "correct_index": 2,
+   "sport": "Baseball",
+   "difficulty": 3
+  },
+  {
+   "id": "q0098",
+   "prompt": "What baseball player was the first to hit 50 home runs in a season?",
+   "options": [
+    "Babe Ruth",
+    "Hack Wilson",
+    "Jimmie Foxx",
+    "Roger Maris"
+   ],
+   "correct_index": 0,
+   "sport": "Baseball",
+   "difficulty": 4
+  },
+  {
+   "id": "q0110",
+   "prompt": "What player was the first unanimous Baseball Hall of Fame inductee?",
+   "options": [
+    "Mariano Rivera",
+    "Ken Griffey Jr.",
+    "Chipper Jones",
+    "Derek Jeter"
+   ],
+   "correct_index": 0,
+   "sport": "Baseball",
+   "difficulty": 4
+  },
+  {
+   "id": "q0130",
+   "prompt": "What team won the 1996 World Series?",
+   "options": [
+    "New York Yankees",
+    "Florida Marlins",
+    "Cleveland Indians",
+    "Atlanta Braves"
+   ],
+   "correct_index": 0,
+   "sport": "Baseball",
+   "difficulty": 4
+  },
+  {
+   "id": "q0133",
+   "prompt": "What MLB player was nicknamed The Splendid Splinter?",
+   "options": [
+    "Stan Musial",
+    "Ted Williams",
+    "Joe DiMaggio",
+    "Mickey Mantle"
+   ],
+   "correct_index": 1,
+   "sport": "Baseball",
+   "difficulty": 4
+  },
+  {
+   "id": "q0137",
+   "prompt": "What pitcher threw the fastest recorded pitch in MLB history?",
+   "options": [
+    "Aroldis Chapman",
+    "Randy Johnson",
+    "Jacob deGrom",
+    "Nolan Ryan"
+   ],
+   "correct_index": 0,
+   "sport": "Baseball",
+   "difficulty": 4
+  },
+  {
+   "id": "q0142",
+   "prompt": "What MLB team won the World Series in 1986 after the Bill Buckner error?",
+   "options": [
+    "Boston Red Sox",
+    "St. Louis Cardinals",
+    "New York Mets",
+    "New York Yankees"
+   ],
+   "correct_index": 2,
+   "sport": "Baseball",
+   "difficulty": 4
+  },
+  {
+   "id": "q0143",
+   "prompt": "What player hit the famous walk-off home run for the Dodgers in the 1988 World Series?",
+   "options": [
+    "Jose Canseco",
+    "Orel Hershiser",
+    "Mike Scioscia",
+    "Kirk Gibson"
+   ],
+   "correct_index": 3,
+   "sport": "Baseball",
+   "difficulty": 4
+  },
+  {
+   "id": "q0144",
+   "prompt": "What MLB player was nicknamed Mr. Padre?",
+   "options": [
+    "Tony Gwynn",
+    "Dave Winfield",
+    "Ken Caminiti",
+    "Trevor Hoffman"
+   ],
+   "correct_index": 0,
+   "sport": "Baseball",
+   "difficulty": 4
+  },
+  {
+   "id": "q0109",
+   "prompt": "What pitcher threw a perfect game in the 1956 World Series?",
+   "options": [
+    "Whitey Ford",
+    "Sandy Koufax",
+    "Bob Gibson",
+    "Don Larsen"
+   ],
+   "correct_index": 3,
+   "sport": "Baseball",
+   "difficulty": 5
+  },
+  {
+   "id": "q0132",
+   "prompt": "What player hit a walk-off home run in Game 7 of the 1960 World Series?",
+   "options": [
+    "Yogi Berra",
+    "Roberto Clemente",
+    "Bill Mazeroski",
+    "Mickey Mantle"
+   ],
+   "correct_index": 2,
+   "sport": "Baseball",
+   "difficulty": 5
+  },
+  {
+   "id": "q0004",
+   "prompt": "What NBA player scored 100 points in a game?",
+   "options": [
+    "Elgin Baylor",
+    "Kareem Abdul-Jabbar",
+    "Wilt Chamberlain",
+    "Bill Russell"
+   ],
+   "correct_index": 2,
+   "sport": "Basketball",
+   "difficulty": 1
+  },
+  {
+   "id": "q0006",
+   "prompt": "What NBA player went by the nickname Black Mamba?",
+   "options": [
+    "Michael Jordan",
+    "Allen Iverson",
+    "Tracy McGrady",
+    "Kobe Bryant"
+   ],
+   "correct_index": 3,
+   "sport": "Basketball",
+   "difficulty": 1
+  },
+  {
+   "id": "q0016",
+   "prompt": "What NBA player was nicknamed The Answer?",
+   "options": [
+    "Russell Westbrook",
+    "Allen Iverson",
+    "Chris Paul",
+    "Dwyane Wade"
+   ],
+   "correct_index": 1,
+   "sport": "Basketball",
+   "difficulty": 1
+  },
+  {
+   "id": "q0024",
+   "prompt": "What team drafted Giannis Antetokounmpo?",
+   "options": [
+    "Atlanta Hawks",
+    "Milwaukee Bucks",
+    "Dallas Mavericks",
+    "Toronto Raptors"
+   ],
+   "correct_index": 1,
+   "sport": "Basketball",
+   "difficulty": 1
+  },
+  {
+   "id": "q0028",
+   "prompt": "What NBA player blocked Andre Iguodala in Game 7 of the 2016 Finals?",
+   "options": [
+    "LeBron James",
+    "Kyrie Irving",
+    "Kevin Love",
+    "Draymond Green"
+   ],
+   "correct_index": 0,
+   "sport": "Basketball",
+   "difficulty": 1
+  },
+  {
+   "id": "q0035",
+   "prompt": "What NBA player was known for the “skyhook”?",
+   "options": [
+    "Kareem Abdul-Jabbar",
+    "Wilt Chamberlain",
+    "Magic Johnson",
+    "Hakeem Olajuwon"
+   ],
+   "correct_index": 0,
+   "sport": "Basketball",
+   "difficulty": 1
+  },
+  {
+   "id": "q0039",
+   "prompt": "What college did Zion Williamson go to?",
+   "options": [
+    "Kansas",
+    "North Carolina",
+    "Kentucky",
+    "Duke"
+   ],
+   "correct_index": 3,
+   "sport": "Basketball",
+   "difficulty": 1
+  },
+  {
+   "id": "q0040",
+   "prompt": "What NBA player was drafted first overall in 2003?",
+   "options": [
+    "Dwyane Wade",
+    "Chris Bosh",
+    "Carmelo Anthony",
+    "LeBron James"
+   ],
+   "correct_index": 3,
+   "sport": "Basketball",
+   "difficulty": 1
+  },
+  {
+   "id": "q0041",
+   "prompt": "What team won the NBA championship in 2011 behind Dirk Nowitzki?",
+   "options": [
+    "San Antonio Spurs",
+    "Los Angeles Lakers",
+    "Miami Heat",
+    "Dallas Mavericks"
+   ],
+   "correct_index": 3,
+   "sport": "Basketball",
+   "difficulty": 1
+  },
+  {
+   "id": "q0044",
+   "prompt": "What NBA player was known as “Vinsanity”?",
+   "options": [
+    "Jason Richardson",
+    "Grant Hill",
+    "Tracy McGrady",
+    "Vince Carter"
+   ],
+   "correct_index": 3,
+   "sport": "Basketball",
+   "difficulty": 1
+  },
+  {
+   "id": "q0045",
+   "prompt": "What team did Magic Johnson spend his whole NBA career with?",
+   "options": [
+    "Boston Celtics",
+    "Los Angeles Lakers",
+    "Philadelphia 76ers",
+    "Detroit Pistons"
+   ],
+   "correct_index": 1,
+   "sport": "Basketball",
+   "difficulty": 1
+  },
+  {
+   "id": "q0002",
+   "prompt": "What basketball player is on the NBA logo?",
+   "options": [
+    "Jerry West",
+    "Bob Cousy",
+    "Elgin Baylor",
+    "Oscar Robertson"
+   ],
+   "correct_index": 0,
+   "sport": "Basketball",
+   "difficulty": 2
+  },
+  {
+   "id": "q0003",
+   "prompt": "What NBA player scored 81 points in a game?",
+   "options": [
+    "LeBron James",
+    "Allen Iverson",
+    "Michael Jordan",
+    "Kobe Bryant"
+   ],
+   "correct_index": 3,
+   "sport": "Basketball",
+   "difficulty": 2
+  },
+  {
+   "id": "q0008",
+   "prompt": "What college did Steph Curry go to?",
+   "options": [
+    "Davidson",
+    "Virginia Tech",
+    "Wake Forest",
+    "North Carolina"
+   ],
+   "correct_index": 0,
+   "sport": "Basketball",
+   "difficulty": 2
+  },
+  {
+   "id": "q0009",
+   "prompt": "What NBA player has the most career points?",
+   "options": [
+    "Kareem Abdul-Jabbar",
+    "Michael Jordan",
+    "Karl Malone",
+    "LeBron James"
+   ],
+   "correct_index": 3,
+   "sport": "Basketball",
+   "difficulty": 2
+  },
+  {
+   "id": "q0013",
+   "prompt": "What NBA player has the most career three-pointers?",
+   "options": [
+    "Reggie Miller",
+    "Stephen Curry",
+    "James Harden",
+    "Ray Allen"
+   ],
+   "correct_index": 1,
+   "sport": "Basketball",
+   "difficulty": 2
+  },
+  {
+   "id": "q0015",
+   "prompt": "What college did Kevin Durant go to?",
+   "options": [
+    "Oklahoma",
+    "Kansas",
+    "Duke",
+    "Texas"
+   ],
+   "correct_index": 3,
+   "sport": "Basketball",
+   "difficulty": 2
+  },
+  {
+   "id": "q0018",
+   "prompt": "What NBA player was nicknamed The Dream?",
+   "options": [
+    "Hakeem Olajuwon",
+    "Patrick Ewing",
+    "Shaquille O’Neal",
+    "David Robinson"
+   ],
+   "correct_index": 0,
+   "sport": "Basketball",
+   "difficulty": 2
+  },
+  {
+   "id": "q0019",
+   "prompt": "What NBA player was nicknamed The Mailman?",
+   "options": [
+    "Charles Barkley",
+    "Karl Malone",
+    "Moses Malone",
+    "John Stockton"
+   ],
+   "correct_index": 1,
+   "sport": "Basketball",
+   "difficulty": 2
+  },
+  {
+   "id": "q0022",
+   "prompt": "What college did Carmelo Anthony go to?",
+   "options": [
+    "Syracuse",
+    "Georgetown",
+    "North Carolina",
+    "Kansas"
+   ],
+   "correct_index": 0,
+   "sport": "Basketball",
+   "difficulty": 2
+  },
+  {
+   "id": "q0025",
+   "prompt": "What NBA team won 73 games in a regular season?",
+   "options": [
+    "Boston Celtics",
+    "Los Angeles Lakers",
+    "Golden State Warriors",
+    "Chicago Bulls"
+   ],
+   "correct_index": 2,
+   "sport": "Basketball",
+   "difficulty": 2
+  },
+  {
+   "id": "q0026",
+   "prompt": "What team did Michael Jordan play for after leaving the Bulls?",
+   "options": [
+    "Miami Heat",
+    "Washington Wizards",
+    "New York Knicks",
+    "Charlotte Hornets"
+   ],
+   "correct_index": 1,
+   "sport": "Basketball",
+   "difficulty": 2
+  },
+  {
+   "id": "q0032",
+   "prompt": "What college did Anthony Davis go to?",
+   "options": [
+    "Kansas",
+    "Kentucky",
+    "Duke",
+    "North Carolina"
+   ],
+   "correct_index": 1,
+   "sport": "Basketball",
+   "difficulty": 2
+  },
+  {
+   "id": "q0043",
+   "prompt": "What player hit the series-winning shot for Toronto in Game 7 against Philadelphia in 2019?",
+   "options": [
+    "Kawhi Leonard",
+    "Kyle Lowry",
+    "DeMar DeRozan",
+    "Pascal Siakam"
+   ],
+   "correct_index": 0,
+   "sport": "Basketball",
+   "difficulty": 2
+  },
+  {
+   "id": "q0047",
+   "prompt": "What NBA player was known for the “Dream Shake”?",
+   "options": [
+    "Kevin McHale",
+    "Tim Duncan",
+    "Hakeem Olajuwon",
+    "Shaquille O’Neal"
+   ],
+   "correct_index": 2,
+   "sport": "Basketball",
+   "difficulty": 2
+  },
+  {
+   "id": "q0001",
+   "prompt": "What college did De’Aaron Fox go to?",
+   "options": [
+    "Kansas",
+    "North Carolina",
+    "Kentucky",
+    "Duke"
+   ],
+   "correct_index": 2,
+   "sport": "Basketball",
+   "difficulty": 3
+  },
+  {
+   "id": "q0005",
+   "prompt": "What basketball player dunked over a car in the dunk contest?",
+   "options": [
+    "Zach LaVine",
+    "Dwight Howard",
+    "Blake Griffin",
+    "Aaron Gordon"
+   ],
+   "correct_index": 2,
+   "sport": "Basketball",
+   "difficulty": 3
+  },
+  {
+   "id": "q0007",
+   "prompt": "What team drafted Kobe Bryant before trading him to the Lakers?",
+   "options": [
+    "Los Angeles Clippers",
+    "Charlotte Hornets",
+    "Philadelphia 76ers",
+    "New Jersey Nets"
+   ],
+   "correct_index": 1,
+   "sport": "Basketball",
+   "difficulty": 3
+  },
+  {
+   "id": "q0010",
+   "prompt": "What NBA player has the most career assists?",
+   "options": [
+    "John Stockton",
+    "Chris Paul",
+    "Magic Johnson",
+    "Jason Kidd"
+   ],
+   "correct_index": 0,
+   "sport": "Basketball",
+   "difficulty": 3
+  },
+  {
+   "id": "q0011",
+   "prompt": "What NBA player has the most career rebounds?",
+   "options": [
+    "Wilt Chamberlain",
+    "Moses Malone",
+    "Bill Russell",
+    "Kareem Abdul-Jabbar"
+   ],
+   "correct_index": 0,
+   "sport": "Basketball",
+   "difficulty": 3
+  },
+  {
+   "id": "q0014",
+   "prompt": "What team drafted Luka Dončić before trading him to the Mavericks?",
+   "options": [
+    "Phoenix Suns",
+    "Sacramento Kings",
+    "Memphis Grizzlies",
+    "Atlanta Hawks"
+   ],
+   "correct_index": 3,
+   "sport": "Basketball",
+   "difficulty": 3
+  },
+  {
+   "id": "q0017",
+   "prompt": "What NBA player was nicknamed The Big Fundamental?",
+   "options": [
+    "Tim Duncan",
+    "David Robinson",
+    "Dirk Nowitzki",
+    "Kevin Garnett"
+   ],
+   "correct_index": 0,
+   "sport": "Basketball",
+   "difficulty": 3
+  },
+  {
+   "id": "q0020",
+   "prompt": "What NBA player was nicknamed The Glove?",
+   "options": [
+    "Jason Kidd",
+    "Tony Allen",
+    "Kawhi Leonard",
+    "Gary Payton"
+   ],
+   "correct_index": 3,
+   "sport": "Basketball",
+   "difficulty": 3
+  },
+  {
+   "id": "q0021",
+   "prompt": "What NBA player was nicknamed The Admiral?",
+   "options": [
+    "Hakeem Olajuwon",
+    "Alonzo Mourning",
+    "David Robinson",
+    "Patrick Ewing"
+   ],
+   "correct_index": 2,
+   "sport": "Basketball",
+   "difficulty": 3
+  },
+  {
+   "id": "q0027",
+   "prompt": "What NBA player famously cried after winning the 2008 Finals and yelled “Anything is possible”?",
+   "options": [
+    "Paul Pierce",
+    "Ray Allen",
+    "Rajon Rondo",
+    "Kevin Garnett"
+   ],
+   "correct_index": 3,
+   "sport": "Basketball",
+   "difficulty": 3
+  },
+  {
+   "id": "q0029",
+   "prompt": "What team did Ray Allen hit his famous corner three against in the 2013 Finals?",
+   "options": [
+    "Miami Heat",
+    "Dallas Mavericks",
+    "Boston Celtics",
+    "San Antonio Spurs"
+   ],
+   "correct_index": 3,
+   "sport": "Basketball",
+   "difficulty": 3
+  },
+  {
+   "id": "q0030",
+   "prompt": "What NBA player won MVP unanimously in 2016?",
+   "options": [
+    "LeBron James",
+    "Stephen Curry",
+    "Kevin Durant",
+    "James Harden"
+   ],
+   "correct_index": 1,
+   "sport": "Basketball",
+   "difficulty": 3
+  },
+  {
+   "id": "q0033",
+   "prompt": "What NBA player won Finals MVP despite coming off the bench for most of the 2015 Finals?",
+   "options": [
+    "Klay Thompson",
+    "Stephen Curry",
+    "Draymond Green",
+    "Andre Iguodala"
+   ],
+   "correct_index": 3,
+   "sport": "Basketball",
+   "difficulty": 3
+  },
+  {
+   "id": "q0034",
+   "prompt": "What team did Allen Iverson step over in the 2001 NBA Finals?",
+   "options": [
+    "Los Angeles Lakers",
+    "Boston Celtics",
+    "Philadelphia 76ers",
+    "Detroit Pistons"
+   ],
+   "correct_index": 0,
+   "sport": "Basketball",
+   "difficulty": 3
+  },
+  {
+   "id": "q0036",
+   "prompt": "What NBA coach has the most championships as a head coach?",
+   "options": [
+    "Phil Jackson",
+    "Gregg Popovich",
+    "Red Auerbach",
+    "Pat Riley"
+   ],
+   "correct_index": 0,
+   "sport": "Basketball",
+   "difficulty": 3
+  },
+  {
+   "id": "q0037",
+   "prompt": "What team did Shaq and Kobe beat in the 2000 NBA Finals?",
+   "options": [
+    "New Jersey Nets",
+    "Indiana Pacers",
+    "Portland Trail Blazers",
+    "Philadelphia 76ers"
+   ],
+   "correct_index": 1,
+   "sport": "Basketball",
+   "difficulty": 3
+  },
+  {
+   "id": "q0012",
+   "prompt": "What NBA player has the most career blocks?",
+   "options": [
+    "Dikembe Mutombo",
+    "Mark Eaton",
+    "Kareem Abdul-Jabbar",
+    "Hakeem Olajuwon"
+   ],
+   "correct_index": 3,
+   "sport": "Basketball",
+   "difficulty": 4
+  },
+  {
+   "id": "q0023",
+   "prompt": "What year did LeBron James get drafted?",
+   "options": [
+    "2002",
+    "2004",
+    "2001",
+    "2003"
+   ],
+   "correct_index": 3,
+   "sport": "Basketball",
+   "difficulty": 4
+  },
+  {
+   "id": "q0031",
+   "prompt": "What NBA team drafted Dirk Nowitzki before trading him to the Mavericks?",
+   "options": [
+    "Phoenix Suns",
+    "Milwaukee Bucks",
+    "Boston Celtics",
+    "Dallas Mavericks"
+   ],
+   "correct_index": 1,
+   "sport": "Basketball",
+   "difficulty": 4
+  },
+  {
+   "id": "q0038",
+   "prompt": "What NBA player was nicknamed The Round Mound of Rebound?",
+   "options": [
+    "Charles Barkley",
+    "Shaquille O’Neal",
+    "Zion Williamson",
+    "Larry Johnson"
+   ],
+   "correct_index": 0,
+   "sport": "Basketball",
+   "difficulty": 4
+  },
+  {
+   "id": "q0042",
+   "prompt": "What NBA player was nicknamed The Human Highlight Film?",
+   "options": [
+    "Vince Carter",
+    "Dominique Wilkins",
+    "Clyde Drexler",
+    "Julius Erving"
+   ],
+   "correct_index": 1,
+   "sport": "Basketball",
+   "difficulty": 4
+  },
+  {
+   "id": "q0046",
+   "prompt": "What NBA player won Rookie of the Year in 1985?",
+   "options": [
+    "Patrick Ewing",
+    "Michael Jordan",
+    "Hakeem Olajuwon",
+    "Charles Barkley"
+   ],
+   "correct_index": 1,
+   "sport": "Basketball",
+   "difficulty": 4
+  },
+  {
+   "id": "q0049",
+   "prompt": "What NBA player has won the most regular-season MVP awards?",
+   "options": [
+    "Bill Russell",
+    "LeBron James",
+    "Michael Jordan",
+    "Kareem Abdul-Jabbar"
+   ],
+   "correct_index": 3,
+   "sport": "Basketball",
+   "difficulty": 4
+  },
+  {
+   "id": "q0048",
+   "prompt": "What team did the Bulls beat in the 1998 NBA Finals?",
+   "options": [
+    "Houston Rockets",
+    "Seattle SuperSonics",
+    "Phoenix Suns",
+    "Utah Jazz"
+   ],
+   "correct_index": 3,
+   "sport": "Basketball",
+   "difficulty": 5
+  },
+  {
+   "id": "q0242",
+   "prompt": "What UFC fighter has the nickname Notorious?",
+   "options": [
+    "Nate Diaz",
+    "Conor McGregor",
+    "Dustin Poirier",
+    "Michael Chandler"
+   ],
+   "correct_index": 1,
+   "sport": "Fighting",
+   "difficulty": 1
+  },
+  {
+   "id": "q0243",
+   "prompt": "What UFC fighter has the nickname Bones?",
+   "options": [
+    "Stipe Miocic",
+    "Jon Jones",
+    "Israel Adesanya",
+    "Daniel Cormier"
+   ],
+   "correct_index": 1,
+   "sport": "Fighting",
+   "difficulty": 1
+  },
+  {
+   "id": "q0254",
+   "prompt": "What UFC fighter became the first simultaneous two-division UFC champion?",
+   "options": [
+    "Georges St-Pierre",
+    "Henry Cejudo",
+    "Conor McGregor",
+    "Daniel Cormier"
+   ],
+   "correct_index": 2,
+   "sport": "Fighting",
+   "difficulty": 1
+  },
+  {
+   "id": "q0261",
+   "prompt": "What UFC fighter was the first women’s UFC champion?",
+   "options": [
+    "Amanda Nunes",
+    "Holly Holm",
+    "Ronda Rousey",
+    "Miesha Tate"
+   ],
+   "correct_index": 2,
+   "sport": "Fighting",
+   "difficulty": 1
+  },
+  {
+   "id": "q0262",
+   "prompt": "What UFC fighter was known as Rowdy?",
+   "options": [
+    "Cris Cyborg",
+    "Holly Holm",
+    "Ronda Rousey",
+    "Valentina Shevchenko"
+   ],
+   "correct_index": 2,
+   "sport": "Fighting",
+   "difficulty": 1
+  },
+  {
+   "id": "q0265",
+   "prompt": "What UFC fighter is known as Do Bronx?",
+   "options": [
+    "Charles Oliveira",
+    "Fabricio Werdum",
+    "Rafael dos Anjos",
+    "Tony Ferguson"
+   ],
+   "correct_index": 0,
+   "sport": "Fighting",
+   "difficulty": 1
+  },
+  {
+   "id": "q0267",
+   "prompt": "What boxer was nicknamed The Greatest?",
+   "options": [
+    "George Foreman",
+    "Sugar Ray Leonard",
+    "Joe Frazier",
+    "Muhammad Ali"
+   ],
+   "correct_index": 3,
+   "sport": "Fighting",
+   "difficulty": 1
+  },
+  {
+   "id": "q0268",
+   "prompt": "What boxer was nicknamed Iron Mike?",
+   "options": [
+    "Sonny Liston",
+    "Lennox Lewis",
+    "Evander Holyfield",
+    "Mike Tyson"
+   ],
+   "correct_index": 3,
+   "sport": "Fighting",
+   "difficulty": 1
+  },
+  {
+   "id": "q0269",
+   "prompt": "What boxer was nicknamed Money?",
+   "options": [
+    "Floyd Mayweather Jr.",
+    "Oscar De La Hoya",
+    "Canelo Álvarez",
+    "Manny Pacquiao"
+   ],
+   "correct_index": 0,
+   "sport": "Fighting",
+   "difficulty": 1
+  },
+  {
+   "id": "q0274",
+   "prompt": "What boxer bit Evander Holyfield’s ear?",
+   "options": [
+    "Lennox Lewis",
+    "Mike Tyson",
+    "Evander Holyfield",
+    "Riddick Bowe"
+   ],
+   "correct_index": 1,
+   "sport": "Fighting",
+   "difficulty": 1
+  },
+  {
+   "id": "q0275",
+   "prompt": "What boxer retired undefeated at 50-0?",
+   "options": [
+    "Rocky Marciano",
+    "Manny Pacquiao",
+    "Canelo Álvarez",
+    "Floyd Mayweather Jr."
+   ],
+   "correct_index": 3,
+   "sport": "Fighting",
+   "difficulty": 1
+  },
+  {
+   "id": "q0277",
+   "prompt": "What boxer won gold at the 1960 Olympics before becoming heavyweight champion?",
+   "options": [
+    "George Foreman",
+    "Floyd Patterson",
+    "Joe Frazier",
+    "Muhammad Ali"
+   ],
+   "correct_index": 3,
+   "sport": "Fighting",
+   "difficulty": 1
+  },
+  {
+   "id": "q0279",
+   "prompt": "What boxer fought Joe Frazier in the Thrilla in Manila?",
+   "options": [
+    "George Foreman",
+    "Muhammad Ali",
+    "Ken Norton",
+    "Sonny Liston"
+   ],
+   "correct_index": 1,
+   "sport": "Fighting",
+   "difficulty": 1
+  },
+  {
+   "id": "q0244",
+   "prompt": "What UFC fighter has the nickname The Last Stylebender?",
+   "options": [
+    "Kamaru Usman",
+    "Anderson Silva",
+    "Israel Adesanya",
+    "Robert Whittaker"
+   ],
+   "correct_index": 2,
+   "sport": "Fighting",
+   "difficulty": 2
+  },
+  {
+   "id": "q0246",
+   "prompt": "What UFC fighter has the nickname The Spider?",
+   "options": [
+    "Demian Maia",
+    "Charles Oliveira",
+    "Anderson Silva",
+    "José Aldo"
+   ],
+   "correct_index": 2,
+   "sport": "Fighting",
+   "difficulty": 2
+  },
+  {
+   "id": "q0248",
+   "prompt": "What UFC fighter has the nickname Thug Rose?",
+   "options": [
+    "Zhang Weili",
+    "Joanna Jędrzejczyk",
+    "Rose Namajunas",
+    "Valentina Shevchenko"
+   ],
+   "correct_index": 2,
+   "sport": "Fighting",
+   "difficulty": 2
+  },
+  {
+   "id": "q0251",
+   "prompt": "What UFC fighter ended José Aldo’s featherweight reign in 13 seconds?",
+   "options": [
+    "Chad Mendes",
+    "Max Holloway",
+    "Conor McGregor",
+    "Alexander Volkanovski"
+   ],
+   "correct_index": 2,
+   "sport": "Fighting",
+   "difficulty": 2
+  },
+  {
+   "id": "q0252",
+   "prompt": "What UFC fighter submitted Conor McGregor at UFC 229?",
+   "options": [
+    "Khabib Nurmagomedov",
+    "Nate Diaz",
+    "Tony Ferguson",
+    "Dustin Poirier"
+   ],
+   "correct_index": 0,
+   "sport": "Fighting",
+   "difficulty": 2
+  },
+  {
+   "id": "q0259",
+   "prompt": "What UFC fighter beat Conor McGregor in their first fight?",
+   "options": [
+    "Nate Diaz",
+    "José Aldo",
+    "Dustin Poirier",
+    "Khabib Nurmagomedov"
+   ],
+   "correct_index": 0,
+   "sport": "Fighting",
+   "difficulty": 2
+  },
+  {
+   "id": "q0264",
+   "prompt": "What UFC fighter knocked out Kamaru Usman with a head kick at UFC 278?",
+   "options": [
+    "Leon Edwards",
+    "Gilbert Burns",
+    "Colby Covington",
+    "Jorge Masvidal"
+   ],
+   "correct_index": 0,
+   "sport": "Fighting",
+   "difficulty": 2
+  },
+  {
+   "id": "q0266",
+   "prompt": "What UFC fighter was known for saying “I’m not surprised” after beating Conor McGregor?",
+   "options": [
+    "Conor McGregor",
+    "Jorge Masvidal",
+    "Nick Diaz",
+    "Nate Diaz"
+   ],
+   "correct_index": 3,
+   "sport": "Fighting",
+   "difficulty": 2
+  },
+  {
+   "id": "q0273",
+   "prompt": "What boxer beat Sonny Liston to become heavyweight champion in 1964?",
+   "options": [
+    "Joe Frazier",
+    "Floyd Patterson",
+    "Muhammad Ali",
+    "George Foreman"
+   ],
+   "correct_index": 2,
+   "sport": "Fighting",
+   "difficulty": 2
+  },
+  {
+   "id": "q0276",
+   "prompt": "What boxer fought Floyd Mayweather in a crossover boxing match in 2017?",
+   "options": [
+    "Manny Pacquiao",
+    "Nate Diaz",
+    "Canelo Álvarez",
+    "Conor McGregor"
+   ],
+   "correct_index": 3,
+   "sport": "Fighting",
+   "difficulty": 2
+  },
+  {
+   "id": "q0278",
+   "prompt": "What boxer beat George Foreman in the Rumble in the Jungle?",
+   "options": [
+    "Larry Holmes",
+    "Joe Frazier",
+    "Ken Norton",
+    "Muhammad Ali"
+   ],
+   "correct_index": 3,
+   "sport": "Fighting",
+   "difficulty": 2
+  },
+  {
+   "id": "q0280",
+   "prompt": "What boxer handed Muhammad Ali his first professional loss?",
+   "options": [
+    "George Foreman",
+    "Sonny Liston",
+    "Ken Norton",
+    "Joe Frazier"
+   ],
+   "correct_index": 3,
+   "sport": "Fighting",
+   "difficulty": 2
+  },
+  {
+   "id": "q0283",
+   "prompt": "What boxer was nicknamed The Gypsy King?",
+   "options": [
+    "Anthony Joshua",
+    "Deontay Wilder",
+    "Tyson Fury",
+    "Lennox Lewis"
+   ],
+   "correct_index": 2,
+   "sport": "Fighting",
+   "difficulty": 2
+  },
+  {
+   "id": "q0285",
+   "prompt": "What country is Manny Pacquiao from?",
+   "options": [
+    "Thailand",
+    "Puerto Rico",
+    "Mexico",
+    "Philippines"
+   ],
+   "correct_index": 3,
+   "sport": "Fighting",
+   "difficulty": 2
+  },
+  {
+   "id": "q0286",
+   "prompt": "What boxer was the first eight-division world champion?",
+   "options": [
+    "Oscar De La Hoya",
+    "Floyd Mayweather Jr.",
+    "Manny Pacquiao",
+    "Sugar Ray Leonard"
+   ],
+   "correct_index": 2,
+   "sport": "Fighting",
+   "difficulty": 2
+  },
+  {
+   "id": "q0245",
+   "prompt": "What UFC fighter has the nickname Rush?",
+   "options": [
+    "Matt Hughes",
+    "Robbie Lawler",
+    "Tyron Woodley",
+    "Georges St-Pierre"
+   ],
+   "correct_index": 3,
+   "sport": "Fighting",
+   "difficulty": 3
+  },
+  {
+   "id": "q0247",
+   "prompt": "What UFC fighter has the nickname The Eagle?",
+   "options": [
+    "Kamaru Usman",
+    "Islam Makhachev",
+    "Henry Cejudo",
+    "Khabib Nurmagomedov"
+   ],
+   "correct_index": 3,
+   "sport": "Fighting",
+   "difficulty": 3
+  },
+  {
+   "id": "q0249",
+   "prompt": "What UFC fighter has the nickname The Nigerian Nightmare?",
+   "options": [
+    "Kamaru Usman",
+    "Francis Ngannou",
+    "Leon Edwards",
+    "Israel Adesanya"
+   ],
+   "correct_index": 0,
+   "sport": "Fighting",
+   "difficulty": 3
+  },
+  {
+   "id": "q0250",
+   "prompt": "What UFC fighter has the nickname Blessed?",
+   "options": [
+    "Max Holloway",
+    "José Aldo",
+    "Alexander Volkanovski",
+    "Brian Ortega"
+   ],
+   "correct_index": 0,
+   "sport": "Fighting",
+   "difficulty": 3
+  },
+  {
+   "id": "q0253",
+   "prompt": "What UFC fighter knocked out Ronda Rousey at UFC 193?",
+   "options": [
+    "Miesha Tate",
+    "Valentina Shevchenko",
+    "Holly Holm",
+    "Amanda Nunes"
+   ],
+   "correct_index": 2,
+   "sport": "Fighting",
+   "difficulty": 3
+  },
+  {
+   "id": "q0255",
+   "prompt": "What UFC fighter held titles at heavyweight and light heavyweight?",
+   "options": [
+    "Stipe Miocic",
+    "Daniel Cormier",
+    "Jon Jones",
+    "Randy Couture"
+   ],
+   "correct_index": 1,
+   "sport": "Fighting",
+   "difficulty": 3
+  },
+  {
+   "id": "q0256",
+   "prompt": "What UFC fighter won Olympic gold in wrestling before becoming a UFC champion?",
+   "options": [
+    "Henry Cejudo",
+    "Yoel Romero",
+    "Daniel Henderson",
+    "Daniel Cormier"
+   ],
+   "correct_index": 0,
+   "sport": "Fighting",
+   "difficulty": 3
+  },
+  {
+   "id": "q0258",
+   "prompt": "What UFC fighter was known for the “Stockton slap”?",
+   "options": [
+    "Jorge Masvidal",
+    "Tony Ferguson",
+    "Nate Diaz",
+    "Nick Diaz"
+   ],
+   "correct_index": 2,
+   "sport": "Fighting",
+   "difficulty": 3
+  },
+  {
+   "id": "q0260",
+   "prompt": "What UFC fighter did Conor McGregor beat to become lightweight champion?",
+   "options": [
+    "Chad Mendes",
+    "José Aldo",
+    "Eddie Alvarez",
+    "Dustin Poirier"
+   ],
+   "correct_index": 2,
+   "sport": "Fighting",
+   "difficulty": 3
+  },
+  {
+   "id": "q0270",
+   "prompt": "What boxer was nicknamed The Golden Boy?",
+   "options": [
+    "Oscar De La Hoya",
+    "Roberto Durán",
+    "Floyd Mayweather Jr.",
+    "Sugar Ray Leonard"
+   ],
+   "correct_index": 0,
+   "sport": "Fighting",
+   "difficulty": 3
+  },
+  {
+   "id": "q0271",
+   "prompt": "What boxer was nicknamed The Brown Bomber?",
+   "options": [
+    "Joe Louis",
+    "Rocky Marciano",
+    "Jack Johnson",
+    "Sonny Liston"
+   ],
+   "correct_index": 0,
+   "sport": "Fighting",
+   "difficulty": 3
+  },
+  {
+   "id": "q0272",
+   "prompt": "What boxer was nicknamed The Hitman?",
+   "options": [
+    "Marvin Hagler",
+    "Thomas Hearns",
+    "Roberto Durán",
+    "Sugar Ray Leonard"
+   ],
+   "correct_index": 1,
+   "sport": "Fighting",
+   "difficulty": 3
+  },
+  {
+   "id": "q0281",
+   "prompt": "What boxer was known for the “peek-a-boo” style under trainer Cus D’Amato?",
+   "options": [
+    "Floyd Patterson",
+    "Joe Frazier",
+    "Rocky Marciano",
+    "Mike Tyson"
+   ],
+   "correct_index": 3,
+   "sport": "Fighting",
+   "difficulty": 3
+  },
+  {
+   "id": "q0282",
+   "prompt": "What boxer defeated Deontay Wilder in their trilogy?",
+   "options": [
+    "Anthony Joshua",
+    "Deontay Wilder",
+    "Oleksandr Usyk",
+    "Tyson Fury"
+   ],
+   "correct_index": 3,
+   "sport": "Fighting",
+   "difficulty": 3
+  },
+  {
+   "id": "q0284",
+   "prompt": "What boxer was known as Pac-Man?",
+   "options": [
+    "Nonito Donaire",
+    "Juan Manuel Márquez",
+    "Manny Pacquiao",
+    "Canelo Álvarez"
+   ],
+   "correct_index": 2,
+   "sport": "Fighting",
+   "difficulty": 3
+  },
+  {
+   "id": "q0287",
+   "prompt": "What boxer did Buster Douglas upset in 1990?",
+   "options": [
+    "George Foreman",
+    "Evander Holyfield",
+    "Lennox Lewis",
+    "Mike Tyson"
+   ],
+   "correct_index": 3,
+   "sport": "Fighting",
+   "difficulty": 3
+  },
+  {
+   "id": "q0257",
+   "prompt": "What UFC fighter is from Georgia and became bantamweight champion?",
+   "options": [
+    "Sean O’Malley",
+    "Petr Yan",
+    "Aljamain Sterling",
+    "Merab Dvalishvili"
+   ],
+   "correct_index": 3,
+   "sport": "Fighting",
+   "difficulty": 4
+  },
+  {
+   "id": "q0263",
+   "prompt": "What UFC fighter broke Anderson Silva’s long winning streak?",
+   "options": [
+    "Chris Weidman",
+    "Chael Sonnen",
+    "Michael Bisping",
+    "Vitor Belfort"
+   ],
+   "correct_index": 0,
+   "sport": "Fighting",
+   "difficulty": 4
+  },
+  {
+   "id": "q0288",
+   "prompt": "What UFC fighter was known as The Prodigy?",
+   "options": [
+    "B.J. Penn",
+    "Frankie Edgar",
+    "Matt Hughes",
+    "Georges St-Pierre"
+   ],
+   "correct_index": 0,
+   "sport": "Fighting",
+   "difficulty": 5
+  },
+  {
+   "id": "q0289",
+   "prompt": "What UFC fighter famously said “Don’t fear me” after winning the welterweight title?",
+   "options": [
+    "Julianna Peña",
+    "Amanda Nunes",
+    "Holly Holm",
+    "Valentina Shevchenko"
+   ],
+   "correct_index": 0,
+   "sport": "Fighting",
+   "difficulty": 5
+  },
+  {
+   "id": "q0290",
+   "prompt": "What UFC fighter was the first Chinese UFC champion?",
+   "options": [
+    "Joanna Jędrzejczyk",
+    "Yan Xiaonan",
+    "Zhang Weili",
+    "Rose Namajunas"
+   ],
+   "correct_index": 2,
+   "sport": "Fighting",
+   "difficulty": 5
+  },
+  {
+   "id": "q0291",
+   "prompt": "What UFC fighter was the first Mexican-born UFC champion?",
+   "options": [
+    "Henry Cejudo",
+    "Brandon Moreno",
+    "Yair Rodríguez",
+    "Cain Velasquez"
+   ],
+   "correct_index": 1,
+   "sport": "Fighting",
+   "difficulty": 5
+  },
+  {
+   "id": "q0051",
+   "prompt": "What NFL player goes by the nickname Prime Time?",
+   "options": [
+    "Darrelle Revis",
+    "Barry Sanders",
+    "Deion Sanders",
+    "Jerry Rice"
+   ],
+   "correct_index": 2,
+   "sport": "Football",
+   "difficulty": 1
+  },
+  {
+   "id": "q0052",
+   "prompt": "What NFL player goes by the nickname Megatron?",
+   "options": [
+    "Terrell Owens",
+    "Calvin Johnson",
+    "Randy Moss",
+    "Julio Jones"
+   ],
+   "correct_index": 1,
+   "sport": "Football",
+   "difficulty": 1
+  },
+  {
+   "id": "q0053",
+   "prompt": "What NFL player was nicknamed Beast Mode?",
+   "options": [
+    "Adrian Peterson",
+    "Earl Campbell",
+    "Marshawn Lynch",
+    "Derrick Henry"
+   ],
+   "correct_index": 2,
+   "sport": "Football",
+   "difficulty": 1
+  },
+  {
+   "id": "q0058",
+   "prompt": "What NFL quarterback has won the most Super Bowls?",
+   "options": [
+    "Tom Brady",
+    "Patrick Mahomes",
+    "Joe Montana",
+    "Terry Bradshaw"
+   ],
+   "correct_index": 0,
+   "sport": "Football",
+   "difficulty": 1
+  },
+  {
+   "id": "q0059",
+   "prompt": "What team drafted Tom Brady?",
+   "options": [
+    "Miami Dolphins",
+    "New England Patriots",
+    "San Francisco 49ers",
+    "New York Jets"
+   ],
+   "correct_index": 1,
+   "sport": "Football",
+   "difficulty": 1
+  },
+  {
+   "id": "q0062",
+   "prompt": "What NFL player caught the Philly Special touchdown pass?",
+   "options": [
+    "Alshon Jeffery",
+    "Zach Ertz",
+    "Nick Foles",
+    "Trey Burton"
+   ],
+   "correct_index": 2,
+   "sport": "Football",
+   "difficulty": 1
+  },
+  {
+   "id": "q0067",
+   "prompt": "What NFL team drafted Aaron Rodgers?",
+   "options": [
+    "San Francisco 49ers",
+    "New York Jets",
+    "Green Bay Packers",
+    "Atlanta Falcons"
+   ],
+   "correct_index": 2,
+   "sport": "Football",
+   "difficulty": 1
+  },
+  {
+   "id": "q0082",
+   "prompt": "What team drafted Josh Allen?",
+   "options": [
+    "Jacksonville Jaguars",
+    "New York Jets",
+    "Buffalo Bills",
+    "Cleveland Browns"
+   ],
+   "correct_index": 2,
+   "sport": "Football",
+   "difficulty": 1
+  },
+  {
+   "id": "q0086",
+   "prompt": "What NFL team is known as America’s Team?",
+   "options": [
+    "Green Bay Packers",
+    "Pittsburgh Steelers",
+    "New England Patriots",
+    "Dallas Cowboys"
+   ],
+   "correct_index": 3,
+   "sport": "Football",
+   "difficulty": 1
+  },
+  {
+   "id": "q0090",
+   "prompt": "What NFL coach has won the most Super Bowls?",
+   "options": [
+    "Chuck Noll",
+    "Bill Belichick",
+    "Bill Walsh",
+    "Don Shula"
+   ],
+   "correct_index": 1,
+   "sport": "Football",
+   "difficulty": 1
+  },
+  {
+   "id": "q0093",
+   "prompt": "What team came back from 28-3 in Super Bowl LI?",
+   "options": [
+    "Seattle Seahawks",
+    "New England Patriots",
+    "Atlanta Falcons",
+    "Denver Broncos"
+   ],
+   "correct_index": 1,
+   "sport": "Football",
+   "difficulty": 1
+  },
+  {
+   "id": "q0054",
+   "prompt": "What NFL player was known as The Bus?",
+   "options": [
+    "Eddie George",
+    "Curtis Martin",
+    "Jerome Bettis",
+    "Christian Okoye"
+   ],
+   "correct_index": 2,
+   "sport": "Football",
+   "difficulty": 2
+  },
+  {
+   "id": "q0055",
+   "prompt": "What NFL quarterback was known as The Sheriff?",
+   "options": [
+    "Peyton Manning",
+    "Tom Brady",
+    "Brett Favre",
+    "Drew Brees"
+   ],
+   "correct_index": 0,
+   "sport": "Football",
+   "difficulty": 2
+  },
+  {
+   "id": "q0056",
+   "prompt": "What NFL player was known as Sweetness?",
+   "options": [
+    "Walter Payton",
+    "Emmitt Smith",
+    "Barry Sanders",
+    "Gale Sayers"
+   ],
+   "correct_index": 0,
+   "sport": "Football",
+   "difficulty": 2
+  },
+  {
+   "id": "q0060",
+   "prompt": "What college did Patrick Mahomes go to?",
+   "options": [
+    "Baylor",
+    "Texas Tech",
+    "Texas",
+    "Oklahoma"
+   ],
+   "correct_index": 1,
+   "sport": "Football",
+   "difficulty": 2
+  },
+  {
+   "id": "q0061",
+   "prompt": "What NFL player caught the Helmet Catch?",
+   "options": [
+    "David Tyree",
+    "Mario Manningham",
+    "Plaxico Burress",
+    "Amani Toomer"
+   ],
+   "correct_index": 0,
+   "sport": "Football",
+   "difficulty": 2
+  },
+  {
+   "id": "q0066",
+   "prompt": "What college did Joe Burrow go to?",
+   "options": [
+    "LSU",
+    "Alabama",
+    "Ohio State",
+    "Clemson"
+   ],
+   "correct_index": 0,
+   "sport": "Football",
+   "difficulty": 2
+  },
+  {
+   "id": "q0071",
+   "prompt": "What team did Peyton Manning finish his career with?",
+   "options": [
+    "Denver Broncos",
+    "Tennessee Titans",
+    "Indianapolis Colts",
+    "New York Giants"
+   ],
+   "correct_index": 0,
+   "sport": "Football",
+   "difficulty": 2
+  },
+  {
+   "id": "q0073",
+   "prompt": "What team did Brett Favre spend most of his career with?",
+   "options": [
+    "New York Jets",
+    "Green Bay Packers",
+    "Atlanta Falcons",
+    "Minnesota Vikings"
+   ],
+   "correct_index": 1,
+   "sport": "Football",
+   "difficulty": 2
+  },
+  {
+   "id": "q0074",
+   "prompt": "What NFL player holds the all-time rushing yards record?",
+   "options": [
+    "Walter Payton",
+    "Adrian Peterson",
+    "Barry Sanders",
+    "Emmitt Smith"
+   ],
+   "correct_index": 3,
+   "sport": "Football",
+   "difficulty": 2
+  },
+  {
+   "id": "q0075",
+   "prompt": "What NFL player holds the all-time receiving yards record?",
+   "options": [
+    "Jerry Rice",
+    "Randy Moss",
+    "Larry Fitzgerald",
+    "Terrell Owens"
+   ],
+   "correct_index": 0,
+   "sport": "Football",
+   "difficulty": 2
+  },
+  {
+   "id": "q0076",
+   "prompt": "What NFL quarterback holds the record for most career passing yards?",
+   "options": [
+    "Tom Brady",
+    "Peyton Manning",
+    "Drew Brees",
+    "Brett Favre"
+   ],
+   "correct_index": 0,
+   "sport": "Football",
+   "difficulty": 2
+  },
+  {
+   "id": "q0078",
+   "prompt": "What team went undefeated in the 1972 NFL season?",
+   "options": [
+    "San Francisco 49ers",
+    "Dallas Cowboys",
+    "Chicago Bears",
+    "Miami Dolphins"
+   ],
+   "correct_index": 3,
+   "sport": "Football",
+   "difficulty": 2
+  },
+  {
+   "id": "q0079",
+   "prompt": "What NFL team lost four straight Super Bowls in the 1990s?",
+   "options": [
+    "Minnesota Vikings",
+    "Buffalo Bills",
+    "New England Patriots",
+    "Denver Broncos"
+   ],
+   "correct_index": 1,
+   "sport": "Football",
+   "difficulty": 2
+  },
+  {
+   "id": "q0081",
+   "prompt": "What NFL player was drafted first overall in 2021?",
+   "options": [
+    "Baker Mayfield",
+    "Trevor Lawrence",
+    "Joe Burrow",
+    "Kyler Murray"
+   ],
+   "correct_index": 1,
+   "sport": "Football",
+   "difficulty": 2
+  },
+  {
+   "id": "q0084",
+   "prompt": "What NFL player was nicknamed All Day?",
+   "options": [
+    "Arian Foster",
+    "Chris Johnson",
+    "Marshawn Lynch",
+    "Adrian Peterson"
+   ],
+   "correct_index": 3,
+   "sport": "Football",
+   "difficulty": 2
+  },
+  {
+   "id": "q0091",
+   "prompt": "What NFL team did Marshawn Lynch refuse to run against at the goal line in Super Bowl XLIX?",
+   "options": [
+    "Denver Broncos",
+    "Seattle Seahawks",
+    "New England Patriots",
+    "San Francisco 49ers"
+   ],
+   "correct_index": 2,
+   "sport": "Football",
+   "difficulty": 2
+  },
+  {
+   "id": "q0092",
+   "prompt": "What quarterback led the Falcons to a 28-3 lead in Super Bowl LI?",
+   "options": [
+    "Julio Jones",
+    "Devonta Freeman",
+    "Tom Brady",
+    "Matt Ryan"
+   ],
+   "correct_index": 3,
+   "sport": "Football",
+   "difficulty": 2
+  },
+  {
+   "id": "q0095",
+   "prompt": "What college did Saquon Barkley go to?",
+   "options": [
+    "Penn State",
+    "Georgia",
+    "Alabama",
+    "Ohio State"
+   ],
+   "correct_index": 0,
+   "sport": "Football",
+   "difficulty": 2
+  },
+  {
+   "id": "q0096",
+   "prompt": "What NFL player won MVP as a running back in 2012?",
+   "options": [
+    "Shaun Alexander",
+    "LaDainian Tomlinson",
+    "Derrick Henry",
+    "Adrian Peterson"
+   ],
+   "correct_index": 3,
+   "sport": "Football",
+   "difficulty": 2
+  },
+  {
+   "id": "q0050",
+   "prompt": "Which NFL player was catfished while attending Notre Dame?",
+   "options": [
+    "Johnny Manziel",
+    "Brady Quinn",
+    "Tim Tebow",
+    "Manti Te’o"
+   ],
+   "correct_index": 3,
+   "sport": "Football",
+   "difficulty": 3
+  },
+  {
+   "id": "q0057",
+   "prompt": "What NFL player was known as The Fridge?",
+   "options": [
+    "William Perry",
+    "Richard Dent",
+    "Mike Singletary",
+    "Steve McMichael"
+   ],
+   "correct_index": 0,
+   "sport": "Football",
+   "difficulty": 3
+  },
+  {
+   "id": "q0063",
+   "prompt": "What team won Super Bowl LII?",
+   "options": [
+    "Philadelphia Eagles",
+    "New England Patriots",
+    "Los Angeles Rams",
+    "Kansas City Chiefs"
+   ],
+   "correct_index": 0,
+   "sport": "Football",
+   "difficulty": 3
+  },
+  {
+   "id": "q0064",
+   "prompt": "What NFL quarterback threw the Minneapolis Miracle?",
+   "options": [
+    "Case Keenum",
+    "Teddy Bridgewater",
+    "Kirk Cousins",
+    "Sam Bradford"
+   ],
+   "correct_index": 0,
+   "sport": "Football",
+   "difficulty": 3
+  },
+  {
+   "id": "q0065",
+   "prompt": "What player caught the Minneapolis Miracle?",
+   "options": [
+    "Kyle Rudolph",
+    "Justin Jefferson",
+    "Stefon Diggs",
+    "Adam Thielen"
+   ],
+   "correct_index": 2,
+   "sport": "Football",
+   "difficulty": 3
+  },
+  {
+   "id": "q0068",
+   "prompt": "What team drafted Eli Manning before he was traded to the Giants?",
+   "options": [
+    "Oakland Raiders",
+    "New York Giants",
+    "San Diego Chargers",
+    "Indianapolis Colts"
+   ],
+   "correct_index": 2,
+   "sport": "Football",
+   "difficulty": 3
+  },
+  {
+   "id": "q0069",
+   "prompt": "What player returned the opening kickoff for a touchdown in Super Bowl XLI?",
+   "options": [
+    "Devin Hester",
+    "Percy Harvin",
+    "Reggie Bush",
+    "Dante Hall"
+   ],
+   "correct_index": 0,
+   "sport": "Football",
+   "difficulty": 3
+  },
+  {
+   "id": "q0070",
+   "prompt": "What NFL quarterback was drafted first overall in 1998?",
+   "options": [
+    "Eli Manning",
+    "Ryan Leaf",
+    "Michael Vick",
+    "Peyton Manning"
+   ],
+   "correct_index": 3,
+   "sport": "Football",
+   "difficulty": 3
+  },
+  {
+   "id": "q0072",
+   "prompt": "What NFL player was nicknamed The Minister of Defense?",
+   "options": [
+    "Michael Strahan",
+    "Lawrence Taylor",
+    "Bruce Smith",
+    "Reggie White"
+   ],
+   "correct_index": 3,
+   "sport": "Football",
+   "difficulty": 3
+  },
+  {
+   "id": "q0077",
+   "prompt": "What NFL player famously guaranteed a Super Bowl III win?",
+   "options": [
+    "Johnny Unitas",
+    "Joe Namath",
+    "Bart Starr",
+    "Len Dawson"
+   ],
+   "correct_index": 1,
+   "sport": "Football",
+   "difficulty": 3
+  },
+  {
+   "id": "q0080",
+   "prompt": "What college did Jalen Hurts transfer to after leaving Alabama?",
+   "options": [
+    "Miami",
+    "Ohio State",
+    "Texas A&M",
+    "Oklahoma"
+   ],
+   "correct_index": 3,
+   "sport": "Football",
+   "difficulty": 3
+  },
+  {
+   "id": "q0083",
+   "prompt": "What college did Lamar Jackson go to?",
+   "options": [
+    "Florida State",
+    "Louisville",
+    "Clemson",
+    "Auburn"
+   ],
+   "correct_index": 1,
+   "sport": "Football",
+   "difficulty": 3
+  },
+  {
+   "id": "q0087",
+   "prompt": "What team drafted Randy Moss?",
+   "options": [
+    "Dallas Cowboys",
+    "Oakland Raiders",
+    "Minnesota Vikings",
+    "New England Patriots"
+   ],
+   "correct_index": 2,
+   "sport": "Football",
+   "difficulty": 3
+  },
+  {
+   "id": "q0089",
+   "prompt": "What NFL player was nicknamed The Playmaker?",
+   "options": [
+    "Michael Irvin",
+    "Terrell Owens",
+    "Dez Bryant",
+    "Jerry Rice"
+   ],
+   "correct_index": 0,
+   "sport": "Football",
+   "difficulty": 3
+  },
+  {
+   "id": "q0094",
+   "prompt": "What NFL player intercepted Russell Wilson at the goal line in Super Bowl XLIX?",
+   "options": [
+    "Richard Sherman",
+    "Dont’a Hightower",
+    "Malcolm Butler",
+    "Kam Chancellor"
+   ],
+   "correct_index": 2,
+   "sport": "Football",
+   "difficulty": 3
+  },
+  {
+   "id": "q0088",
+   "prompt": "What NFL quarterback famously said “I’m going to Disney World” after winning the Super Bowl?",
+   "options": [
+    "Troy Aikman",
+    "Phil Simms",
+    "Doug Williams",
+    "Joe Montana"
+   ],
+   "correct_index": 1,
+   "sport": "Football",
+   "difficulty": 4
+  },
+  {
+   "id": "q0085",
+   "prompt": "What NFL player was known for the Lambeau Leap?",
+   "options": [
+    "Randall Cobb",
+    "Eddie Lacy",
+    "Donald Driver",
+    "LeRoy Butler"
+   ],
+   "correct_index": 3,
+   "sport": "Football",
+   "difficulty": 5
+  },
+  {
+   "id": "q0195",
+   "prompt": "What golfer has the second-most major wins behind Jack Nicklaus?",
+   "options": [
+    "Arnold Palmer",
+    "Gary Player",
+    "Tiger Woods",
+    "Walter Hagen"
+   ],
+   "correct_index": 2,
+   "sport": "Golf",
+   "difficulty": 1
+  },
+  {
+   "id": "q0196",
+   "prompt": "What golfer won the Masters in 1997 by 12 strokes?",
+   "options": [
+    "Tiger Woods",
+    "Phil Mickelson",
+    "Vijay Singh",
+    "Ernie Els"
+   ],
+   "correct_index": 0,
+   "sport": "Golf",
+   "difficulty": 1
+  },
+  {
+   "id": "q0209",
+   "prompt": "What golf tournament is played at Augusta National?",
+   "options": [
+    "PGA Championship",
+    "U.S. Open",
+    "The Open Championship",
+    "The Masters"
+   ],
+   "correct_index": 3,
+   "sport": "Golf",
+   "difficulty": 1
+  },
+  {
+   "id": "q0210",
+   "prompt": "What color jacket is given to the Masters champion?",
+   "options": [
+    "Red",
+    "Blue",
+    "Gold",
+    "Green"
+   ],
+   "correct_index": 3,
+   "sport": "Golf",
+   "difficulty": 1
+  },
+  {
+   "id": "q0212",
+   "prompt": "What golfer won the 2000 U.S. Open by 15 strokes?",
+   "options": [
+    "Rory McIlroy",
+    "Jack Nicklaus",
+    "Tiger Woods",
+    "Brooks Koepka"
+   ],
+   "correct_index": 2,
+   "sport": "Golf",
+   "difficulty": 1
+  },
+  {
+   "id": "q0216",
+   "prompt": "What golfer won the 1991 Masters as the first Black golfer to win a major?",
+   "options": [
+    "Tiger Woods",
+    "Lee Elder",
+    "Calvin Peete",
+    "Charlie Sifford"
+   ],
+   "correct_index": 0,
+   "sport": "Golf",
+   "difficulty": 1
+  },
+  {
+   "id": "q0194",
+   "prompt": "What golfer has the most major championship wins?",
+   "options": [
+    "Jack Nicklaus",
+    "Ben Hogan",
+    "Arnold Palmer",
+    "Tiger Woods"
+   ],
+   "correct_index": 0,
+   "sport": "Golf",
+   "difficulty": 2
+  },
+  {
+   "id": "q0197",
+   "prompt": "What golfer hit a famous chip-in at the 16th hole at the 2005 Masters?",
+   "options": [
+    "Tiger Woods",
+    "Phil Mickelson",
+    "Chris DiMarco",
+    "Vijay Singh"
+   ],
+   "correct_index": 0,
+   "sport": "Golf",
+   "difficulty": 2
+  },
+  {
+   "id": "q0198",
+   "prompt": "What golfer won the 2019 Masters after an 11-year major drought?",
+   "options": [
+    "Rory McIlroy",
+    "Tiger Woods",
+    "Brooks Koepka",
+    "Phil Mickelson"
+   ],
+   "correct_index": 1,
+   "sport": "Golf",
+   "difficulty": 2
+  },
+  {
+   "id": "q0203",
+   "prompt": "What golfer became the first Japanese men’s major champion by winning the 2021 Masters?",
+   "options": [
+    "Isao Aoki",
+    "Ryo Ishikawa",
+    "Hideki Matsuyama",
+    "Shigeki Maruyama"
+   ],
+   "correct_index": 2,
+   "sport": "Golf",
+   "difficulty": 2
+  },
+  {
+   "id": "q0206",
+   "prompt": "What golfer won the 2024 Masters?",
+   "options": [
+    "Ludvig Åberg",
+    "Scottie Scheffler",
+    "Jon Rahm",
+    "Rory McIlroy"
+   ],
+   "correct_index": 1,
+   "sport": "Golf",
+   "difficulty": 2
+  },
+  {
+   "id": "q0208",
+   "prompt": "What golfer helped popularize the modern PGA Tour alongside Arnold Palmer?",
+   "options": [
+    "Jack Nicklaus",
+    "Tom Watson",
+    "Gary Player",
+    "Lee Trevino"
+   ],
+   "correct_index": 0,
+   "sport": "Golf",
+   "difficulty": 2
+  },
+  {
+   "id": "q0213",
+   "prompt": "What golfer is famous for the “Better than most” putt?",
+   "options": [
+    "Davis Love III",
+    "Fred Couples",
+    "Phil Mickelson",
+    "Tiger Woods"
+   ],
+   "correct_index": 3,
+   "sport": "Golf",
+   "difficulty": 2
+  },
+  {
+   "id": "q0220",
+   "prompt": "What golfer won the 2020 U.S. Open at Winged Foot with a power-heavy approach?",
+   "options": [
+    "Rory McIlroy",
+    "Dustin Johnson",
+    "Brooks Koepka",
+    "Bryson DeChambeau"
+   ],
+   "correct_index": 3,
+   "sport": "Golf",
+   "difficulty": 2
+  },
+  {
+   "id": "q0223",
+   "prompt": "What golfer is from Northern Ireland and has won four majors?",
+   "options": [
+    "Graeme McDowell",
+    "Padraig Harrington",
+    "Shane Lowry",
+    "Rory McIlroy"
+   ],
+   "correct_index": 3,
+   "sport": "Golf",
+   "difficulty": 2
+  },
+  {
+   "id": "q0229",
+   "prompt": "What golfer was known for his rivalry with Tiger Woods in the early 2000s?",
+   "options": [
+    "Sergio García",
+    "Phil Mickelson",
+    "Vijay Singh",
+    "Ernie Els"
+   ],
+   "correct_index": 1,
+   "sport": "Golf",
+   "difficulty": 2
+  },
+  {
+   "id": "q0231",
+   "prompt": "What golfer is the youngest Masters champion?",
+   "options": [
+    "Jack Nicklaus",
+    "Jordan Spieth",
+    "Seve Ballesteros",
+    "Tiger Woods"
+   ],
+   "correct_index": 3,
+   "sport": "Golf",
+   "difficulty": 2
+  },
+  {
+   "id": "q0233",
+   "prompt": "What golfer is known for the “stinger” shot?",
+   "options": [
+    "Tiger Woods",
+    "Ben Hogan",
+    "Dustin Johnson",
+    "Lee Trevino"
+   ],
+   "correct_index": 0,
+   "sport": "Golf",
+   "difficulty": 2
+  },
+  {
+   "id": "q0240",
+   "prompt": "What golfer won the 1995 Masters as an amateur sensation before becoming a pro star?",
+   "options": [
+    "Phil Mickelson",
+    "Justin Leonard",
+    "Sergio García",
+    "Tiger Woods"
+   ],
+   "correct_index": 3,
+   "sport": "Golf",
+   "difficulty": 2
+  },
+  {
+   "id": "q0199",
+   "prompt": "What golfer is known as Lefty?",
+   "options": [
+    "Jordan Spieth",
+    "Bubba Watson",
+    "Phil Mickelson",
+    "Mike Weir"
+   ],
+   "correct_index": 2,
+   "sport": "Golf",
+   "difficulty": 3
+  },
+  {
+   "id": "q0200",
+   "prompt": "What golfer was nicknamed The Golden Bear?",
+   "options": [
+    "Jack Nicklaus",
+    "Tom Watson",
+    "Gary Player",
+    "Arnold Palmer"
+   ],
+   "correct_index": 0,
+   "sport": "Golf",
+   "difficulty": 3
+  },
+  {
+   "id": "q0201",
+   "prompt": "What golfer won the U.S. Open at Torrey Pines while playing with a leg injury?",
+   "options": [
+    "Phil Mickelson",
+    "Tiger Woods",
+    "Retief Goosen",
+    "Rocco Mediate"
+   ],
+   "correct_index": 1,
+   "sport": "Golf",
+   "difficulty": 3
+  },
+  {
+   "id": "q0204",
+   "prompt": "What golfer won the 2022 Masters?",
+   "options": [
+    "Scottie Scheffler",
+    "Jon Rahm",
+    "Rory McIlroy",
+    "Cameron Smith"
+   ],
+   "correct_index": 0,
+   "sport": "Golf",
+   "difficulty": 3
+  },
+  {
+   "id": "q0205",
+   "prompt": "What golfer won the 2023 Masters?",
+   "options": [
+    "Scottie Scheffler",
+    "Brooks Koepka",
+    "Jon Rahm",
+    "Jordan Spieth"
+   ],
+   "correct_index": 2,
+   "sport": "Golf",
+   "difficulty": 3
+  },
+  {
+   "id": "q0207",
+   "prompt": "What golfer was known as The King?",
+   "options": [
+    "Tom Watson",
+    "Jack Nicklaus",
+    "Arnold Palmer",
+    "Gary Player"
+   ],
+   "correct_index": 2,
+   "sport": "Golf",
+   "difficulty": 3
+  },
+  {
+   "id": "q0211",
+   "prompt": "What golf major is usually played on links courses?",
+   "options": [
+    "The Masters",
+    "PGA Championship",
+    "U.S. Open",
+    "The Open Championship"
+   ],
+   "correct_index": 3,
+   "sport": "Golf",
+   "difficulty": 3
+  },
+  {
+   "id": "q0214",
+   "prompt": "What course hosts the Players Championship?",
+   "options": [
+    "Pebble Beach",
+    "Augusta National",
+    "TPC Sawgrass",
+    "Bethpage Black"
+   ],
+   "correct_index": 2,
+   "sport": "Golf",
+   "difficulty": 3
+  },
+  {
+   "id": "q0217",
+   "prompt": "What golfer made a famous duel with Jack Nicklaus at the 1977 British Open called the “Duel in the Sun”?",
+   "options": [
+    "Lee Trevino",
+    "Tom Watson",
+    "Arnold Palmer",
+    "Gary Player"
+   ],
+   "correct_index": 1,
+   "sport": "Golf",
+   "difficulty": 3
+  },
+  {
+   "id": "q0218",
+   "prompt": "What golfer was nicknamed The Shark?",
+   "options": [
+    "Nick Faldo",
+    "Ernie Els",
+    "Greg Norman",
+    "Dustin Johnson"
+   ],
+   "correct_index": 2,
+   "sport": "Golf",
+   "difficulty": 3
+  },
+  {
+   "id": "q0221",
+   "prompt": "What golfer is known for wearing orange on Sundays?",
+   "options": [
+    "Tony Finau",
+    "Jordan Spieth",
+    "Rickie Fowler",
+    "Viktor Hovland"
+   ],
+   "correct_index": 2,
+   "sport": "Golf",
+   "difficulty": 3
+  },
+  {
+   "id": "q0222",
+   "prompt": "What golfer won the 2015 Masters at age 21?",
+   "options": [
+    "Hideki Matsuyama",
+    "Jordan Spieth",
+    "Justin Thomas",
+    "Rory McIlroy"
+   ],
+   "correct_index": 1,
+   "sport": "Golf",
+   "difficulty": 3
+  },
+  {
+   "id": "q0227",
+   "prompt": "What golfer won the 1986 Masters at age 46?",
+   "options": [
+    "Gary Player",
+    "Jack Nicklaus",
+    "Seve Ballesteros",
+    "Tom Watson"
+   ],
+   "correct_index": 1,
+   "sport": "Golf",
+   "difficulty": 3
+  },
+  {
+   "id": "q0230",
+   "prompt": "What golfer won the PGA Championship at age 50?",
+   "options": [
+    "Phil Mickelson",
+    "Ernie Els",
+    "Tiger Woods",
+    "Davis Love III"
+   ],
+   "correct_index": 0,
+   "sport": "Golf",
+   "difficulty": 3
+  },
+  {
+   "id": "q0232",
+   "prompt": "What golfer won the first FedEx Cup?",
+   "options": [
+    "Phil Mickelson",
+    "Vijay Singh",
+    "Tiger Woods",
+    "Jim Furyk"
+   ],
+   "correct_index": 2,
+   "sport": "Golf",
+   "difficulty": 3
+  },
+  {
+   "id": "q0236",
+   "prompt": "What golfer won the 2024 U.S. Open at Pinehurst?",
+   "options": [
+    "Bryson DeChambeau",
+    "Xander Schauffele",
+    "Rory McIlroy",
+    "Patrick Cantlay"
+   ],
+   "correct_index": 0,
+   "sport": "Golf",
+   "difficulty": 3
+  },
+  {
+   "id": "q0202",
+   "prompt": "What golfer collapsed at the 1999 British Open after needing only a double bogey to win?",
+   "options": [
+    "Colin Montgomerie",
+    "Greg Norman",
+    "Dustin Johnson",
+    "Jean van de Velde"
+   ],
+   "correct_index": 3,
+   "sport": "Golf",
+   "difficulty": 4
+  },
+  {
+   "id": "q0215",
+   "prompt": "What hole at TPC Sawgrass is famous for its island green?",
+   "options": [
+    "17th hole",
+    "12th hole",
+    "16th hole",
+    "18th hole"
+   ],
+   "correct_index": 0,
+   "sport": "Golf",
+   "difficulty": 4
+  },
+  {
+   "id": "q0219",
+   "prompt": "What golfer founded LIV Golf’s public-facing leadership as CEO?",
+   "options": [
+    "Dustin Johnson",
+    "Sergio García",
+    "Phil Mickelson",
+    "Greg Norman"
+   ],
+   "correct_index": 3,
+   "sport": "Golf",
+   "difficulty": 4
+  },
+  {
+   "id": "q0234",
+   "prompt": "What golfer won the 2016 U.S. Open at Oakmont?",
+   "options": [
+    "Jordan Spieth",
+    "Brooks Koepka",
+    "Dustin Johnson",
+    "Jason Day"
+   ],
+   "correct_index": 2,
+   "sport": "Golf",
+   "difficulty": 4
+  },
+  {
+   "id": "q0235",
+   "prompt": "What golfer won the 2023 U.S. Open at Los Angeles Country Club?",
+   "options": [
+    "Rickie Fowler",
+    "Wyndham Clark",
+    "Rory McIlroy",
+    "Scottie Scheffler"
+   ],
+   "correct_index": 1,
+   "sport": "Golf",
+   "difficulty": 4
+  },
+  {
+   "id": "q0237",
+   "prompt": "What golfer was the first to shoot 63 in a major championship?",
+   "options": [
+    "Gary Player",
+    "Johnny Miller",
+    "Tom Weiskopf",
+    "Jack Nicklaus"
+   ],
+   "correct_index": 1,
+   "sport": "Golf",
+   "difficulty": 4
+  },
+  {
+   "id": "q0238",
+   "prompt": "What golfer won the 2018 Masters?",
+   "options": [
+    "Jordan Spieth",
+    "Rory McIlroy",
+    "Patrick Reed",
+    "Rickie Fowler"
+   ],
+   "correct_index": 2,
+   "sport": "Golf",
+   "difficulty": 4
+  },
+  {
+   "id": "q0241",
+   "prompt": "What golfer was nicknamed Boom Boom?",
+   "options": [
+    "Davis Love III",
+    "Fred Couples",
+    "Payne Stewart",
+    "John Daly"
+   ],
+   "correct_index": 1,
+   "sport": "Golf",
+   "difficulty": 4
+  },
+  {
+   "id": "q0224",
+   "prompt": "What golfer won the 2011 U.S. Open by eight shots?",
+   "options": [
+    "Dustin Johnson",
+    "Jordan Spieth",
+    "Jason Day",
+    "Rory McIlroy"
+   ],
+   "correct_index": 3,
+   "sport": "Golf",
+   "difficulty": 5
+  },
+  {
+   "id": "q0225",
+   "prompt": "What golfer missed a short putt at the 2016 Masters and lost to Danny Willett?",
+   "options": [
+    "Justin Rose",
+    "Jordan Spieth",
+    "Dustin Johnson",
+    "Rory McIlroy"
+   ],
+   "correct_index": 1,
+   "sport": "Golf",
+   "difficulty": 5
+  },
+  {
+   "id": "q0226",
+   "prompt": "What golfer won the 2009 British Open at age 59 if not for a playoff loss?",
+   "options": [
+    "Bernhard Langer",
+    "Jack Nicklaus",
+    "Greg Norman",
+    "Tom Watson"
+   ],
+   "correct_index": 3,
+   "sport": "Golf",
+   "difficulty": 5
+  },
+  {
+   "id": "q0228",
+   "prompt": "What golfer’s caddie was famously named Steve Williams?",
+   "options": [
+    "Greg Norman",
+    "Adam Scott",
+    "Vijay Singh",
+    "Tiger Woods"
+   ],
+   "correct_index": 3,
+   "sport": "Golf",
+   "difficulty": 5
+  },
+  {
+   "id": "q0239",
+   "prompt": "What golfer lost the 2012 Masters after hitting into the water on the 10th hole in a playoff?",
+   "options": [
+    "Charl Schwartzel",
+    "Adam Scott",
+    "Louis Oosthuizen",
+    "Bubba Watson"
+   ],
+   "correct_index": 2,
+   "sport": "Golf",
+   "difficulty": 5
+  },
+  {
+   "id": "q0145",
+   "prompt": "What NHL player is nicknamed The Great One?",
+   "options": [
+    "Mario Lemieux",
+    "Wayne Gretzky",
+    "Sidney Crosby",
+    "Gordie Howe"
+   ],
+   "correct_index": 1,
+   "sport": "Hockey",
+   "difficulty": 1
+  },
+  {
+   "id": "q0147",
+   "prompt": "What NHL player has the most career points?",
+   "options": [
+    "Mario Lemieux",
+    "Jaromír Jágr",
+    "Wayne Gretzky",
+    "Mark Messier"
+   ],
+   "correct_index": 2,
+   "sport": "Hockey",
+   "difficulty": 1
+  },
+  {
+   "id": "q0149",
+   "prompt": "What team drafted Sidney Crosby?",
+   "options": [
+    "Pittsburgh Penguins",
+    "Washington Capitals",
+    "Toronto Maple Leafs",
+    "Edmonton Oilers"
+   ],
+   "correct_index": 0,
+   "sport": "Hockey",
+   "difficulty": 1
+  },
+  {
+   "id": "q0150",
+   "prompt": "What NHL player is known as Ovi?",
+   "options": [
+    "Ilya Kovalchuk",
+    "Evgeni Malkin",
+    "Alex Ovechkin",
+    "Pavel Datsyuk"
+   ],
+   "correct_index": 2,
+   "sport": "Hockey",
+   "difficulty": 1
+  },
+  {
+   "id": "q0163",
+   "prompt": "What team won the Stanley Cup in 1980 after upsetting the Soviet Union in Olympic hockey?",
+   "options": [
+    "Sweden",
+    "Canada",
+    "United States",
+    "Soviet Union"
+   ],
+   "correct_index": 2,
+   "sport": "Hockey",
+   "difficulty": 1
+  },
+  {
+   "id": "q0164",
+   "prompt": "What country did the U.S. beat in the “Miracle on Ice”?",
+   "options": [
+    "Canada",
+    "Soviet Union",
+    "Finland",
+    "Czechoslovakia"
+   ],
+   "correct_index": 1,
+   "sport": "Hockey",
+   "difficulty": 1
+  },
+  {
+   "id": "q0168",
+   "prompt": "What NHL player was known as Super Mario?",
+   "options": [
+    "Mario Lemieux",
+    "Jaromír Jágr",
+    "Wayne Gretzky",
+    "Eric Lindros"
+   ],
+   "correct_index": 0,
+   "sport": "Hockey",
+   "difficulty": 1
+  },
+  {
+   "id": "q0171",
+   "prompt": "What NHL team plays at Madison Square Garden?",
+   "options": [
+    "Boston Bruins",
+    "New Jersey Devils",
+    "New York Rangers",
+    "New York Islanders"
+   ],
+   "correct_index": 2,
+   "sport": "Hockey",
+   "difficulty": 1
+  },
+  {
+   "id": "q0181",
+   "prompt": "What NHL player was nicknamed Jumbo Joe?",
+   "options": [
+    "Joe Thornton",
+    "Zdeno Chára",
+    "Joe Pavelski",
+    "Jarome Iginla"
+   ],
+   "correct_index": 0,
+   "sport": "Hockey",
+   "difficulty": 1
+  },
+  {
+   "id": "q0182",
+   "prompt": "What NHL player was known for the phrase “You miss 100% of the shots you don’t take”?",
+   "options": [
+    "Gordie Howe",
+    "Wayne Gretzky",
+    "Mario Lemieux",
+    "Bobby Orr"
+   ],
+   "correct_index": 1,
+   "sport": "Hockey",
+   "difficulty": 1
+  },
+  {
+   "id": "q0186",
+   "prompt": "What NHL team plays in Las Vegas?",
+   "options": [
+    "Coyotes",
+    "Golden Knights",
+    "Sharks",
+    "Kraken"
+   ],
+   "correct_index": 1,
+   "sport": "Hockey",
+   "difficulty": 1
+  },
+  {
+   "id": "q0146",
+   "prompt": "What NHL player has the most career goals?",
+   "options": [
+    "Wayne Gretzky",
+    "Gordie Howe",
+    "Alex Ovechkin",
+    "Jaromír Jágr"
+   ],
+   "correct_index": 2,
+   "sport": "Hockey",
+   "difficulty": 2
+  },
+  {
+   "id": "q0151",
+   "prompt": "What team drafted Alex Ovechkin?",
+   "options": [
+    "New York Rangers",
+    "Columbus Blue Jackets",
+    "Pittsburgh Penguins",
+    "Washington Capitals"
+   ],
+   "correct_index": 3,
+   "sport": "Hockey",
+   "difficulty": 2
+  },
+  {
+   "id": "q0152",
+   "prompt": "What NHL team won the Stanley Cup in 2018 for the first time?",
+   "options": [
+    "Vegas Golden Knights",
+    "Washington Capitals",
+    "St. Louis Blues",
+    "Tampa Bay Lightning"
+   ],
+   "correct_index": 1,
+   "sport": "Hockey",
+   "difficulty": 2
+  },
+  {
+   "id": "q0165",
+   "prompt": "What NHL team did Connor McDavid get drafted by?",
+   "options": [
+    "Toronto Maple Leafs",
+    "Arizona Coyotes",
+    "Edmonton Oilers",
+    "Buffalo Sabres"
+   ],
+   "correct_index": 2,
+   "sport": "Hockey",
+   "difficulty": 2
+  },
+  {
+   "id": "q0166",
+   "prompt": "What number does Connor McDavid wear?",
+   "options": [
+    "97",
+    "99",
+    "87",
+    "91"
+   ],
+   "correct_index": 0,
+   "sport": "Hockey",
+   "difficulty": 2
+  },
+  {
+   "id": "q0170",
+   "prompt": "What NHL team is known as the Broad Street Bullies?",
+   "options": [
+    "Philadelphia Flyers",
+    "Boston Bruins",
+    "New York Rangers",
+    "Chicago Blackhawks"
+   ],
+   "correct_index": 0,
+   "sport": "Hockey",
+   "difficulty": 2
+  },
+  {
+   "id": "q0172",
+   "prompt": "What NHL team has won the most Stanley Cups?",
+   "options": [
+    "Montreal Canadiens",
+    "Toronto Maple Leafs",
+    "Detroit Red Wings",
+    "Boston Bruins"
+   ],
+   "correct_index": 0,
+   "sport": "Hockey",
+   "difficulty": 2
+  },
+  {
+   "id": "q0173",
+   "prompt": "What NHL team did Bobby Orr play most of his career for?",
+   "options": [
+    "Detroit Red Wings",
+    "Chicago Blackhawks",
+    "Boston Bruins",
+    "New York Rangers"
+   ],
+   "correct_index": 2,
+   "sport": "Hockey",
+   "difficulty": 2
+  },
+  {
+   "id": "q0178",
+   "prompt": "What NHL team did Patrick Kane help win three Stanley Cups?",
+   "options": [
+    "Chicago Blackhawks",
+    "Boston Bruins",
+    "Los Angeles Kings",
+    "Pittsburgh Penguins"
+   ],
+   "correct_index": 0,
+   "sport": "Hockey",
+   "difficulty": 2
+  },
+  {
+   "id": "q0184",
+   "prompt": "What NHL team won back-to-back Stanley Cups in 2020 and 2021?",
+   "options": [
+    "Tampa Bay Lightning",
+    "Chicago Blackhawks",
+    "Colorado Avalanche",
+    "Pittsburgh Penguins"
+   ],
+   "correct_index": 0,
+   "sport": "Hockey",
+   "difficulty": 2
+  },
+  {
+   "id": "q0185",
+   "prompt": "What NHL player scored the Golden Goal for Canada in the 2010 Olympics?",
+   "options": [
+    "Corey Perry",
+    "Jonathan Toews",
+    "Sidney Crosby",
+    "Ryan Getzlaf"
+   ],
+   "correct_index": 2,
+   "sport": "Hockey",
+   "difficulty": 2
+  },
+  {
+   "id": "q0187",
+   "prompt": "What NHL expansion team reached the Stanley Cup Final in its first season?",
+   "options": [
+    "Minnesota Wild",
+    "Vegas Golden Knights",
+    "Nashville Predators",
+    "Seattle Kraken"
+   ],
+   "correct_index": 1,
+   "sport": "Hockey",
+   "difficulty": 2
+  },
+  {
+   "id": "q0190",
+   "prompt": "What NHL player was nicknamed The Great Eight?",
+   "options": [
+    "Sidney Crosby",
+    "Alex Ovechkin",
+    "Evgeni Malkin",
+    "Connor McDavid"
+   ],
+   "correct_index": 1,
+   "sport": "Hockey",
+   "difficulty": 2
+  },
+  {
+   "id": "q0148",
+   "prompt": "What team did Wayne Gretzky play for before joining the Kings?",
+   "options": [
+    "New York Rangers",
+    "Edmonton Oilers",
+    "Vancouver Canucks",
+    "St. Louis Blues"
+   ],
+   "correct_index": 1,
+   "sport": "Hockey",
+   "difficulty": 3
+  },
+  {
+   "id": "q0153",
+   "prompt": "What NHL team won the Stanley Cup in 2019 for the first time?",
+   "options": [
+    "Boston Bruins",
+    "St. Louis Blues",
+    "Washington Capitals",
+    "San Jose Sharks"
+   ],
+   "correct_index": 1,
+   "sport": "Hockey",
+   "difficulty": 3
+  },
+  {
+   "id": "q0156",
+   "prompt": "What goalie has the most career wins?",
+   "options": [
+    "Martin Brodeur",
+    "Roberto Luongo",
+    "Henrik Lundqvist",
+    "Patrick Roy"
+   ],
+   "correct_index": 0,
+   "sport": "Hockey",
+   "difficulty": 3
+  },
+  {
+   "id": "q0157",
+   "prompt": "What team did Martin Brodeur spend most of his career with?",
+   "options": [
+    "New Jersey Devils",
+    "Colorado Avalanche",
+    "New York Rangers",
+    "Montreal Canadiens"
+   ],
+   "correct_index": 0,
+   "sport": "Hockey",
+   "difficulty": 3
+  },
+  {
+   "id": "q0159",
+   "prompt": "What trophy is awarded to the NHL’s most valuable player?",
+   "options": [
+    "Hart Trophy",
+    "Ted Lindsay Award",
+    "Art Ross Trophy",
+    "Conn Smythe Trophy"
+   ],
+   "correct_index": 0,
+   "sport": "Hockey",
+   "difficulty": 3
+  },
+  {
+   "id": "q0160",
+   "prompt": "What trophy is awarded to the NHL’s top goalie?",
+   "options": [
+    "Vezina Trophy",
+    "Hart Trophy",
+    "Calder Trophy",
+    "Norris Trophy"
+   ],
+   "correct_index": 0,
+   "sport": "Hockey",
+   "difficulty": 3
+  },
+  {
+   "id": "q0161",
+   "prompt": "What trophy is awarded to the NHL’s top defenseman?",
+   "options": [
+    "Vezina Trophy",
+    "Selke Trophy",
+    "Lady Byng Trophy",
+    "Norris Trophy"
+   ],
+   "correct_index": 3,
+   "sport": "Hockey",
+   "difficulty": 3
+  },
+  {
+   "id": "q0162",
+   "prompt": "What trophy is awarded to the NHL’s top rookie?",
+   "options": [
+    "Conn Smythe Trophy",
+    "Art Ross Trophy",
+    "Calder Trophy",
+    "Hart Trophy"
+   ],
+   "correct_index": 2,
+   "sport": "Hockey",
+   "difficulty": 3
+  },
+  {
+   "id": "q0167",
+   "prompt": "What NHL player is known for wearing number 87?",
+   "options": [
+    "Alex Ovechkin",
+    "Connor McDavid",
+    "Patrick Kane",
+    "Sidney Crosby"
+   ],
+   "correct_index": 3,
+   "sport": "Hockey",
+   "difficulty": 3
+  },
+  {
+   "id": "q0169",
+   "prompt": "What team did Mario Lemieux own after playing for them?",
+   "options": [
+    "Montreal Canadiens",
+    "Pittsburgh Penguins",
+    "Colorado Avalanche",
+    "New York Rangers"
+   ],
+   "correct_index": 1,
+   "sport": "Hockey",
+   "difficulty": 3
+  },
+  {
+   "id": "q0174",
+   "prompt": "What NHL player scored the famous flying goal in the 1970 Stanley Cup Final?",
+   "options": [
+    "Derek Sanderson",
+    "Phil Esposito",
+    "Bobby Orr",
+    "Wayne Cashman"
+   ],
+   "correct_index": 2,
+   "sport": "Hockey",
+   "difficulty": 3
+  },
+  {
+   "id": "q0175",
+   "prompt": "What NHL player was nicknamed The Finnish Flash?",
+   "options": [
+    "Jari Kurri",
+    "Saku Koivu",
+    "Teemu Selänne",
+    "Mikko Rantanen"
+   ],
+   "correct_index": 2,
+   "sport": "Hockey",
+   "difficulty": 3
+  },
+  {
+   "id": "q0176",
+   "prompt": "What team drafted Auston Matthews?",
+   "options": [
+    "Arizona Coyotes",
+    "Toronto Maple Leafs",
+    "Winnipeg Jets",
+    "Buffalo Sabres"
+   ],
+   "correct_index": 1,
+   "sport": "Hockey",
+   "difficulty": 3
+  },
+  {
+   "id": "q0177",
+   "prompt": "What NHL player was the first overall pick in 2015?",
+   "options": [
+    "Jack Eichel",
+    "Auston Matthews",
+    "Nathan MacKinnon",
+    "Connor McDavid"
+   ],
+   "correct_index": 3,
+   "sport": "Hockey",
+   "difficulty": 3
+  },
+  {
+   "id": "q0179",
+   "prompt": "What NHL goalie was famous for his butterfly style and won four Stanley Cups with the Canadiens and Avalanche?",
+   "options": [
+    "Patrick Roy",
+    "Martin Brodeur",
+    "Dominik Hašek",
+    "Ed Belfour"
+   ],
+   "correct_index": 0,
+   "sport": "Hockey",
+   "difficulty": 3
+  },
+  {
+   "id": "q0183",
+   "prompt": "What NHL team did Jaromír Jágr start his NHL career with?",
+   "options": [
+    "New York Rangers",
+    "Calgary Flames",
+    "Pittsburgh Penguins",
+    "Washington Capitals"
+   ],
+   "correct_index": 2,
+   "sport": "Hockey",
+   "difficulty": 3
+  },
+  {
+   "id": "q0188",
+   "prompt": "What NHL team did Henrik Lundqvist spend almost his entire career with?",
+   "options": [
+    "New York Rangers",
+    "Toronto Maple Leafs",
+    "Washington Capitals",
+    "New Jersey Devils"
+   ],
+   "correct_index": 0,
+   "sport": "Hockey",
+   "difficulty": 3
+  },
+  {
+   "id": "q0189",
+   "prompt": "What NHL goalie was nicknamed King Henrik?",
+   "options": [
+    "Carey Price",
+    "Tuukka Rask",
+    "Henrik Lundqvist",
+    "Martin Brodeur"
+   ],
+   "correct_index": 2,
+   "sport": "Hockey",
+   "difficulty": 3
+  },
+  {
+   "id": "q0191",
+   "prompt": "What NHL team did Nathan MacKinnon get drafted by?",
+   "options": [
+    "Colorado Avalanche",
+    "Tampa Bay Lightning",
+    "Florida Panthers",
+    "Calgary Flames"
+   ],
+   "correct_index": 0,
+   "sport": "Hockey",
+   "difficulty": 3
+  },
+  {
+   "id": "q0192",
+   "prompt": "What NHL team won the Stanley Cup in 1994 after a 54-year drought?",
+   "options": [
+    "Vancouver Canucks",
+    "Boston Bruins",
+    "New Jersey Devils",
+    "New York Rangers"
+   ],
+   "correct_index": 3,
+   "sport": "Hockey",
+   "difficulty": 3
+  },
+  {
+   "id": "q0154",
+   "prompt": "What NHL player was known as Mr. Hockey?",
+   "options": [
+    "Gordie Howe",
+    "Wayne Gretzky",
+    "Maurice Richard",
+    "Bobby Hull"
+   ],
+   "correct_index": 0,
+   "sport": "Hockey",
+   "difficulty": 4
+  },
+  {
+   "id": "q0155",
+   "prompt": "What NHL player was nicknamed The Dominator?",
+   "options": [
+    "Martin Brodeur",
+    "Ed Belfour",
+    "Patrick Roy",
+    "Dominik Hašek"
+   ],
+   "correct_index": 3,
+   "sport": "Hockey",
+   "difficulty": 4
+  },
+  {
+   "id": "q0158",
+   "prompt": "What NHL player was nicknamed The Rocket?",
+   "options": [
+    "Maurice Richard",
+    "Guy Lafleur",
+    "Bobby Hull",
+    "Jean Béliveau"
+   ],
+   "correct_index": 0,
+   "sport": "Hockey",
+   "difficulty": 4
+  },
+  {
+   "id": "q0180",
+   "prompt": "What NHL player was nicknamed Captain Serious?",
+   "options": [
+    "Anze Kopitar",
+    "Jonathan Toews",
+    "Duncan Keith",
+    "Patrick Kane"
+   ],
+   "correct_index": 1,
+   "sport": "Hockey",
+   "difficulty": 4
+  },
+  {
+   "id": "q0193",
+   "prompt": "What NHL player was known as Mr. Game 7?",
+   "options": [
+    "Justin Williams",
+    "Patrick Kane",
+    "Joe Pavelski",
+    "Jonathan Toews"
+   ],
+   "correct_index": 0,
+   "sport": "Hockey",
+   "difficulty": 4
+  },
+  {
+   "id": "q0292",
+   "prompt": "What soccer player is known as CR7?",
+   "options": [
+    "Neymar",
+    "Cristiano Ronaldo",
+    "Kylian Mbappé",
+    "Lionel Messi"
+   ],
+   "correct_index": 1,
+   "sport": "Soccer",
+   "difficulty": 1
+  },
+  {
+   "id": "q0294",
+   "prompt": "What soccer player is known as The Atomic Flea?",
+   "options": [
+    "Lionel Messi",
+    "Andrés Iniesta",
+    "Sergio Agüero",
+    "Xavi"
+   ],
+   "correct_index": 0,
+   "sport": "Soccer",
+   "difficulty": 1
+  },
+  {
+   "id": "q0295",
+   "prompt": "What soccer player scored the “Hand of God” goal?",
+   "options": [
+    "Pelé",
+    "Diego Maradona",
+    "Zinedine Zidane",
+    "Lionel Messi"
+   ],
+   "correct_index": 1,
+   "sport": "Soccer",
+   "difficulty": 1
+  },
+  {
+   "id": "q0299",
+   "prompt": "What soccer player won the 2022 World Cup with Argentina?",
+   "options": [
+    "Ángel Di María",
+    "Lionel Messi",
+    "Emiliano Martínez",
+    "Julián Álvarez"
+   ],
+   "correct_index": 1,
+   "sport": "Soccer",
+   "difficulty": 1
+  },
+  {
+   "id": "q0300",
+   "prompt": "What soccer player captained Argentina to the 2022 World Cup title?",
+   "options": [
+    "Javier Mascherano",
+    "Ángel Di María",
+    "Diego Maradona",
+    "Lionel Messi"
+   ],
+   "correct_index": 3,
+   "sport": "Soccer",
+   "difficulty": 1
+  },
+  {
+   "id": "q0301",
+   "prompt": "What soccer player is famous for the “Siu” celebration?",
+   "options": [
+    "Erling Haaland",
+    "Cristiano Ronaldo",
+    "Kylian Mbappé",
+    "Neymar"
+   ],
+   "correct_index": 1,
+   "sport": "Soccer",
+   "difficulty": 1
+  },
+  {
+   "id": "q0302",
+   "prompt": "What club is Lionel Messi most associated with before joining PSG and Inter Miami?",
+   "options": [
+    "Barcelona",
+    "Inter Milan",
+    "Manchester City",
+    "Real Madrid"
+   ],
+   "correct_index": 0,
+   "sport": "Soccer",
+   "difficulty": 1
+  },
+  {
+   "id": "q0303",
+   "prompt": "What club is Cristiano Ronaldo most associated with in Spain?",
+   "options": [
+    "Barcelona",
+    "Juventus",
+    "Manchester United",
+    "Real Madrid"
+   ],
+   "correct_index": 3,
+   "sport": "Soccer",
+   "difficulty": 1
+  },
+  {
+   "id": "q0304",
+   "prompt": "What country did Pelé play for?",
+   "options": [
+    "Argentina",
+    "Uruguay",
+    "Portugal",
+    "Brazil"
+   ],
+   "correct_index": 3,
+   "sport": "Soccer",
+   "difficulty": 1
+  },
+  {
+   "id": "q0305",
+   "prompt": "What country did Diego Maradona play for?",
+   "options": [
+    "Brazil",
+    "Italy",
+    "Argentina",
+    "Spain"
+   ],
+   "correct_index": 2,
+   "sport": "Soccer",
+   "difficulty": 1
+  },
+  {
+   "id": "q0311",
+   "prompt": "What country hosted the 2022 World Cup?",
+   "options": [
+    "Russia",
+    "Qatar",
+    "South Africa",
+    "Brazil"
+   ],
+   "correct_index": 1,
+   "sport": "Soccer",
+   "difficulty": 1
+  },
+  {
+   "id": "q0316",
+   "prompt": "What club did Erling Haaland join in 2022?",
+   "options": [
+    "Real Madrid",
+    "Borussia Dortmund",
+    "Chelsea",
+    "Manchester City"
+   ],
+   "correct_index": 3,
+   "sport": "Soccer",
+   "difficulty": 1
+  },
+  {
+   "id": "q0318",
+   "prompt": "What country is Kylian Mbappé from?",
+   "options": [
+    "Belgium",
+    "Portugal",
+    "France",
+    "Senegal"
+   ],
+   "correct_index": 2,
+   "sport": "Soccer",
+   "difficulty": 1
+  },
+  {
+   "id": "q0321",
+   "prompt": "What U.S. soccer player is nicknamed Captain America?",
+   "options": [
+    "Clint Dempsey",
+    "Christian Pulisic",
+    "Weston McKennie",
+    "Landon Donovan"
+   ],
+   "correct_index": 1,
+   "sport": "Soccer",
+   "difficulty": 1
+  },
+  {
+   "id": "q0330",
+   "prompt": "What club plays at Camp Nou?",
+   "options": [
+    "Barcelona",
+    "Valencia",
+    "Atlético Madrid",
+    "Real Madrid"
+   ],
+   "correct_index": 0,
+   "sport": "Soccer",
+   "difficulty": 1
+  },
+  {
+   "id": "q0331",
+   "prompt": "What club plays at Santiago Bernabéu?",
+   "options": [
+    "Real Madrid",
+    "Sevilla",
+    "Barcelona",
+    "Atlético Madrid"
+   ],
+   "correct_index": 0,
+   "sport": "Soccer",
+   "difficulty": 1
+  },
+  {
+   "id": "q0340",
+   "prompt": "What country did Lionel Messi beat in the 2022 World Cup Final?",
+   "options": [
+    "Germany",
+    "France",
+    "Croatia",
+    "Netherlands"
+   ],
+   "correct_index": 1,
+   "sport": "Soccer",
+   "difficulty": 1
+  },
+  {
+   "id": "q0293",
+   "prompt": "What soccer player is known as The Egyptian King?",
+   "options": [
+    "Karim Benzema",
+    "Mohamed Salah",
+    "Riyad Mahrez",
+    "Sadio Mané"
+   ],
+   "correct_index": 1,
+   "sport": "Soccer",
+   "difficulty": 2
+  },
+  {
+   "id": "q0298",
+   "prompt": "What soccer player headbutted Marco Materazzi in the 2006 World Cup Final?",
+   "options": [
+    "Andrea Pirlo",
+    "Zinedine Zidane",
+    "Thierry Henry",
+    "Fabio Cannavaro"
+   ],
+   "correct_index": 1,
+   "sport": "Soccer",
+   "difficulty": 2
+  },
+  {
+   "id": "q0306",
+   "prompt": "What country won the 2018 World Cup?",
+   "options": [
+    "Germany",
+    "Croatia",
+    "France",
+    "Brazil"
+   ],
+   "correct_index": 2,
+   "sport": "Soccer",
+   "difficulty": 2
+  },
+  {
+   "id": "q0307",
+   "prompt": "What country won the 2014 World Cup?",
+   "options": [
+    "Netherlands",
+    "Spain",
+    "Argentina",
+    "Germany"
+   ],
+   "correct_index": 3,
+   "sport": "Soccer",
+   "difficulty": 2
+  },
+  {
+   "id": "q0314",
+   "prompt": "What soccer player scored a hat trick in the 2022 World Cup Final?",
+   "options": [
+    "Ángel Di María",
+    "Lionel Messi",
+    "Kylian Mbappé",
+    "Olivier Giroud"
+   ],
+   "correct_index": 2,
+   "sport": "Soccer",
+   "difficulty": 2
+  },
+  {
+   "id": "q0315",
+   "prompt": "What club does Mohamed Salah play for in England?",
+   "options": [
+    "Arsenal",
+    "Manchester United",
+    "Chelsea",
+    "Liverpool"
+   ],
+   "correct_index": 3,
+   "sport": "Soccer",
+   "difficulty": 2
+  },
+  {
+   "id": "q0317",
+   "prompt": "What country is Erling Haaland from?",
+   "options": [
+    "Germany",
+    "Sweden",
+    "Denmark",
+    "Norway"
+   ],
+   "correct_index": 3,
+   "sport": "Soccer",
+   "difficulty": 2
+  },
+  {
+   "id": "q0319",
+   "prompt": "What club did Neymar leave Barcelona for in 2017?",
+   "options": [
+    "Manchester City",
+    "Paris Saint-Germain",
+    "Bayern Munich",
+    "Real Madrid"
+   ],
+   "correct_index": 1,
+   "sport": "Soccer",
+   "difficulty": 2
+  },
+  {
+   "id": "q0320",
+   "prompt": "What club did David Beckham play for in MLS?",
+   "options": [
+    "Inter Miami",
+    "LA Galaxy",
+    "New York Red Bulls",
+    "D.C. United"
+   ],
+   "correct_index": 1,
+   "sport": "Soccer",
+   "difficulty": 2
+  },
+  {
+   "id": "q0322",
+   "prompt": "What club did Christian Pulisic join in Italy?",
+   "options": [
+    "Juventus",
+    "AC Milan",
+    "Inter Milan",
+    "Roma"
+   ],
+   "correct_index": 1,
+   "sport": "Soccer",
+   "difficulty": 2
+  },
+  {
+   "id": "q0324",
+   "prompt": "What U.S. women’s soccer player is known for her pink hair and activism?",
+   "options": [
+    "Megan Rapinoe",
+    "Carli Lloyd",
+    "Abby Wambach",
+    "Alex Morgan"
+   ],
+   "correct_index": 0,
+   "sport": "Soccer",
+   "difficulty": 2
+  },
+  {
+   "id": "q0328",
+   "prompt": "What club plays at Old Trafford?",
+   "options": [
+    "Manchester United",
+    "Chelsea",
+    "Arsenal",
+    "Liverpool"
+   ],
+   "correct_index": 0,
+   "sport": "Soccer",
+   "difficulty": 2
+  },
+  {
+   "id": "q0329",
+   "prompt": "What club plays at Anfield?",
+   "options": [
+    "Everton",
+    "Manchester United",
+    "Tottenham Hotspur",
+    "Liverpool"
+   ],
+   "correct_index": 3,
+   "sport": "Soccer",
+   "difficulty": 2
+  },
+  {
+   "id": "q0332",
+   "prompt": "What club is known as The Gunners?",
+   "options": [
+    "Tottenham Hotspur",
+    "Arsenal",
+    "Liverpool",
+    "Chelsea"
+   ],
+   "correct_index": 1,
+   "sport": "Soccer",
+   "difficulty": 2
+  },
+  {
+   "id": "q0333",
+   "prompt": "What club is known as The Red Devils?",
+   "options": [
+    "Arsenal",
+    "Manchester City",
+    "Liverpool",
+    "Manchester United"
+   ],
+   "correct_index": 3,
+   "sport": "Soccer",
+   "difficulty": 2
+  },
+  {
+   "id": "q0335",
+   "prompt": "What club is known as Los Blancos?",
+   "options": [
+    "Juventus",
+    "Barcelona",
+    "Real Madrid",
+    "AC Milan"
+   ],
+   "correct_index": 2,
+   "sport": "Soccer",
+   "difficulty": 2
+  },
+  {
+   "id": "q0336",
+   "prompt": "What club did Zinedine Zidane manage to three straight Champions League titles?",
+   "options": [
+    "Barcelona",
+    "Bayern Munich",
+    "Real Madrid",
+    "Juventus"
+   ],
+   "correct_index": 2,
+   "sport": "Soccer",
+   "difficulty": 2
+  },
+  {
+   "id": "q0337",
+   "prompt": "What player scored the famous bicycle kick for Real Madrid against Juventus in 2018?",
+   "options": [
+    "Gareth Bale",
+    "Karim Benzema",
+    "Cristiano Ronaldo",
+    "Sergio Ramos"
+   ],
+   "correct_index": 2,
+   "sport": "Soccer",
+   "difficulty": 2
+  },
+  {
+   "id": "q0339",
+   "prompt": "What Italian goalkeeper is known as Gigi?",
+   "options": [
+    "Francesco Totti",
+    "Gianluigi Buffon",
+    "Gianluigi Donnarumma",
+    "Dino Zoff"
+   ],
+   "correct_index": 1,
+   "sport": "Soccer",
+   "difficulty": 2
+  },
+  {
+   "id": "q0297",
+   "prompt": "What soccer player scored the winning goal for Spain in the 2010 World Cup Final?",
+   "options": [
+    "Andrés Iniesta",
+    "Xavi",
+    "Fernando Torres",
+    "David Villa"
+   ],
+   "correct_index": 0,
+   "sport": "Soccer",
+   "difficulty": 3
+  },
+  {
+   "id": "q0308",
+   "prompt": "What country won the 2010 World Cup?",
+   "options": [
+    "Italy",
+    "Spain",
+    "Germany",
+    "Netherlands"
+   ],
+   "correct_index": 1,
+   "sport": "Soccer",
+   "difficulty": 3
+  },
+  {
+   "id": "q0309",
+   "prompt": "What country won the 2006 World Cup?",
+   "options": [
+    "Brazil",
+    "Germany",
+    "France",
+    "Italy"
+   ],
+   "correct_index": 3,
+   "sport": "Soccer",
+   "difficulty": 3
+  },
+  {
+   "id": "q0312",
+   "prompt": "What country hosted the 2018 World Cup?",
+   "options": [
+    "Brazil",
+    "Germany",
+    "Qatar",
+    "Russia"
+   ],
+   "correct_index": 3,
+   "sport": "Soccer",
+   "difficulty": 3
+  },
+  {
+   "id": "q0313",
+   "prompt": "What soccer player won the Golden Boot at the 2018 World Cup?",
+   "options": [
+    "Kylian Mbappé",
+    "Harry Kane",
+    "Romelu Lukaku",
+    "Antoine Griezmann"
+   ],
+   "correct_index": 1,
+   "sport": "Soccer",
+   "difficulty": 3
+  },
+  {
+   "id": "q0323",
+   "prompt": "What country did the U.S. women’s national team beat in the 2019 World Cup Final?",
+   "options": [
+    "Sweden",
+    "England",
+    "Netherlands",
+    "Germany"
+   ],
+   "correct_index": 2,
+   "sport": "Soccer",
+   "difficulty": 3
+  },
+  {
+   "id": "q0334",
+   "prompt": "What club is known as The Blues in London?",
+   "options": [
+    "Chelsea",
+    "West Ham United",
+    "Tottenham Hotspur",
+    "Arsenal"
+   ],
+   "correct_index": 0,
+   "sport": "Soccer",
+   "difficulty": 3
+  },
+  {
+   "id": "q0338",
+   "prompt": "What soccer player was nicknamed El Fenómeno?",
+   "options": [
+    "Rivaldo",
+    "Ronaldo Nazário",
+    "Ronaldinho",
+    "Romário"
+   ],
+   "correct_index": 1,
+   "sport": "Soccer",
+   "difficulty": 3
+  },
+  {
+   "id": "q0310",
+   "prompt": "What country won the 2002 World Cup?",
+   "options": [
+    "Argentina",
+    "Germany",
+    "Brazil",
+    "France"
+   ],
+   "correct_index": 2,
+   "sport": "Soccer",
+   "difficulty": 4
+  },
+  {
+   "id": "q0325",
+   "prompt": "What U.S. women’s soccer player has scored the most international goals ever?",
+   "options": [
+    "Mia Hamm",
+    "Christine Sinclair",
+    "Abby Wambach",
+    "Marta"
+   ],
+   "correct_index": 1,
+   "sport": "Soccer",
+   "difficulty": 4
+  },
+  {
+   "id": "q0327",
+   "prompt": "What country has won the most men’s World Cups?",
+   "options": [
+    "Germany",
+    "Italy",
+    "Brazil",
+    "Argentina"
+   ],
+   "correct_index": 2,
+   "sport": "Soccer",
+   "difficulty": 4
+  },
+  {
+   "id": "q0341",
+   "prompt": "What country did Argentina beat in the 1986 World Cup Final?",
+   "options": [
+    "Italy",
+    "England",
+    "West Germany",
+    "Brazil"
+   ],
+   "correct_index": 2,
+   "sport": "Soccer",
+   "difficulty": 4
+  },
+  {
+   "id": "q0296",
+   "prompt": "What soccer player was the captain of the 2004 U.S. men’s soccer team?",
+   "options": [
+    "Kasey Keller",
+    "Landon Donovan",
+    "Brian McBride",
+    "Claudio Reyna"
+   ],
+   "correct_index": 3,
+   "sport": "Soccer",
+   "difficulty": 5
+  },
+  {
+   "id": "q0326",
+   "prompt": "What country won the first FIFA World Cup in 1930?",
+   "options": [
+    "Uruguay",
+    "Italy",
+    "Brazil",
+    "Argentina"
+   ],
+   "correct_index": 0,
+   "sport": "Soccer",
+   "difficulty": 5
+  }
+ ]
+}

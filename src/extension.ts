@@ -12,7 +12,7 @@ export function activate(context: vscode.ExtensionContext) {
 
   const provider = new StandbyViewProvider(context.extensionUri);
   const machine = new AgentStateMachine();
-  const trivia = new TriviaStore(context.globalState, log);
+  const trivia = new TriviaStore(context, log);
   const panel = new PanelController(provider, machine, context.globalState, trivia, log);
 
   // Status bar: the first consumer of the lifecycle (M1). Hidden until the

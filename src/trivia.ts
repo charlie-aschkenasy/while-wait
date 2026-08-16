@@ -1,3 +1,5 @@
+import * as fs from 'fs';
+import * as path from 'path';
 import * as vscode from 'vscode';
 
 export interface TriviaQuestion {
@@ -19,17 +21,22 @@ const CACHE_TTL_MS = 24 * 60 * 60 * 1000;
 const SELECT = 'id,prompt,options,correct_index,sport,difficulty';
 
 /**
- * Fetches the question set once (they're tiny), caches it in globalState with
- * a TTL, and serves questions from a shuffled queue. A failed fetch falls back
- * to a stale cache; with neither, trivia reports itself unavailable.
+ * Serves trivia questions from a shuffled queue. Sources, in precedence order:
+ * a fresh globalState cache, a live Supabase fetch, a stale cache, and finally
+ * the bundled bank shipped inside the .vsix (`data/trivia/questions.json`).
+ * The bundled bank is the always-present floor: with no Supabase settings it is
+ * the zero-config default, and with Supabase configured it is the final fallback
+ * after network and cache. Trivia is only ever unavailable if that bundled load
+ * itself fails (missing/corrupt file) — a rare safety edge, not the normal path.
  */
 export class TriviaStore {
   private questions: TriviaQuestion[] = [];
   private queue: TriviaQuestion[] = [];
   private loading: Promise<boolean> | undefined;
+  private bundled: TriviaQuestion[] | undefined;
 
   constructor(
-    private readonly globalState: vscode.Memento,
+    private readonly context: vscode.ExtensionContext,
     private readonly log: (line: string) => void
   ) {}
 
@@ -70,7 +77,7 @@ export class TriviaStore {
     const config = vscode.workspace.getConfiguration('standby');
     const url = config.get<string>('supabase.url', '').trim().replace(/\/+$/, '');
     const key = config.get<string>('supabase.key', '').trim();
-    const cached = this.globalState.get<TriviaCache>(CACHE_KEY);
+    const cached = this.context.globalState.get<TriviaCache>(CACHE_KEY);
 
     if (cached && Date.now() - cached.fetchedAt < CACHE_TTL_MS && cached.questions.length > 0) {
       this.questions = cached.questions;
@@ -91,7 +98,7 @@ export class TriviaStore {
         const questions = Array.isArray(rows) ? rows.filter(isValidQuestion) : [];
         if (questions.length > 0) {
           this.questions = questions;
-          await this.globalState.update(CACHE_KEY, {
+          await this.context.globalState.update(CACHE_KEY, {
             fetchedAt: Date.now(),
             questions,
           } satisfies TriviaCache);
@@ -112,7 +119,42 @@ export class TriviaStore {
       this.log(`trivia: falling back to stale cache (${cached.questions.length})`);
       return true;
     }
+
+    const bundled = this.loadBundled();
+    if (bundled.length > 0) {
+      this.questions = bundled;
+      this.log(`trivia: using bundled questions (${bundled.length})`);
+      return true;
+    }
     return false;
+  }
+
+  /**
+   * Reads the bundled bank shipped in the .vsix, lazily and once. Accepts both
+   * the bare-array and the wrapped `{ version, questions }` forms (kept in
+   * lockstep with scripts/validate-trivia.mjs), filters through isValidQuestion,
+   * and on any error caches [] so it isn't re-read on every request.
+   */
+  private loadBundled(): TriviaQuestion[] {
+    if (this.bundled !== undefined) {
+      return this.bundled;
+    }
+    try {
+      const file = this.context.asAbsolutePath(path.join('data', 'trivia', 'questions.json'));
+      const parsed = JSON.parse(fs.readFileSync(file, 'utf8')) as unknown;
+      const rows = Array.isArray(parsed)
+        ? parsed
+        : Array.isArray((parsed as { questions?: unknown })?.questions)
+          ? (parsed as { questions: unknown[] }).questions
+          : [];
+      const questions = rows.filter(isValidQuestion);
+      this.log(`trivia: loaded ${questions.length} bundled questions`);
+      this.bundled = questions;
+    } catch (err) {
+      this.log(`trivia: bundled load failed (${(err as Error).message})`);
+      this.bundled = [];
+    }
+    return this.bundled;
   }
 }
 

@@ -77,8 +77,10 @@ themes. Each conforms to a small `GameInstance` contract (`activate` /
 and resume it on reveal — **never killing the player** with a death screen for
 walking away.
 
-- **Trivia** — multiple-choice sports questions from a Supabase project. Shows
-  the prompt, four options, instant right/wrong feedback, sport + difficulty
+- **Trivia** — multiple-choice sports questions. Ships with a **bundled offline
+  bank** (`data/trivia/questions.json`) so it works zero-config on first launch
+  with no network; an optional Supabase project can supply a larger/newer bank.
+  Shows the prompt, four options, instant right/wrong feedback, sport + difficulty
   badges, and tracks an in-session **streak** (best streak persisted). Pulls
   questions one at a time from the extension host.
 - **2048** — the classic 4×4 slide-and-merge puzzle (original implementation,
@@ -105,7 +107,7 @@ Extension host (Node)
    ├─ PanelController     reveals / hides the webview view on state changes
    ├─ StandbyViewProvider the WebviewView itself (kept alive while hidden)
    ├─ HookInstaller       installs/uninstalls the five hook entries
-   └─ TriviaStore         fetches + caches questions, serves them one at a time
+   └─ TriviaStore         bundled bank + optional Supabase, serves one at a time
    ▼ postMessage (both ways)
 Webview (single esbuild bundle, no framework)
    ├─ header: state dot + game tabs
@@ -153,13 +155,17 @@ Webview (single esbuild bundle, no framework)
   degrades gracefully if the settings file is invalid JSON. `uninstallHooks`
   removes exactly the marked entries and prunes empty groups.
 
-- **`src/trivia.ts` — TriviaStore.** Fetches all verified questions once via
-  Supabase PostgREST (`GET /rest/v1/questions?select=…&verified=eq.true`) using
-  the publishable key — no `supabase-js` dependency. Caches them in `globalState`
-  with a 24 h TTL, serves from a reshuffled queue, and validates each row's shape.
-  A failed fetch falls back to a stale cache; with neither cache nor config, it
-  reports trivia unavailable and the webview hides the Trivia tab. **Never logs
-  the key.**
+- **`src/trivia.ts` — TriviaStore.** Serves questions from a reshuffled queue,
+  validating each row's shape. Source precedence: a fresh `globalState` cache
+  (24 h TTL) → a live Supabase PostgREST fetch
+  (`GET /rest/v1/questions?select=…&verified=eq.true`, publishable key, no
+  `supabase-js` dependency) → a stale cache → the **bundled bank** shipped in the
+  `.vsix` (`data/trivia/questions.json`, read via `asAbsolutePath`). The bundled
+  bank is the always-present floor: with no Supabase settings it's the zero-config
+  default, and with Supabase configured it's the final fallback after network and
+  cache. Trivia only reports unavailable — hiding the Trivia tab — if that bundled
+  load itself fails (missing/corrupt file), a rare safety edge rather than the
+  normal unconfigured outcome. **Never logs the key.**
 
 - **`webview/index.ts` — the shell.** Vanilla TS. Builds the header/tabs/content,
   instantiates games lazily and keeps them in a `Map` (so switching tabs
@@ -195,12 +201,19 @@ Webview (single esbuild bundle, no framework)
 | Standby: Install Claude Code Hooks | Merge hook entries into `~/.claude/settings.json` |
 | Standby: Uninstall Claude Code Hooks | Remove Standby's hook entries (others untouched) |
 
-### Trivia data (Supabase `ball-knowledge`)
+### Trivia data (bundled bank + optional Supabase)
 
-341 verified multiple-choice questions (`id, prompt, options, correct_index,
-sport, difficulty`). A read-only RLS policy exposes only `verified = true` rows
-to the anon/publishable key. Questions are cached for 24 h, so trivia works
-offline after the first fetch.
+The bundled bank (`data/trivia/questions.json`) ships in the `.vsix` and plays
+offline with no configuration — it seeds from the same 341 verified questions and
+fills toward a larger target over time (see PLAN-V2 §1a). Each row is
+`{ id, prompt, options[4], correct_index, sport, difficulty }` with optional
+`source_url`/`verified_on` provenance; `scripts/validate-trivia.mjs` gates it.
+
+Optionally, a Supabase project (`ball-knowledge`) supplies a larger/newer bank: a
+read-only RLS policy exposes only `verified = true` rows to the anon/publishable
+key, and the live results are cached for 24 h. On any fetch failure the extension
+falls through to the stale cache and then the bundled bank, so trivia never goes
+unavailable when configured.
 
 ---
 
@@ -258,7 +271,7 @@ src/listener.ts          localhost HTTP server
 src/state.ts             AgentStateMachine
 src/panel.ts             PanelController + WebviewViewProvider
 src/hooks.ts             hook installer / uninstaller
-src/trivia.ts            TriviaStore (fetch + cache)
+src/trivia.ts            TriviaStore (bundled bank + optional Supabase)
 webview/index.ts         webview shell & message protocol
 webview/ui.css           theming via --vscode-* variables
 webview/games/           g2048.ts, snake.ts, trivia.ts, types.ts

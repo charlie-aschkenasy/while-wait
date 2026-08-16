@@ -40,7 +40,7 @@ export async function installHooks(context: vscode.ExtensionContext): Promise<vo
     return;
   }
 
-  const port = vscode.workspace.getConfiguration('standby').get<number>('port', 48219);
+  const port = vscode.workspace.getConfiguration('standby').get<number>('port', 0);
   const command = `"${scriptPath}" ${port}`;
 
   const settingsDir = path.join(os.homedir(), '.claude');

@@ -32,8 +32,10 @@ Run **Standby: Install Claude Code Hooks** from the command palette. This:
 
 - backs up `~/.claude/settings.json`, then
 - merges five hook entries (`UserPromptSubmit`, `Stop`, `Notification`,
-  `PostToolUse`, `SessionEnd`) that POST to `http://127.0.0.1:48219/event`
-  via the bundled `hooks/standby-hook.sh`.
+  `PostToolUse`, `SessionEnd`) that POST the event to the local Standby listener
+  via the bundled `hooks/standby-hook.sh`. The script routes each event to the
+  right window's port using the `~/.standby` registry (or the fixed
+  `standby.port` if you set one).
 
 Existing hooks are never touched, and re-running the command is safe (it
 updates the entries in place). "Show hook JSON" displays the entries for
@@ -64,7 +66,7 @@ fetch. Without configuration or cache, the Trivia tab hides itself.
 
 | Setting | Default | Purpose |
 |---|---|---|
-| `standby.port` | `48219` | Localhost port the extension listens on (must match the installed hooks — re-run the hook installer after changing it) |
+| `standby.port` | `0` | `0` = auto (recommended): each window binds its own ephemeral port and registers in `~/.standby`, so multiple windows work at once. Any non-zero value forces a fixed port — re-run the hook installer after changing it. |
 | `standby.supabase.url` | — | Supabase project URL for trivia |
 | `standby.supabase.key` | — | Supabase publishable key for trivia |
 
@@ -88,8 +90,10 @@ fetch. Without configuration or cache, the Trivia tab hides itself.
   instantly and in place on the next reveal (no reload).
 - A `working` state with no events for 30 minutes decays to `done` (crashed
   session guard).
-- **Multi-window limitation (v1)**: only the first Cursor window binds the
-  port; other windows show a one-time warning and stay dormant.
+- **Multi-window**: with `standby.port: 0` (the default) each Cursor window binds
+  its own ephemeral port and the hook routes each event to the window whose
+  workspace contains its `cwd` — so several windows run Standby at once. Set a
+  fixed non-zero port only if you specifically want the legacy single-port bind.
 
 ## Uninstall
 

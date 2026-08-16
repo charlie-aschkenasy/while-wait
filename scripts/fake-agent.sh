@@ -1,11 +1,15 @@
 #!/bin/sh
 # Simulates a Claude Code session against the Standby listener.
 # Usage: scripts/fake-agent.sh [cwd] [port]
-#   cwd defaults to $PWD (must be inside the extension host's workspace),
-#   port defaults to 48219 (or $STANDBY_PORT).
+#   cwd defaults to $PWD (must be inside the extension host's workspace).
+#   port: explicit $2 or $STANDBY_PORT wins; otherwise resolved from
+#   ~/.standby/ports.tsv by cwd (so it drives that window in multi-window mode);
+#   else falls back to 48219.
+
+. "$(dirname "$0")/resolve-port.sh"
 
 CWD="${1:-$PWD}"
-PORT="${2:-${STANDBY_PORT:-48219}}"
+PORT=$(resolve_standby_port "$CWD" "${2:-$STANDBY_PORT}")
 
 send() {
   event="$1"

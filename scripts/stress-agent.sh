@@ -2,9 +2,13 @@
 # Flicker/robustness audit for the Standby lifecycle: rapid, duplicated, and
 # out-of-order event sequences. Watch the panel and status bar for flashes.
 # Usage: scripts/stress-agent.sh [cwd] [port]
+#   port: explicit $2 or $STANDBY_PORT wins; otherwise resolved from
+#   ~/.standby/ports.tsv by cwd; else falls back to 48219.
+
+. "$(dirname "$0")/resolve-port.sh"
 
 CWD="${1:-$PWD}"
-PORT="${2:-${STANDBY_PORT:-48219}}"
+PORT=$(resolve_standby_port "$CWD" "${2:-$STANDBY_PORT}")
 
 send() {
   event="$1"

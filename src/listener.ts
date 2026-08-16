@@ -1,4 +1,5 @@
 import * as http from 'http';
+import { AddressInfo } from 'net';
 import * as vscode from 'vscode';
 import { HOOK_EVENTS, HookEvent } from './state';
 
@@ -16,16 +17,23 @@ export class HttpListener implements vscode.Disposable {
 
   constructor(
     private readonly onEvent: EventHandler,
-    private readonly log: (line: string) => void
+    private readonly log: (line: string) => void,
+    private readonly onListening?: (port: number) => void
   ) {}
 
+  /**
+   * Bind the listener. `port === 0` picks an ephemeral port (multi-window mode)
+   * and reports it via `onListening`; a non-zero port keeps the legacy fixed
+   * bind, including the dormant-on-EADDRINUSE behavior. `onListening` fires only
+   * on a successful bind, never on the dormant path.
+   */
   start(port: number): void {
     this.stop();
 
     const server = http.createServer((req, res) => this.route(req, res));
     server.on('error', (err: NodeJS.ErrnoException) => {
       if (err.code === 'EADDRINUSE') {
-        // Another window owns the port; this instance stays dormant (v1 behavior).
+        // Another window owns the fixed port; this instance stays dormant (v1 behavior).
         if (!this.warnedPortInUse) {
           this.warnedPortInUse = true;
           vscode.window.showWarningMessage(
@@ -39,7 +47,9 @@ export class HttpListener implements vscode.Disposable {
       }
     });
     server.listen(port, '127.0.0.1', () => {
-      this.log(`listening on 127.0.0.1:${port}`);
+      const actual = port === 0 ? (server.address() as AddressInfo).port : port;
+      this.log(`listening on 127.0.0.1:${actual}${port === 0 ? ' (auto)' : ''}`);
+      this.onListening?.(actual);
     });
     this.server = server;
   }

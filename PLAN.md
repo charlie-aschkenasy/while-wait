@@ -110,7 +110,7 @@ Each milestone ends in something runnable. Order is chosen so the risky/novel pa
 
 ## Risks & deliberate deferrals
 
-- **Multi-window Cursor**: two windows → second listener fails to bind. V1: second instance shows a one-time warning and stays dormant. Future design (documented, not built): per-window ephemeral ports + a `~/.standby/ports.json` registry the hook script consults by `cwd`.
+- **Multi-window Cursor**: ~~two windows → second listener fails to bind~~ **Built (v2, Phase 1b):** with `standby.port: 0` (auto, the new default) each window binds an ephemeral port and registers in `~/.standby/ports.json` + a flat `ports.tsv` the hook greps by `cwd`, so both windows work independently. Setting a non-zero `standby.port` keeps the legacy fixed-bind + dormant-warning path.
 - **Hook fragility**: if the extension isn't running, hook `curl`s fail — must fail *silently and fast* (`curl --max-time 0.3 … || true`) so Claude Code is never slowed or noisy. This constraint goes in the hook script from day one.
 - **Cursor vs VS Code API drift**: we use only bread-and-butter APIs (WebviewView, status bar, commands, configuration) — low risk, but M0 runs in Cursor itself, not stock VS Code, from the first F5.
 - **`Stop` fires per reply, not per task**: with multi-turn agent loops this is exactly what we want (each reply-finish means "you can act"), but dogfooding in M6 will confirm the debounce feels right.

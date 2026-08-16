@@ -26,6 +26,11 @@ Guardrails already in place:
 
 ## Fixed
 
+- Multi-window: only the first window used to bind the port; others went dormant.
+  Now (Phase 1b) each window binds an ephemeral port and registers in
+  `~/.standby`, and the hook routes by `cwd` — two windows work independently.
+  (Re-verify per 1b-8 that no window ever reveals for another's activity, and
+  that hide stays instant with the buffered hook + registry writes on the path.)
 - Needs-you surface stuck forever — `[hidden]` lost to `display: flex` (M2).
 - Hide killed the terminal / didn't work at all — container-close commands were
   unreliable in Cursor; switched to a `when`-clause context key (M3). **Later

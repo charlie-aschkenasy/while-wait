@@ -217,11 +217,14 @@ work, while the fixed-port path still works for anyone who wants it.
 
 #### Milestones / done-when
 - Two Cursor windows open simultaneously, each with its own workspace; a Claude Code prompt
-  in either window drives **only that window's** panel.
-- The hook resolves the right port from `cwd` in POSIX shell, fast, still failing silently in
-  <300 ms when nothing is listening.
-- Stale entries are cleaned on clean close and tolerated/pruned after a crash.
-- The `standby.port` fixed-port setting still works unchanged (backward compat).
+  in either window drives **only that window's** panel. *(Code + registry + hook landed;
+  two-window live routing is handoff 1b-8.)*
+- ☑ The hook resolves the right port from `cwd` in POSIX shell, fast, still failing silently in
+  <300 ms when nothing is listening. *(Measured ~8 ms with no listener up.)*
+- ☑ Stale entries are cleaned on clean close (`deactivate` unregister) and tolerated/pruned
+  after a crash (pid-liveness + 24 h TTL on every write and on startup).
+- ☑ The `standby.port` fixed-port setting still works unchanged (backward compat) — any
+  non-zero value forces the legacy fixed bind + dormant-on-EADDRINUSE warning.
 
 #### Registry schema (`~/.standby/ports.json`)
 ```

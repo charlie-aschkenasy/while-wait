@@ -188,7 +188,7 @@ Webview (single esbuild bundle, no framework)
 
 | Setting | Default | Purpose |
 |---|---|---|
-| `standby.port` | `48219` | Localhost port the extension listens on (must match the installed hooks; re-run the installer after changing) |
+| `standby.port` | `0` | `0` = auto: per-window ephemeral port + `~/.standby` registry the hook routes by `cwd` (multi-window safe). Any non-zero value forces a fixed bind; re-run the hook installer after changing it. |
 | `standby.supabase.url` | — | Supabase project URL for trivia |
 | `standby.supabase.key` | — | Supabase **publishable** key for trivia (client-safe; RLS limits it to reading verified questions) |
 
@@ -233,10 +233,17 @@ unavailable when configured.
 
 ## 7. Known limitations & deliberate deferrals
 
-- **Multi-window (v1):** the listener binds a single fixed port, so only the
-  **first** Cursor window binds it; other windows show a one-time warning and
-  stay dormant. The documented-but-unbuilt fix is per-window ephemeral ports plus
-  a `~/.standby/ports.json` registry the hook script consults by `cwd`.
+- **Multi-window:** with `standby.port` at its default (`0` = auto), each window
+  binds an **ephemeral** port and registers `{pid, port, folders, updated}` in
+  `~/.standby/ports.json`, plus a flat `~/.standby/ports.tsv` (one
+  `<folder>\t<port>` line per folder) that the POSIX hook greps by `cwd` — so two
+  Cursor windows each drive only their own panel. Folders are stored resolved to
+  their physical path (symlinks followed), and the hook resolves its cwd the same
+  way (`pwd -P`). The registry self-heals: dead-pid and stale (>24 h) entries are
+  pruned on every write and on startup. Setting `standby.port` to any **non-zero**
+  value forces the legacy single fixed-port bind (that window still registers, so
+  the hook converges on the same port); a second window on the same fixed port
+  shows the one-time dormant warning as before.
 - **Secondary-sidebar dependency:** hide works by closing the auxiliary
   (secondary) sidebar, so the panel must live there and be the only thing there —
   other views docked in that sidebar would be hidden alongside it.

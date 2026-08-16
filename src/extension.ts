@@ -3,12 +3,21 @@ import * as vscode from 'vscode';
 import { installHooks, uninstallHooks } from './hooks';
 import { HttpListener } from './listener';
 import { PanelController, StandbyViewProvider } from './panel';
+import * as registry from './registry';
 import { AgentStateMachine, StateChange } from './state';
 import { TriviaStore } from './trivia';
 
 export function activate(context: vscode.ExtensionContext) {
   const output = vscode.window.createOutputChannel('Standby');
   const log = (line: string) => output.appendLine(`[${new Date().toISOString()}] ${line}`);
+
+  // Self-heal the registry: drop entries for windows that crashed without cleanup.
+  try {
+    registry.pruneStartup();
+  } catch (err) {
+    log(`registry pruneStartup failed: ${(err as Error).message}`);
+  }
+  let boundPort = 0;
 
   const provider = new StandbyViewProvider(context.extensionUri);
   const machine = new AgentStateMachine();
@@ -27,17 +36,42 @@ export function activate(context: vscode.ExtensionContext) {
     statusItem.show();
   });
 
-  const listener = new HttpListener((event, cwd, message) => {
-    if (!cwdMatchesWorkspace(cwd)) {
-      log(`ignored ${event}: cwd ${cwd} outside workspace`);
-      return;
+  const registerWindow = () => {
+    if (boundPort <= 0) {
+      return; // not listening yet; nothing to register
     }
-    log(`event ${event}${message ? ` (${message})` : ''}`);
-    machine.handle(event, message);
-  }, log);
+    try {
+      registry.register({
+        pid: process.pid,
+        port: boundPort,
+        folders: (vscode.workspace.workspaceFolders ?? []).map((f) => f.uri.fsPath),
+      });
+    } catch (err) {
+      log(`registry register failed: ${(err as Error).message}`);
+    }
+  };
+
+  const listener = new HttpListener(
+    (event, cwd, message) => {
+      // Secondary safety filter: the primary routing is by port (the hook picks
+      // this window's ephemeral port from the registry by cwd), but in legacy
+      // fixed-port mode this is the primary filter — keep it in both modes.
+      if (!cwdMatchesWorkspace(cwd)) {
+        log(`ignored ${event}: cwd ${cwd} outside workspace`);
+        return;
+      }
+      log(`event ${event}${message ? ` (${message})` : ''}`);
+      machine.handle(event, message);
+    },
+    log,
+    (port) => {
+      boundPort = port;
+      registerWindow();
+    }
+  );
 
   const getPort = () =>
-    vscode.workspace.getConfiguration('standby').get<number>('port', 48219);
+    vscode.workspace.getConfiguration('standby').get<number>('port', 0);
   listener.start(getPort());
 
   context.subscriptions.push(
@@ -56,6 +90,11 @@ export function activate(context: vscode.ExtensionContext) {
         log('supabase settings changed → invalidating trivia store');
         trivia.invalidate();
       }
+    }),
+
+    vscode.workspace.onDidChangeWorkspaceFolders(() => {
+      // Keep the registry's folder list current so the hook routes correctly.
+      registerWindow();
     }),
 
     vscode.window.registerWebviewViewProvider(StandbyViewProvider.viewId, provider, {
@@ -106,4 +145,12 @@ function cwdMatchesWorkspace(cwd: string): boolean {
   });
 }
 
-export function deactivate() {}
+export function deactivate() {
+  // Remove this window's registry entry on a clean close. Synchronous and
+  // guarded: deactivate has a limited shutdown window and must not throw.
+  try {
+    registry.unregister(process.pid);
+  } catch {
+    // A crash leaves the entry behind; other windows prune it by pid-liveness.
+  }
+}

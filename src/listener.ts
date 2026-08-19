@@ -11,15 +11,38 @@ export type EventHandler = (event: HookEvent, cwd: string, message?: string) => 
  * Localhost-only HTTP server the Claude Code hooks post to.
  * Accepts the raw hook stdin JSON: { hook_event_name, cwd, message?, ... }.
  */
+export type ListenerState = 'stopped' | 'listening' | 'dormant' | 'error';
+
+export interface ListenerStatus {
+  requestedPort: number;
+  boundPort?: number;
+  status: ListenerState;
+  detail?: string;
+}
+
 export class HttpListener implements vscode.Disposable {
   private server: http.Server | undefined;
   private warnedPortInUse = false;
+  private requestedPort = 0;
+  private boundPort: number | undefined;
+  private state: ListenerState = 'stopped';
+  private detail: string | undefined;
 
   constructor(
     private readonly onEvent: EventHandler,
     private readonly log: (line: string) => void,
     private readonly onListening?: (port: number) => void
   ) {}
+
+  /** Read-only runtime status for the diagnostics command. */
+  getStatus(): ListenerStatus {
+    return {
+      requestedPort: this.requestedPort,
+      boundPort: this.boundPort,
+      status: this.state,
+      detail: this.detail,
+    };
+  }
 
   /**
    * Bind the listener. `port === 0` picks an ephemeral port (multi-window mode)
@@ -29,11 +52,14 @@ export class HttpListener implements vscode.Disposable {
    */
   start(port: number): void {
     this.stop();
+    this.requestedPort = port;
 
     const server = http.createServer((req, res) => this.route(req, res));
     server.on('error', (err: NodeJS.ErrnoException) => {
       if (err.code === 'EADDRINUSE') {
         // Another window owns the fixed port; this instance stays dormant (v1 behavior).
+        this.state = 'dormant';
+        this.detail = `port ${port} in use`;
         if (!this.warnedPortInUse) {
           this.warnedPortInUse = true;
           vscode.window.showWarningMessage(
@@ -43,11 +69,15 @@ export class HttpListener implements vscode.Disposable {
         }
         this.log(`port ${port} in use; listener dormant`);
       } else {
+        this.state = 'error';
+        this.detail = err.message;
         this.log(`listener error: ${err.message}`);
       }
     });
     server.listen(port, '127.0.0.1', () => {
       const actual = port === 0 ? (server.address() as AddressInfo).port : port;
+      this.state = 'listening';
+      this.boundPort = actual;
       this.log(`listening on 127.0.0.1:${actual}${port === 0 ? ' (auto)' : ''}`);
       this.onListening?.(actual);
     });
@@ -57,6 +87,8 @@ export class HttpListener implements vscode.Disposable {
   stop(): void {
     this.server?.close();
     this.server = undefined;
+    this.state = 'stopped';
+    this.boundPort = undefined;
   }
 
   dispose(): void {

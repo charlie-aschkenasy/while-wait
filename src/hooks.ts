@@ -87,8 +87,8 @@ export async function installHooks(context: vscode.ExtensionContext): Promise<vo
 
   const detail = backupPath ? ` Backup: ${path.basename(backupPath)}.` : '';
   const choice = await vscode.window.showInformationMessage(
-    `Standby hooks installed into ~/.claude/settings.json.${detail} ` +
-      'Restart any running Claude Code session to pick them up.',
+    'Restart any running Claude Code session to pick up the Standby hooks. ' +
+      `Installed into ~/.claude/settings.json.${detail}`,
     'Show hook JSON'
   );
   if (choice === 'Show hook JSON') {
@@ -156,6 +156,84 @@ export async function uninstallHooks(): Promise<void> {
   vscode.window.showInformationMessage(
     `Standby: removed ${removed} hook entr${removed === 1 ? 'y' : 'ies'} from ~/.claude/settings.json.`
   );
+}
+
+export interface InstalledHooks {
+  settingsPath: string;
+  exists: boolean;
+  parseError?: string;
+  installed: boolean; // all five events have a Standby hook
+  perEvent: Record<string, boolean>;
+  scriptPaths: string[]; // distinct script paths found in Standby hook commands
+  ports: number[]; // distinct fallback ports parsed from those commands
+}
+
+/**
+ * Introspects ~/.claude/settings.json for the installed Standby hooks. Never
+ * throws — a missing or unparseable file returns a well-formed "not installed"
+ * result. Single source of truth for the diagnostics command and mismatch
+ * detection. Does not modify anything.
+ */
+export function readInstalledHooks(): InstalledHooks {
+  const settingsPath = path.join(os.homedir(), '.claude', 'settings.json');
+  const perEvent: Record<string, boolean> = {};
+  for (const event of HOOK_EVENT_NAMES) {
+    perEvent[event] = false;
+  }
+  const result: InstalledHooks = {
+    settingsPath,
+    exists: false,
+    installed: false,
+    perEvent,
+    scriptPaths: [],
+    ports: [],
+  };
+
+  if (!fs.existsSync(settingsPath)) {
+    return result;
+  }
+  result.exists = true;
+
+  let settings: { hooks?: Record<string, HookGroup[]> };
+  try {
+    settings = JSON.parse(fs.readFileSync(settingsPath, 'utf8'));
+  } catch (err) {
+    result.parseError = (err as Error).message;
+    return result;
+  }
+
+  const hooks = settings.hooks ?? {};
+  const scriptPaths = new Set<string>();
+  const ports = new Set<number>();
+
+  for (const event of HOOK_EVENT_NAMES) {
+    const groups = Array.isArray(hooks[event]) ? hooks[event] : [];
+    const match = groups
+      .flatMap((g) => g.hooks ?? [])
+      .find((h) => typeof h.command === 'string' && h.command.includes(MARKER));
+    if (match) {
+      perEvent[event] = true;
+      // The installed command shape is: "<abs script path>" <port>
+      const cmd = match.command;
+      const open = cmd.indexOf('"');
+      const close = cmd.indexOf('"', open + 1);
+      if (open !== -1 && close !== -1) {
+        scriptPaths.add(cmd.slice(open + 1, close));
+        const rest = cmd.slice(close + 1).trim();
+        if (rest !== '') {
+          const port = Number(rest);
+          if (!Number.isNaN(port)) {
+            ports.add(port);
+          }
+        }
+      }
+    }
+  }
+
+  result.scriptPaths = [...scriptPaths];
+  result.ports = [...ports];
+  result.installed = HOOK_EVENT_NAMES.every((e) => perEvent[e]);
+  return result;
 }
 
 /** Opens the hook entries as a JSON snippet for manual installation. */

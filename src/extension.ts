@@ -1,11 +1,18 @@
 import * as path from 'path';
 import * as vscode from 'vscode';
+import { showDiagnostics } from './diagnostics';
 import { installHooks, uninstallHooks } from './hooks';
 import { HttpListener } from './listener';
 import { PanelController, StandbyViewProvider } from './panel';
 import * as registry from './registry';
-import { AgentStateMachine, StateChange } from './state';
+import { AgentStateMachine, HookEvent, StateChange } from './state';
 import { TriviaStore } from './trivia';
+
+export interface EventRecord {
+  event: HookEvent;
+  cwd: string;
+  at: number;
+}
 
 export function activate(context: vscode.ExtensionContext) {
   const output = vscode.window.createOutputChannel('Standby');
@@ -18,6 +25,11 @@ export function activate(context: vscode.ExtensionContext) {
     log(`registry pruneStartup failed: ${(err as Error).message}`);
   }
   let boundPort = 0;
+
+  // Last hook event seen (for diagnostics). lastReceived = anything arriving at
+  // all; lastAccepted = passed the workspace filter. In-memory only.
+  let lastReceived: EventRecord | undefined;
+  let lastAccepted: EventRecord | undefined;
 
   const provider = new StandbyViewProvider(context.extensionUri);
   const machine = new AgentStateMachine();
@@ -53,6 +65,7 @@ export function activate(context: vscode.ExtensionContext) {
 
   const listener = new HttpListener(
     (event, cwd, message) => {
+      lastReceived = { event, cwd, at: Date.now() };
       // Secondary safety filter: the primary routing is by port (the hook picks
       // this window's ephemeral port from the registry by cwd), but in legacy
       // fixed-port mode this is the primary filter — keep it in both modes.
@@ -60,6 +73,7 @@ export function activate(context: vscode.ExtensionContext) {
         log(`ignored ${event}: cwd ${cwd} outside workspace`);
         return;
       }
+      lastAccepted = { event, cwd, at: Date.now() };
       log(`event ${event}${message ? ` (${message})` : ''}`);
       machine.handle(event, message);
     },
@@ -109,8 +123,55 @@ export function activate(context: vscode.ExtensionContext) {
 
     vscode.commands.registerCommand('standby.installHooks', () => installHooks(context)),
 
-    vscode.commands.registerCommand('standby.uninstallHooks', () => uninstallHooks())
+    vscode.commands.registerCommand('standby.uninstallHooks', () => uninstallHooks()),
+
+    vscode.commands.registerCommand('standby.showDiagnostics', () =>
+      showDiagnostics(context, {
+        listenerStatus: () => listener.getStatus(),
+        lastReceived: () => lastReceived,
+        lastAccepted: () => lastAccepted,
+      })
+    )
   );
+
+  maybeShowFirstRunNotice(context, log);
+}
+
+/**
+ * One-time, once-ever-per-profile notice pointing at the required secondary-
+ * sidebar placement (otherwise the panel is "installed but invisible"). This is
+ * the single sanctioned exception to the no-toasts guarantee: it fires exactly
+ * once, is never state-driven, and can never recur (a globalState flag is set
+ * immediately). 'Show me' reveals the panel WITHOUT stealing editor focus
+ * (panel.reveal hands focus back to the editor).
+ */
+function maybeShowFirstRunNotice(
+  context: vscode.ExtensionContext,
+  log: (line: string) => void
+): void {
+  if (context.globalState.get<boolean>('standby.firstRunNoticeShown', false)) {
+    return;
+  }
+  // Set the flag first so it can never recur, even if the message is dismissed.
+  void context.globalState.update('standby.firstRunNoticeShown', true);
+
+  void vscode.window
+    .showInformationMessage(
+      'Standby lives in the secondary sidebar — drag the Standby view there ' +
+        '(and keep it alone) so hide works.',
+      'Show me',
+      'Open README'
+    )
+    .then((choice) => {
+      if (choice === 'Show me') {
+        void vscode.commands.executeCommand('standby.showPanel');
+      } else if (choice === 'Open README') {
+        const readme = vscode.Uri.joinPath(context.extensionUri, 'README.md');
+        void vscode.commands.executeCommand('markdown.showPreview', readme).then(undefined, (err) => {
+          log(`first-run README preview failed: ${(err as Error).message}`);
+        });
+      }
+    });
 }
 
 function renderStatus(item: vscode.StatusBarItem, change: StateChange): void {

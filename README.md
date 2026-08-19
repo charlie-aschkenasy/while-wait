@@ -1,53 +1,75 @@
 # Standby ("while-wait")
 
-A Cursor/VS Code extension that shows a small game panel — **Trivia, 2048,
-Snake** — while Claude Code works in your terminal, and hides it the instant
-the agent finishes or needs you.
+A Cursor/VS Code panel that shows a small game — **Trivia, 2048, Snake** — while
+Claude Code is working in your terminal, and vanishes the instant the agent
+finishes or needs you. No sounds, no toasts, no badges; keyboard focus is never
+stolen.
 
-- Panel appears when Claude starts working, vanishes immediately on completion.
-- Keyboard focus is never stolen; click into the panel when you want to play.
-- When Claude needs a permission or your input, the panel swaps to a calm
-  "Claude needs you" surface with a jump-to-terminal button.
-- Status bar shows the agent state at all times: `⋯ working / ✓ done / ● needs you`.
+![Standby docked in the secondary sidebar, reacting to a working agent](https://raw.githubusercontent.com/charlie-aschkenasy/while-wait/main/media/screenshot.png)
 
-## Install
+## Get started (5 steps)
 
-1. Build the `.vsix` (or grab one from a release):
+Standby needs a one-time layout step and a hook install. Follow these in order —
+the whole path takes a couple of minutes.
+
+1. **Install the extension.** Until the first public release, build the `.vsix`
+   from source and install it:
    ```sh
    npm install
-   npm run package        # → standby-0.0.1.vsix
+   npm run package        # → standby-<version>.vsix
    ```
-2. In Cursor: command palette → **Extensions: Install from VSIX…** → pick the file.
-3. Reload the window when prompted.
-4. One-time layout step (**required**): click the Standby icon in the activity
-   bar, then drag the **Standby** view into the **secondary sidebar** (right
-   side). Cursor remembers this. Standby hides by closing the secondary
-   sidebar, so keep that sidebar for Standby alone — if you dock other views
-   there, they'll be hidden alongside it.
+   In Cursor: command palette (`Cmd/Ctrl+Shift+P`) → **Extensions: Install from
+   VSIX…** → pick the file.
+2. **Reload the window** when prompted (or run **Developer: Reload Window**).
+3. **Place the panel in the secondary sidebar** (this is what makes hide work).
+   Click the Standby icon in the activity bar, then drag the **Standby** view
+   into the **secondary sidebar** (the right-hand sidebar). Keep that sidebar for
+   Standby *alone* — hide works by closing the secondary sidebar, so any other
+   view docked there gets hidden too. (See the screenshot above.)
+4. **Install the hooks.** Run **Standby: Install Claude Code Hooks** from the
+   command palette. It backs up `~/.claude/settings.json` and merges five hook
+   entries that tell Standby when Claude starts and stops working.
+5. **Restart any running Claude Code session** so it picks up the new hooks.
 
-## Hook setup (required)
+Now start Claude Code working in your terminal: the panel appears while it works
+and disappears the moment it's done. When Claude needs a permission or your
+input, the panel swaps to a calm "Claude needs you" surface with a
+jump-to-terminal button. The status bar shows the state at all times:
+`⋯ working / ✓ done / ● needs you`.
 
-Standby learns what Claude Code is doing via [hooks](https://docs.anthropic.com/en/docs/claude-code/hooks).
-Run **Standby: Install Claude Code Hooks** from the command palette. This:
+Trivia works **offline out of the box** — a question bank ships with the
+extension, no setup required. (Optionally bring your own larger bank; see below.)
 
-- backs up `~/.claude/settings.json`, then
-- merges five hook entries (`UserPromptSubmit`, `Stop`, `Notification`,
-  `PostToolUse`, `SessionEnd`) that POST the event to the local Standby listener
-  via the bundled `hooks/standby-hook.sh`. The script routes each event to the
-  right window's port using the `~/.standby` registry (or the fixed
-  `standby.port` if you set one).
+## Troubleshooting
 
-Existing hooks are never touched, and re-running the command is safe (it
-updates the entries in place). "Show hook JSON" displays the entries for
-manual installation instead. **Restart any running Claude Code session** to
-pick up the hooks.
+**Nothing happens when Claude works?** Run **Standby: Show Status / Diagnostics**
+from the command palette. It opens a copy-pasteable report — paste it into an
+issue if you're stuck. It tells you, at a glance:
 
-The hook script fails silently in <300ms when the extension isn't running, so
-Claude Code is never slowed down — in any project, with or without Cursor open.
+- whether the **hooks are installed** (a per-event checklist) and whether their
+  path matches this build — if not, it offers **Re-install hooks** (do that, then
+  restart Claude Code);
+- the **listener** state and port (and, if a window is "dormant", that another
+  window holds a fixed port);
+- the **last event** the extension received vs. accepted — if events arrive but
+  are rejected, the Claude Code session's working directory is outside this
+  window's workspace, so it's ignored on purpose;
+- the multi-window **registry** contents.
 
-## Trivia setup (optional)
+Common cases:
 
-Trivia questions come from a Supabase project. Add to your **user** settings:
+- **Panel never appears** → hooks not installed, or you didn't restart Claude
+  Code after installing them. Run diagnostics; use its install/re-install action.
+- **Second window does nothing** → only relevant if you set a fixed
+  `standby.port`; two windows can't share one fixed port. Leave `standby.port` at
+  `0` (auto) and each window gets its own.
+- **Changed `standby.port` and it broke** → the installed hook still points at
+  the old port; diagnostics detects this and offers **Re-install hooks**.
+
+## Optional: bring your own trivia bank
+
+The bundled bank is the default. To use a larger/newer bank from a Supabase
+project, add to your **user** settings:
 
 ```json
 {
@@ -56,44 +78,46 @@ Trivia questions come from a Supabase project. Add to your **user** settings:
 }
 ```
 
-Both values are in the Supabase dashboard under **Project Settings → API**:
-the Project URL and the **publishable** key (client-safe; row-level security
-limits it to reading verified questions). Never use the secret / service-role
-key. Questions are cached for 24 h, so trivia works offline after the first
-fetch. Without configuration or cache, the Trivia tab hides itself.
+Both values are in the Supabase dashboard under **Project Settings → API**: the
+Project URL and the **publishable** key (client-safe; row-level security limits
+it to reading verified questions). Never use the secret / service-role key. On
+any fetch failure Standby falls back to its cache and then the bundled bank, so
+trivia never goes dark.
 
 ## Settings
 
 | Setting | Default | Purpose |
 |---|---|---|
 | `standby.port` | `0` | `0` = auto (recommended): each window binds its own ephemeral port and registers in `~/.standby`, so multiple windows work at once. Any non-zero value forces a fixed port — re-run the hook installer after changing it. |
-| `standby.supabase.url` | — | Supabase project URL for trivia |
-| `standby.supabase.key` | — | Supabase publishable key for trivia |
+| `standby.supabase.url` | — | *Optional.* Supabase project URL for a larger trivia bank. |
+| `standby.supabase.key` | — | *Optional.* Supabase **publishable** key (never the secret key). |
 
 ## Commands
 
 | Command | Purpose |
 |---|---|
-| Standby: Show Panel | Reveal the panel manually |
-| Standby: Hide Panel | Hide the panel manually |
+| Standby: Show Status / Diagnostics | Open a copy-pasteable status report (start here if something's off) |
 | Standby: Install Claude Code Hooks | Merge hook entries into `~/.claude/settings.json` |
 | Standby: Uninstall Claude Code Hooks | Remove Standby's hook entries (others untouched) |
+| Standby: Show Panel | Reveal the panel manually |
+| Standby: Hide Panel | Hide the panel manually |
 
 ## Behavior notes
 
 - The panel only reacts to events whose `cwd` is inside the current window's
   workspace, so unrelated Claude Code sessions don't trigger it.
-- If the window is unfocused when a wait starts, the panel waits until you
-  come back.
+- If the window is unfocused when a wait starts, the panel waits until you come
+  back — it never pops up in the background or steals focus.
 - Closing the panel by hand mid-wait keeps it closed until the next run.
 - The webview is kept alive while hidden, so games pause on hide and resume
   instantly and in place on the next reveal (no reload).
 - A `working` state with no events for 30 minutes decays to `done` (crashed
   session guard).
+- The hook fails silently in <300 ms when no window is listening, so Claude Code
+  is never slowed down — in any project, with or without Cursor open.
 - **Multi-window**: with `standby.port: 0` (the default) each Cursor window binds
   its own ephemeral port and the hook routes each event to the window whose
-  workspace contains its `cwd` — so several windows run Standby at once. Set a
-  fixed non-zero port only if you specifically want the legacy single-port bind.
+  workspace contains its `cwd`, so several windows run Standby at once.
 
 ## Uninstall
 
@@ -116,7 +140,9 @@ scripts/fake-agent.sh "$PWD/test-workspace"     # normal session incl. needs-you
 scripts/stress-agent.sh "$PWD/test-workspace"   # flicker/robustness audit
 ```
 
-`FEEL.md` tracks dogfooding irritations; `PLAN.md` has the full build plan.
+In multi-window (auto) mode these resolve the target window's port from
+`~/.standby/ports.tsv` by the cwd you pass. `FEEL.md` tracks dogfooding
+irritations; `PLAN.md` and `PLAN-V2.md` have the full build plan.
 
 ## License
 

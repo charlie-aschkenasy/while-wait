@@ -2,14 +2,16 @@ import { Game2048 } from './games/g2048';
 import { SnakeGame } from './games/snake';
 import { TriviaGame } from './games/trivia';
 import { GameHost, GameInstance } from './games/types';
+import { StatsView } from './stats';
 
 type AgentState = 'working' | 'done' | 'needsYou';
 type GameId = 'trivia' | '2048' | 'snake';
+type TabId = GameId | 'stats';
 
 declare function acquireVsCodeApi(): {
   postMessage(message: unknown): void;
-  getState(): { activeGame?: GameId } | undefined;
-  setState(state: { activeGame?: GameId }): void;
+  getState(): { activeGame?: TabId } | undefined;
+  setState(state: { activeGame?: TabId }): void;
 };
 
 const vscode = acquireVsCodeApi();
@@ -21,6 +23,9 @@ const GAMES: { id: GameId; label: string }[] = [
   { id: 'snake', label: 'Snake' },
 ];
 
+// Header tabs = games + the passive Stats surface.
+const TABS: { id: TabId; label: string }[] = [...GAMES, { id: 'stats', label: 'Stats' }];
+
 const STATE_LABEL: Record<AgentState, string> = {
   working: 'working',
   done: 'done',
@@ -29,10 +34,12 @@ const STATE_LABEL: Record<AgentState, string> = {
 
 let agentState: AgentState = 'done';
 let needsYouMessage = '';
-let activeGame: GameId = vscode.getState()?.activeGame ?? 'trivia';
+let activeTab: TabId = vscode.getState()?.activeGame ?? 'trivia';
 let bestScores: Record<string, number> = {};
 
 let triviaAvailable = true;
+
+const statsView = new StatsView();
 
 const host: GameHost = {
   reportBest(game, value) {
@@ -70,7 +77,7 @@ function buildShell(): void {
       <span class="state-dot" id="state-dot"></span>
       <span class="state-label" id="state-label"></span>
       <nav class="tabs" id="tabs">
-        ${GAMES.map(
+        ${TABS.map(
           (g) => `<button class="tab" data-game="${g.id}">${g.label}</button>`
         ).join('')}
       </nav>
@@ -89,8 +96,9 @@ function buildShell(): void {
   document.getElementById('tabs')!.addEventListener('click', (e) => {
     const button = (e.target as HTMLElement).closest<HTMLButtonElement>('.tab');
     if (button) {
-      activeGame = button.dataset.game as GameId;
-      vscode.setState({ activeGame });
+      activeTab = button.dataset.game as TabId;
+      vscode.setState({ activeGame: activeTab });
+      reportActiveGame();
       update();
     }
   });
@@ -107,7 +115,7 @@ function update(): void {
   document.getElementById('state-label')!.textContent = STATE_LABEL[agentState];
 
   for (const tab of document.querySelectorAll<HTMLButtonElement>('.tab')) {
-    tab.classList.toggle('active', tab.dataset.game === activeGame);
+    tab.classList.toggle('active', tab.dataset.game === activeTab);
   }
 
   const needsYou = agentState === 'needsYou';
@@ -129,8 +137,24 @@ function update(): void {
   }
 }
 
+function reportActiveGame(): void {
+  vscode.postMessage({ type: 'activeGame', game: activeTab === 'stats' ? '' : activeTab });
+}
+
 function renderGame(container: HTMLElement): void {
-  const instance = getInstance(activeGame);
+  if (activeTab === 'stats') {
+    if (mounted) {
+      mounted.deactivate();
+      mounted = null;
+    }
+    if (statsView.root.parentElement !== container) {
+      container.innerHTML = '';
+      container.appendChild(statsView.root);
+    }
+    vscode.postMessage({ type: 'statsRequest' });
+    return;
+  }
+  const instance = getInstance(activeTab);
   if (mounted && mounted !== instance) {
     mounted.deactivate();
   }
@@ -157,7 +181,10 @@ window.addEventListener('keydown', (e) => {
   if (agentState === 'needsYou') {
     return;
   }
-  const instance = instances.get(activeGame);
+  if (activeTab === 'stats') {
+    return;
+  }
+  const instance = instances.get(activeTab);
   if (instance?.handleKey(e)) {
     e.preventDefault();
   }
@@ -186,6 +213,8 @@ window.addEventListener('message', (event) => {
     if (trivia instanceof TriviaGame && msg.question) {
       trivia.setQuestion(msg.question);
     }
+  } else if (msg?.type === 'stats') {
+    statsView.setSnapshot(msg.snapshot);
   } else if (msg?.type === 'triviaAvailable' && msg.available === false) {
     triviaAvailable = false;
     instances.delete('trivia');
@@ -193,9 +222,10 @@ window.addEventListener('message', (event) => {
     if (tab) {
       tab.hidden = true;
     }
-    if (activeGame === 'trivia') {
-      activeGame = '2048';
-      vscode.setState({ activeGame });
+    if (activeTab === 'trivia') {
+      activeTab = '2048';
+      vscode.setState({ activeGame: activeTab });
+      reportActiveGame();
     }
     update();
   }
@@ -204,3 +234,4 @@ window.addEventListener('message', (event) => {
 buildShell();
 update();
 vscode.postMessage({ type: 'ready' });
+reportActiveGame();

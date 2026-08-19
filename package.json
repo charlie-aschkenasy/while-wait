@@ -2,7 +2,7 @@
   "name": "standby",
   "displayName": "Standby",
   "description": "A while-you-wait game panel that appears when Claude Code is working and vanishes the moment it's done.",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "publisher": "charlie-aschkenasy",
   "license": "MIT",
   "private": true,

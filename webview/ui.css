@@ -334,3 +334,104 @@ body {
 .tile-v1024 { background: color-mix(in srgb, var(--vscode-charts-purple) 68%, var(--vscode-editor-background)); }
 .tile-v2048 { background: color-mix(in srgb, var(--vscode-charts-orange) 85%, var(--vscode-editor-background)); }
 .tile-v4096 { background: color-mix(in srgb, var(--vscode-charts-red) 85%, var(--vscode-editor-background)); }
+
+/* Stats surface: a screenshot-clean daily card + a compact weekly breakdown. */
+.stats {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 4px 2px;
+}
+
+.stats-card {
+  padding: 18px 18px 20px;
+  border: 1px solid var(--vscode-panel-border, var(--vscode-widget-border, transparent));
+  border-radius: 10px;
+  background: var(--vscode-editorWidget-background);
+}
+
+.stats-card-title {
+  margin: 0 0 14px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  opacity: 0.8;
+}
+
+.stats-tiles {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px 18px;
+}
+
+.stats-tile {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.stats-tile-value {
+  font-size: 22px;
+  font-weight: 650;
+  line-height: 1.1;
+  color: var(--vscode-foreground);
+}
+
+.stats-tile-label {
+  font-size: 11px;
+  opacity: 0.65;
+}
+
+.stats-empty {
+  margin: 4px 0;
+  opacity: 0.6;
+  font-size: 13px;
+}
+
+.stats-week-title {
+  margin: 0 0 8px;
+  font-size: 12px;
+  font-weight: 600;
+  opacity: 0.75;
+}
+
+.stats-week-summary {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 14px;
+  margin-bottom: 12px;
+  font-size: 12px;
+  opacity: 0.75;
+}
+
+.stats-bar-row {
+  display: grid;
+  grid-template-columns: 64px 1fr auto;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 7px;
+  font-size: 12px;
+}
+
+.stats-bar-label {
+  opacity: 0.8;
+}
+
+.stats-bar-track {
+  height: 8px;
+  border-radius: 4px;
+  background: var(--vscode-editorWidget-background);
+  border: 1px solid var(--vscode-panel-border, transparent);
+  overflow: hidden;
+}
+
+.stats-bar-fill {
+  display: block;
+  height: 100%;
+  background: var(--vscode-charts-blue, var(--vscode-progressBar-background));
+}
+
+.stats-bar-value {
+  opacity: 0.7;
+  font-variant-numeric: tabular-nums;
+}

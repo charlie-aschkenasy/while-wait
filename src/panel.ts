@@ -1,12 +1,15 @@
 import * as vscode from 'vscode';
 import { AgentStateMachine, StateChange } from './state';
+import { WaitStats } from './stats';
 import { TriviaStore } from './trivia';
 
 type WebviewMessage =
   | { type: 'ready' }
   | { type: 'focusTerminal' }
   | { type: 'score'; game: string; value: number }
-  | { type: 'triviaNext' };
+  | { type: 'triviaNext' }
+  | { type: 'activeGame'; game: string }
+  | { type: 'statsRequest' };
 
 const BEST_SCORES_KEY = 'standby.bestScores';
 
@@ -113,10 +116,17 @@ export class PanelController implements vscode.Disposable {
     machine: AgentStateMachine,
     private readonly globalState: vscode.Memento,
     private readonly trivia: TriviaStore,
+    private readonly stats: WaitStats,
     private readonly log: (line: string) => void
   ) {
     this.disposables.push(
       machine.onDidChange((change) => this.onState(change)),
+
+      // Push a fresh stats snapshot whenever a wait closes (cheap; queues to the
+      // retained webview — a no-op when the view is undefined, so no hide delay).
+      stats.onDidUpdate(() =>
+        this.provider.postMessage({ type: 'stats', snapshot: this.stats.snapshot() })
+      ),
 
       // Never pop the panel while the window is in the background; catch up
       // when the user comes back if the wait is still on.
@@ -146,6 +156,11 @@ export class PanelController implements vscode.Disposable {
             scores: this.globalState.get<Record<string, number>>(BEST_SCORES_KEY, {}),
           });
           this.sendState();
+          this.provider.postMessage({ type: 'stats', snapshot: this.stats.snapshot() });
+        } else if (msg.type === 'activeGame') {
+          this.stats.setActiveGame(msg.game);
+        } else if (msg.type === 'statsRequest') {
+          this.provider.postMessage({ type: 'stats', snapshot: this.stats.snapshot() });
         } else if (msg.type === 'triviaNext') {
           const available = await this.trivia.ensureLoaded();
           this.provider.postMessage(

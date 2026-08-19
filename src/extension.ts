@@ -6,6 +6,7 @@ import { HttpListener } from './listener';
 import { PanelController, StandbyViewProvider } from './panel';
 import * as registry from './registry';
 import { AgentStateMachine, HookEvent, StateChange } from './state';
+import { WaitStats } from './stats';
 import { TriviaStore } from './trivia';
 
 export interface EventRecord {
@@ -33,8 +34,11 @@ export function activate(context: vscode.ExtensionContext) {
 
   const provider = new StandbyViewProvider(context.extensionUri);
   const machine = new AgentStateMachine();
+  // Construct before the panel so the stats observer's onDidChange subscription
+  // runs ahead of the panel's hide — keeps the stats postMessage off the hide tail.
+  const stats = new WaitStats(machine, context.globalState, log);
   const trivia = new TriviaStore(context, log);
-  const panel = new PanelController(provider, machine, context.globalState, trivia, log);
+  const panel = new PanelController(provider, machine, context.globalState, trivia, stats, log);
 
   // Status bar: the first consumer of the lifecycle (M1). Hidden until the
   // first real event so a fresh window isn't cluttered with "✓ done".
@@ -91,6 +95,7 @@ export function activate(context: vscode.ExtensionContext) {
   context.subscriptions.push(
     output,
     machine,
+    stats,
     panel,
     statusItem,
     listener,

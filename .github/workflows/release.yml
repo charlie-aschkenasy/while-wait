@@ -1,0 +1,80 @@
+name: Release
+
+# Fires when a v* tag is pushed. Builds the .vsix, creates a GitHub Release with
+# it attached, and — only if an OVSX_PAT secret is present — publishes to Open VSX
+# in a separate gated job. The public push stays dormant until the human adds the
+# token and flips package.json `private` to false.
+on:
+  push:
+    tags:
+      - "v*"
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    outputs:
+      has_pat: ${{ steps.gate.outputs.has_pat }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - run: npm ci
+      - run: npm run build
+      - run: npm run typecheck
+      - name: Validate trivia bank
+        run: |
+          if [ -f scripts/validate-trivia.mjs ]; then
+            node scripts/validate-trivia.mjs data/trivia/questions.json
+          else
+            echo "scripts/validate-trivia.mjs not present — skipping"
+          fi
+      # The built .vsix name follows package.json version, NOT the git tag, so the
+      # tag must match: v<version> or a v<version>-rc.N pre-release.
+      - name: Check tag matches package.json version
+        run: |
+          V=$(node -p "require('./package.json').version")
+          TAG="${GITHUB_REF_NAME#v}"
+          if [ "$TAG" = "$V" ] || case "$TAG" in "$V"-*) true;; *) false;; esac; then
+            echo "tag $GITHUB_REF_NAME matches version $V"
+          else
+            echo "::error::tag $GITHUB_REF_NAME does not match package.json version $V"
+            exit 1
+          fi
+      - name: Package
+        run: npx --yes @vscode/vsce package
+      - name: Upload vsix artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: vsix
+          path: "*.vsix"
+      # Secrets cannot be read in a job-level `if`; map presence to an output.
+      - name: Detect OVSX_PAT
+        id: gate
+        env:
+          OVSX_PAT: ${{ secrets.OVSX_PAT }}
+        run: echo "has_pat=${OVSX_PAT:+true}" >> "$GITHUB_OUTPUT"
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: "*.vsix"
+          prerelease: ${{ contains(github.ref_name, '-') }}
+          body_path: CHANGELOG.md
+
+  publish-ovsx:
+    needs: release
+    if: ${{ needs.release.outputs.has_pat == 'true' }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: vsix
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Publish to Open VSX
+        run: npx --yes ovsx publish *.vsix -p "${{ secrets.OVSX_PAT }}"

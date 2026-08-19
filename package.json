@@ -3,18 +3,34 @@
   "displayName": "Standby",
   "description": "A while-you-wait game panel that appears when Claude Code is working and vanishes the moment it's done.",
   "version": "0.0.4",
-  "publisher": "charlieaschkenasy",
+  "publisher": "charlie-aschkenasy",
   "license": "MIT",
   "private": true,
+  "icon": "media/icon.png",
   "repository": {
     "type": "git",
     "url": "https://github.com/charlie-aschkenasy/while-wait.git"
   },
+  "bugs": {
+    "url": "https://github.com/charlie-aschkenasy/while-wait/issues"
+  },
+  "homepage": "https://github.com/charlie-aschkenasy/while-wait#readme",
   "engines": {
     "vscode": "^1.85.0"
   },
   "categories": [
     "Other"
+  ],
+  "keywords": [
+    "claude",
+    "claude code",
+    "cursor",
+    "games",
+    "waiting",
+    "trivia",
+    "2048",
+    "snake",
+    "productivity"
   ],
   "main": "./dist/extension.js",
   "activationEvents": [

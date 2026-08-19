@@ -12,14 +12,20 @@ stolen.
 Standby needs a one-time layout step and a hook install. Follow these in order —
 the whole path takes a couple of minutes.
 
-1. **Install the extension.** Until the first public release, build the `.vsix`
-   from source and install it:
+1. **Install the extension.** Download the latest `.vsix` from the
+   [GitHub releases page](https://github.com/charlie-aschkenasy/while-wait/releases)
+   (this is the canonical install). In Cursor: command palette
+   (`Cmd/Ctrl+Shift+P`) → **Extensions: Install from VSIX…** → pick the file.
+
+   Once the Open VSX listing is live it will be the second option (Cursor pulls
+   from Open VSX, not the VS Code Marketplace) — *link pending the first
+   published release*.
+
+   To build from source instead (developer path):
    ```sh
    npm install
    npm run package        # → standby-<version>.vsix
    ```
-   In Cursor: command palette (`Cmd/Ctrl+Shift+P`) → **Extensions: Install from
-   VSIX…** → pick the file.
 2. **Reload the window** when prompted (or run **Developer: Reload Window**).
 3. **Place the panel in the secondary sidebar** (this is what makes hide work).
    Click the Standby icon in the activity bar, then drag the **Standby** view
@@ -144,7 +150,10 @@ In multi-window (auto) mode these resolve the target window's port from
 `~/.standby/ports.tsv` by the cwd you pass. `FEEL.md` tracks dogfooding
 irritations; `PLAN.md` and `PLAN-V2.md` have the full build plan.
 
+Release notes live in [`CHANGELOG.md`](CHANGELOG.md); third-party and derived
+content is credited in [`THIRD-PARTY.md`](THIRD-PARTY.md).
+
 ## License
 
 MIT. The 2048 and Snake implementations are original to this repo (2048 is
-inspired by Gabriele Cirulli's game).
+inspired by Gabriele Cirulli's game). See [`THIRD-PARTY.md`](THIRD-PARTY.md).

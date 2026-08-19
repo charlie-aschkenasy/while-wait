@@ -1,0 +1,29 @@
+name: CI
+
+# Runs on PRs and pushes to main. Scoped to branches:[main] on push so it does
+# NOT double-run on the v* tags that release.yml owns.
+on:
+  pull_request: {}
+  push:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - run: npm ci
+      - run: npm run build
+      - run: npm run typecheck
+      # Validate the bundled trivia bank when the validator is present.
+      - name: Validate trivia bank
+        run: |
+          if [ -f scripts/validate-trivia.mjs ]; then
+            node scripts/validate-trivia.mjs data/trivia/questions.json
+          else
+            echo "scripts/validate-trivia.mjs not present — skipping"
+          fi

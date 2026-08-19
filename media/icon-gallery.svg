@@ -1,0 +1,20 @@
+<svg width="256" height="256" viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Opaque gallery tile: the marketplace renders this on light and dark chrome,
+       so the background must be solid (no transparency / currentColor). -->
+  <defs>
+    <linearGradient id="tile" x1="0" y1="0" x2="0" y2="256" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#4f46e5"/>
+      <stop offset="1" stop-color="#3730a3"/>
+    </linearGradient>
+  </defs>
+  <rect width="256" height="256" rx="56" fill="url(#tile)"/>
+  <!-- The Standby mark (a little game panel) scaled up from icon.svg, in a light
+       ink so it reads on the indigo tile. -->
+  <g stroke="#eef2ff" stroke-width="10" stroke-linecap="round">
+    <rect x="52" y="86" width="152" height="84" rx="42" fill="none"/>
+    <!-- d-pad -->
+    <path d="M96 116v24M84 128h24"/>
+  </g>
+  <circle cx="160" cy="120" r="9" fill="#eef2ff"/>
+  <circle cx="177" cy="140" r="9" fill="#eef2ff"/>
+</svg>

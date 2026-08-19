@@ -1,5 +1,6 @@
 .vscode/**
 .claude/**
+.github/**
 src/**
 webview/**
 scripts/**
@@ -7,7 +8,13 @@ test-workspace/**
 node_modules/**
 esbuild.mjs
 tsconfig.json
+package-lock.json
 PLAN.md
+PLAN-V2.md
+PLAN-V2-EXECUTION.md
+OVERVIEW.md
 FEEL.md
+media/icon-gallery.svg
 **/*.map
+*.vsix
 .gitignore

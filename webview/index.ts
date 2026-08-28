@@ -118,23 +118,38 @@ function update(): void {
     tab.classList.toggle('active', tab.dataset.game === activeTab);
   }
 
-  const needsYou = agentState === 'needsYou';
+  // Anything but `working` is the user's turn: freeze the game and put the
+  // action surface up. `done` counts — the wait is over, so nothing should keep
+  // playing behind a panel that is only still on screen because it didn't hide.
+  const yourTurn = agentState !== 'working';
   const gameArea = document.getElementById('game-area')!;
   const needsYouEl = document.getElementById('needs-you') as HTMLElement;
-  gameArea.hidden = needsYou;
-  needsYouEl.hidden = !needsYou;
+  gameArea.hidden = yourTurn;
+  needsYouEl.hidden = !yourTurn;
 
-  if (needsYou) {
-    mounted?.deactivate(); // freeze the game while the approval surface is up
-    const waiting = /waiting for your input/i.test(needsYouMessage);
-    document.getElementById('needs-you-title')!.textContent = waiting
-      ? 'Claude is waiting'
-      : 'Claude needs you';
-    document.getElementById('needs-you-message')!.textContent =
-      needsYouMessage || 'Claude Code needs your input.';
+  if (yourTurn) {
+    pauseAll(); // freeze every game, not just the mounted one
+    const { title, message } = actionSurface();
+    document.getElementById('needs-you-title')!.textContent = title;
+    document.getElementById('needs-you-message')!.textContent = message;
   } else {
     renderGame(gameArea);
   }
+}
+
+/** Title/message for the action surface, by state. */
+function actionSurface(): { title: string; message: string } {
+  if (agentState === 'done') {
+    return {
+      title: 'Claude needs action',
+      message: 'Claude Code is done — back to you.',
+    };
+  }
+  const waiting = /waiting for your input/i.test(needsYouMessage);
+  return {
+    title: waiting ? 'Claude is waiting' : 'Claude needs you',
+    message: needsYouMessage || 'Claude Code needs your input.',
+  };
 }
 
 function reportActiveGame(): void {
@@ -178,7 +193,7 @@ function pauseAll(): void {
 }
 
 window.addEventListener('keydown', (e) => {
-  if (agentState === 'needsYou') {
+  if (agentState !== 'working') {
     return;
   }
   if (activeTab === 'stats') {

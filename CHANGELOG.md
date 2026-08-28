@@ -22,6 +22,12 @@ follow [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
   detected.
 - One-time first-run notice pointing at the required secondary-sidebar placement.
 
+### Changed
+- `done` now freezes the games and shows the action surface ("Claude needs
+  action") instead of leaving a game live. Previously only `needsYou` froze play,
+  so a panel that stayed on screen after the wait ended kept running a game
+  behind it.
+
 ### Fixed
 - **Long-lived windows silently stopped receiving events.** A window's
   `~/.standby` entry was written once at activation and never refreshed, so after

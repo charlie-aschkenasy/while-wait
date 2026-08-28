@@ -27,7 +27,10 @@ const JSON_PATH = path.join(DIR, 'ports.json');
 const TSV_PATH = path.join(DIR, 'ports.tsv');
 const LOCK_PATH = path.join(DIR, '.lock');
 const TAB = String.fromCharCode(9); // literal tab — the hook splits on it via IFS
-const STALE_TTL_MS = 24 * 60 * 60 * 1000; // crash-without-cleanup backstop behind pid-liveness
+// Crash-without-cleanup backstop behind pid-liveness (guards against pid reuse
+// across reboots). Live windows stay under it via the extension's registry
+// heartbeat — without that heartbeat this TTL evicts windows that are still up.
+const STALE_TTL_MS = 24 * 60 * 60 * 1000;
 
 export interface WindowEntry {
   pid: number;

@@ -22,6 +22,15 @@ follow [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
   detected.
 - One-time first-run notice pointing at the required secondary-sidebar placement.
 
+### Fixed
+- **Long-lived windows silently stopped receiving events.** A window's
+  `~/.standby` entry was written once at activation and never refreshed, so after
+  24 hours the registry TTL let the next window to start prune it as stale. The
+  window kept listening, but the hook could no longer resolve its port and
+  dropped every event — the panel stopped revealing, hiding, and pausing on
+  `needsYou`. Each window now refreshes its entry every 10 minutes, which also
+  re-creates it if another window's prune already dropped it.
+
 ### Changed
 - The hook installer's confirmation now leads with the "restart Claude Code" step.
 - README rewritten for a first-time installer, with a diagnostics-anchored

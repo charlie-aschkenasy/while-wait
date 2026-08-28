@@ -9,6 +9,15 @@ import { AgentStateMachine, HookEvent, StateChange } from './state';
 import { WaitStats } from './stats';
 import { TriviaStore } from './trivia';
 
+/**
+ * How often a window refreshes its `~/.standby` registry entry. Without this a
+ * window that stays open longer than the registry TTL is pruned as stale by the
+ * next window to start: it keeps listening, but the hook can no longer find its
+ * port and every event is dropped silently. Well under the TTL, and cheap
+ * (three small atomic writes) — but never on the hide/reveal path.
+ */
+const REGISTRY_HEARTBEAT_MS = 10 * 60 * 1000;
+
 export interface EventRecord {
   event: HookEvent;
   cwd: string;
@@ -92,6 +101,10 @@ export function activate(context: vscode.ExtensionContext) {
     vscode.workspace.getConfiguration('standby').get<number>('port', 0);
   listener.start(getPort());
 
+  // Keep this window's registry entry fresh (and re-create it if another
+  // window's prune dropped it) for as long as the window lives.
+  const heartbeat = setInterval(registerWindow, REGISTRY_HEARTBEAT_MS);
+
   context.subscriptions.push(
     output,
     machine,
@@ -99,6 +112,7 @@ export function activate(context: vscode.ExtensionContext) {
     panel,
     statusItem,
     listener,
+    { dispose: () => clearInterval(heartbeat) },
 
     vscode.workspace.onDidChangeConfiguration((e) => {
       if (e.affectsConfiguration('standby.port')) {
